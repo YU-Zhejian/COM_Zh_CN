@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Copyright (C) 2018-2019 YuZJ Lab.
-%使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者YuZJ，
+%Copyright (C) 2018-2019 sgcomputers Lab.
+%使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者sgcomputers，
 %邮箱\theafamily@126.com（最后连接于2019年06月20日17:32:17）。
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass{book}
@@ -11,13 +11,13 @@
 \usepackage[super]{nth}
 \bibliographystyle{amsplain}
 \usepackage{hyperref}
-\hypersetup{hidelinks,bookmarks=true,bookmarksopen=true,pdftitle=电教委员完全（不）技术指南,pdfauthor=YuZJ Lab}
+\hypersetup{hidelinks,bookmarks=true,bookmarksopen=true,pdftitle=电教委员完全（不）技术指南,pdfauthor=sgcomputers Lab}
 \usepackage[inner=0.5in,outer=1in]{geometry}
 \usepackage{wrapfig}
 \begin{document}
 \setcounter{tocdepth}{3}
 \title{电教委员（不）完全技术指南（简体中文）}
-\author{YuZJ Lab}
+\author{sgcomputers Lab}
 \date{\today}
 \maketitle
 \begin{center}
@@ -25,16 +25,16 @@
 \end{center}
 \tableofcontents
 \section{Copyright 版权}
-Copyright \copyright{} 2018-2019 YuZJ Lab. \par
-使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者YuZJ，邮箱\url{theafamily@126.com}（最后连接于2019年06月20日17:32:17）。\par
+Copyright \copyright{} 2018-2019 sgcomputers Lab. \par
+使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者sgcomputers，邮箱\url{theafamily@126.com}（最后连接于2019年06月20日17:32:17）。\par
 \large{\textbf{{\color{red}{对本文档所引起的任何后果不作担保！}}}}\normalsize\par
 \section{序}
 首先，在这里提及非自由软件并非我的意愿。作为自由软件运动的支持者，我当然希望你们使用自由软件。但技术所限，非自由的内容不得不被包括在内。\par
 “天覆地载，物号数万，而事亦因之，曲成而不遗。”（来自于《天工开物·序言》）人类在计算机技术上的创造亦是如此。很高兴生活在信息时代（也许马上应改为“数据时代”），国内外优秀的软件都可以被免费或付费地获取以为我们所用。然而“工欲善其事，必先利其器”，对于我们来说，掌握如何高效率地使用计算机是十分重要的。如一位数学教师可用\LaTeX\footnote{\LaTeX 是一个产生于 \TeX 的一个排版系统。它在编辑公式方面十分强大，并且能够胜任巨型文档和复杂的排版任务（如交叉引用、创建索引等等）。它使用“LaTeX Project Public Li­cense （LPPL）”开放源代码。做一点小小的说明：如果不喜欢完全使用鼠标来编辑公式，当编辑复杂公式时我更倾向于\LaTeX。\LaTeX 更多依赖键盘，但是不是一个所见即所得的软件，你需要“编译”\LaTeX 代码才能得到正确的文件。}而不是MS Office \footnote{MS是Microsoft（微软）的缩写，MS Office 是微软公司发布的非自由付费办公套件。相对于\LaTeX ，它最大的优点是所见即所得和具有图形界面。} 来高效地编辑公式，或者使用Visual Basic.Net\footnote{Visual Basic.Net（简称VB.Net）是微软公司开发的一种编程语言，由Visual Basic（VB）6.0升级得到。在保留易用性的基础上，提供以前版本所不具有的功能。}语言来进行运算（如数列求和）。因此，结合自己的工作经历，为了方便信息化教学的开展，我不自量力地"年来著书一种"，为希望掌握关于如何高效地使用教室计算机的初级和高级技巧的电教委员或者其余希望提高计算机技能的教师、学生及其他教职人员编写了这份文件。\par
-手册中题为“入门”的章节是针对初学者的（前提条件：你需要知道开机按钮在哪里。详情请参阅主机的说明书），它大致介绍了Windows操作系统和MS Office等软件来实现日常教学，Windows操作系统的简单技巧与最基础的Windows安全。题为“进阶”的章节是针对已有一定技能基础并希望尝试更加有效的Windows安全工具（如使用以GNU/Linux\footnote{应该使用“GNU/Linux”而不是“Linux”。请参见【Richard Stallman之GNU/Linux问答】\url{https://www.gnu.org/gnu/gnu-linux-faq.html}（最后连接于2019年06月20日17:32:59）。关于GNU/Linux的详细介绍参见下文。}为操作系统的反病毒光盘清除计算机病毒——我暂时不会教你手工杀毒，那是尤金·卡巴斯基\footnote{俄罗斯“卡巴斯基实验室”创立者及董事长。1989年10月的一次手工杀毒（Cascade病毒）激起了他对于计算机反病毒的兴趣并在这方面深度研究，不久即写出反病毒软件并于1997年成立卡巴斯基实验室。目前专注病毒研究。}之类大神干的事）的电教委员的。题为“高级”的章简单地节介绍了GNU/Linux 操作系统的一部分入门知识及其教学实现。\par
+手册中题为“入门”的章节是针对初学者的（前提条件：你需要知道开机按钮在哪里。详情请参阅主机的说明书），它大致介绍了Windows操作系统和MS Office等软件来实现日常教学，Windows操作系统的简单技巧与最基础的Windows安全。题为“进阶”的章节是针对已有一定技能基础并希望尝试更加有效的Windows安全工具（如使用以GNU/Linux\footnote{应该使用“GNU/Linux”而不是“Linux”。请参见【Richard Stallman之GNU/Linux问答】\url{https://www.gnu.org/gnu/gnu-linux-faq.html}（最后连接于2019年06月20日17:32:59）。关于GNU/Linux的详细介绍参见下文：“入门——操作系统——GNU/Linux及其发行版”。}为操作系统的反病毒光盘清除计算机病毒——我暂时不会教你手工杀毒，那是尤金·卡巴斯基\footnote{俄罗斯“卡巴斯基实验室”创立者及董事长。1989年10月的一次手工杀毒（Cascade病毒）激起了他对于计算机反病毒的兴趣并在这方面深度研究，不久即写出反病毒软件并于1997年成立卡巴斯基实验室。目前专注病毒研究。}之类大神干的事）的电教委员的。题为“高级”的章简单地节介绍了GNU/Linux 操作系统的一部分入门知识及其教学实现。\par
 在使用这份手册时，最重要的是实践。本人才疏学浅，文本中或许有（大量）错误\footnote{尤其是对于GNU/Linux， \LaTeX 排版系统或者VIM等高级文本编辑器 。}，请广大读者不吝赐教。联系方式：\url{theafamily@126.com}（最后连接于2019年06月20日17:32:17）。如果文档中存在任何侵权之处，请按邮箱联系。一经确认，将立刻改正。“丐大业文人，弃置案头。此书于功名进取，毫不相关也。”\par
 时己亥年肆月廿七日，西历2019年5月1日\par
-慈溪YuZJ于家之书房
+慈溪sgcomputers于家之书房
 \section{关于互联网安全的提示}
 本书内所有网络链接在“最后连接时间”前均有效且已经过Norton Safe Web的Edge插件、Microsoft SmartScreen筛选器及卡巴斯基网络反病毒（包含于卡巴斯基免费版2019，病毒库更新时间为检测当天12:00）检测。\par
 注意，本书中提到的所有应用程序都应该从其官方网站或镜像源处下载。我们{\color{red}{严厉禁止}}本书的使用者从任何非官方软件发布处（如腾讯电脑管家或PC6等下载站）下载任何本书中提到的软件（下表中提到的除外）。详情请参见【火绒安全-下载站行业乱象：流氓软件和电脑病毒重灾区】\url{https://www.huorong.cn/info/149181215360.html}（最后连接于2019年6月21日16:20:40）\footnote{以下为对原文中重要内容的引用。火绒工程师认为：所谓的“下载器”和“高速下载通道”既没有用处，也没有存在的必要。为了躲避这些“下载器”的侵扰，用户可以去某个软件的官网下载产品，一般不用担心下载到下载器。这些“下载器”存在的意义就是为了捆绑安装其他软件。这些捆绑软件无一例外都不是用户当时想要的，如果想要这些软件，在下载站上都能找到。总之，除了给用户制造麻烦，所谓这些“高速下载通道”和“下载器”没有任何作用。\par 火绒工程师认为，让用户关闭安全软件有时有一定的合理性，但是一定要谨慎，这种行为很容易被病毒利用。首先，破解工具、黑客工具、游戏登陆器等这类包含侵权性质的程序，有些会被安全软件检测为病毒，造成用户无法使用。其次，一些常见的加密加壳工具也会被某些安全软件误报为病毒，很多小软件为了保护自己的知识产权使用了这些工具，由于长期处于误报和解决误报这种状态下，所以很多下载站也要求关闭或者添加白名单信任。}。经检测的镜像站即下载站列表如下（检测于2019年6月22日17:16:47）：
@@ -100,9 +100,9 @@ Copyright \copyright{} 2018-2019 YuZJ Lab. \par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 法四：使用其它安装程序\par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{UNIX，Minix，GNU/Linux，GNU/Linux发行版及其衍生版本}
+\subsection{GNU/Linux及其发行版}
 GNU/Linux产生于Minix，而Minix产生于Unix。具体产生历史不再赘述。\par
-首先，GNU/Linux是以Linux为内核，辅以GNU\footnote{GNU（GNU is Not Unix的递归缩写）是一个由理查德·斯托曼为推广自由软件发起的运动（自由软件运动）的一部分。它产生了一些如 Gnu Emacs（参见下文）、gcc（GNU Compiler Collection，即GNU编译器套件，包含 C、C++、Objective-C、Fortran、Ada、Go、D 等语言（那个，别问我它们是什么，我也不知道）的编译器及这些语言的运行库，由 Richard Stallman 于 1987 年发布，最新版本 7.4）、GIMP（GNU Image Manipulation Program，图像处理软件，号称“GNU/Linux下的 PhotoShop”）等自由软件。具体请参看附录中的“GNU宣言”。}工具集的操作系统。因此，说“Linux操作系统”是不合适的。\par
+首先，GNU/Linux是以Linux为内核，辅以GNU\footnote{GNU（GNU is Not Unix的递归缩写）是一个由理查德·斯托曼为推广自由软件发起的运动（自由软件运动）的一部分。它产生了一些如 Gnu Emacs（参见下文：文本编辑器——GNU Emacs）、gcc（GNU Compiler Collection，即GNU编译器套件，包含 C、C++、Objective-C、Fortran、Ada、Go、D 等语言（那个，别问我它们是什么，我也不知道）的编译器及这些语言的运行库，由 Richard Stallman 于 1987 年发布，最新版本 7.4）、GIMP（GNU Image Manipulation Program，图像处理软件，号称“GNU/Linux下的 PhotoShop”）等自由软件。具体请参看附录中的“GNU宣言”。}工具集的操作系统。因此，说“Linux操作系统”是不合适的。\par
 （通俗地讲，）发行版是你可以下载安装的GNU/Linux版本。基于学习难度、兼容性及易用性，我们主要使用以下GNU/Linux发行版：
 \begin{itemize}
 	\item Arch Linux：一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛除外）。
@@ -267,7 +267,7 @@ Windows更新将会提供最新的安全补丁，安装它们有利于提升电�
 \includegraphics[scale=0.55]{pic/ziprate.PNG}	
 \end{center}
 通过以上数据，我们认为最好的压缩算法是运用于7Zip的LZMA2（极限压缩）。\par
-如何在“资源管理器”中修改文件打开方式呢？右键单击某个文件，你将会发现“打开方式”菜单。若菜单标题为“打开方式(H)    >”那么这个文件已经有打开方式，你应在它的子菜单中选择打开方式。如果没有你需要的打开方式或标题为“打开方式(H)....”，那你就应该选择“选择其他应用”。一个对话框将会被显示（如下图）此时你需要使用鼠标滚轮向下滚动直至底部。如果没有发现你想要的应用，单击“更多应用”；还没有，单击“在这台电脑上查找其他应用”。此时你就需要知道你需要的应用的具体位置。一般应有位于“C:\textbackslash Program Files”“C:\textbackslash Program Files(x86)”“C:\textbackslash Users\textbackslash [用户名] \textbackslash AppData”的相应子目录或在安装时你自己指定的目录。{\color{red}{为了避免这个问题，你需要在安装程序时记下安装位置。}}如果出现了无法修改打开方式的问题，清理注册表（参见下文）。
+如何在“资源管理器”中修改文件打开方式呢？右键单击某个文件，你将会发现“打开方式”菜单。若菜单标题为“打开方式(H)    >”那么这个文件已经有打开方式，你应在它的子菜单中选择打开方式。如果没有你需要的打开方式或标题为“打开方式(H)....”，那你就应该选择“选择其他应用”。一个对话框将会被显示（如下图）此时你需要使用鼠标滚轮向下滚动直至底部。如果没有发现你想要的应用，单击“更多应用”；还没有，单击“在这台电脑上查找其他应用”。此时你就需要知道你需要的应用的具体位置。一般应有位于“C:\textbackslash Program Files”“C:\textbackslash Program Files(x86)”“C:\textbackslash Users\textbackslash [用户名] \textbackslash AppData”的相应子目录或在安装时你自己指定的目录。{\color{red}{为了避免这个问题，你需要在安装程序时记下安装位置。}}如果出现了无法修改打开方式的问题，清理注册表（参见下文：性能工具）。
 \begin{center}
 	\includegraphics[scale=0.5]{pic/htopen}
 \end{center}
@@ -325,7 +325,7 @@ notepad又称“记事本”，是大多数Windows系统的必备组件。一般
 分别为终端模式与图形界面。好的，一看到这个终端模式的画面，你就应该知道这个软件不好对付。其实图形界面也不好对付。
 \subsubsection{下载安装}
 其官方网站为\url{https://www.vim.org/}（最后连接于2019年06月20日18:38:36）（速度较慢）；ustc开源镜像站镜像网址\url{http://mirrors.ustc.edu.cn/vim/}（最后连接于2019年06月20日18:38:46）。是一个十分强大的文本编辑器，公认类vi\footnote{所有发行版的GNU/Linux默认安装vi，因此我建议学习高级部分的电教委员能学习一下这个编辑器。它的学习曲线较陡，但也值得迎难而上。}编辑器中最好的编辑器。注意：它的入门门槛较高。你需要记住大量命令。\par
-具体命令示例由于VIM较为复杂，这里不再赘述。但建议希望学习“高级”篇的电教委员学习一下。
+具体命令示例由于VIM较为复杂，这里不再赘述。（如果你发现自己无法退出，请单击“ESC”，键入“:qa!”并回车）但建议希望学习“高级”篇的电教委员学习一下。
 \subsubsection{帮助及学习}
 首先你应该学习“Vim Tutor”。进入方法：直接在终端或命令提示符中键入“vimtutor”并回车。这个教程有许多语言可供选择，默认匹配系统。\par
 之后你可以学习“VIM USER MANUAL”这是vim最完全的用户手册。其中文安装版及pdf版可在\url{http://vimcdoc.sourceforge.net/}（最后连接于2019年06月20日18:39:21，速度较慢）中下载。直接下载链接：\url{https://sourceforge.net/projects/vimcdoc/files/win32-install-unicode/vimcdoc-2.1.0-setup-unicode.exe/download}（最后连接于2019年06月20日18:40:27，网速较慢）及\url{https://sourceforge.net/projects/vimcdoc/files/pdf-manual/reference-2.1.0.pdf/download}（最后连接于2019年06月20日18:41:03，网速较慢）。\par
@@ -392,7 +392,7 @@ Emacs的中文支持较差，其使用手册（Emacs Reference Manual）暂无�
 \subsection{使用以GNU/Linux为操作系统的计算机急救工具}
 GNU/Linux可用于Windows反病毒原因是：Windows二进制文件\footnote{一般扩展名为*.EXE，*.dll（Windows运行库文件）或*.COM（MS DOS可执行文件）等。一般地，仅二进制文件可在Windows操作系统上运行。虽然*.BAT（批处理文件。你可以把多个命令写入一个批处理文件并让Windows按照预定次序，满足预定条件地一次执行所有命令），*.CMD（类似于批处理文件，支持更多的命令，仅在Windows2000以上可用），*.VBS（VB Script，一种类似于VB的脚本语言），*.VBE（加密的VBS），*.JS（Java Script），*.JSE（不用说了吧），*.WSF，*.WSH，*.MSC（微软控制台文件）等文件也可直接在Windows操作系统上运行，但他们需要解释器。}与GNU/Linux二进制文件的结构是不同的（具体请参考其他专业书籍），因此Windows的EXE病毒大多数情况下无法在GNU/Linux上运行（使用Wine \footnote{一种类似于虚拟机的技术，它可允许Windows应用程序在GNU/Linux，BSD等操作系统上运行。} 或其他类似技术除外），也就是说，Windows下的病毒一般无法感染GNU/Linux操作系统。\par
 大多数反病毒软件厂商都提供了“急救盘”，用于给无法启动或严重感染的计算机反病毒。大多数急救盘基于GNU/Linux \footnote{如Dr.Web和AVIRA基于Ubuntu 14（Dr.Web凭借Wine运行），Kaspersky基于Gentoo Linux x86\_64，ESET基于其它GNU/Linux操作系统。}，也有少部分（如Avast!）基于Windows。\par
-现将以Kaspersky Rescure Disk <ver>以演示GNU/Linux反病毒。至于如何安装GNU/Linux并反病毒请参见下文。\par
+现将以Kaspersky Rescure Disk以演示GNU/Linux反病毒。至于如何安装GNU/Linux并反病毒请参见下文：高级：GNU/Linux的教学实现。\par
 现在你将计算机开启，将光盘插入光驱后重启。你将被引导到光盘启动\footnote{参见上文Windows安装。}。你将发现：
 \begin{center}
 	\includegraphics[scale=0.7]{pic/krd1}
@@ -410,7 +410,7 @@ GNU/Linux可用于Windows反病毒原因是：Windows二进制文件\footnote{�
 \chapter{高级：GNU/Linux的教学实现}
 这一个章节将以 Lubuntu\footnote{这是Ubuntu的一个衍生版本，除了将默认桌面替换为LXDE外与“正常”的Ubuntu没有大的区别。} 19.04为例，指示电教委员如何安装GNU/Linux平台使其与Windows操作系统共存，简单的GNU/Linux设置及使用GNU/Linux实现日常教学。\par
 \section{免责声明}
-{\color{red} {注意，我希望一个能力较强，英语水平较高且经验丰富的电教委员学习这部分内容。YuZJ Lab对产生的任何错误概不负责，请自行备份旧操作系统！一切翻译内容如与最新版的英文文章有所冲突，皆以最新版为准！}}\par
+{\color{red} {注意，我希望一个能力较强，英语水平较高且经验丰富的电教委员学习这部分内容。sgcomputers Lab对产生的任何错误概不负责，请自行备份旧操作系统！一切翻译内容如与最新版的英文文章有所冲突，皆以最新版为准！}}\par
 GNU/Linux的更新速度较快，我写的内容恐怕很快就会过时。希望读者给予反馈。GNU/Linux是一个博大精深的体系，请原谅我不断使用“参见下文”。
 \section{安装GNU/Linux：以图形界面安装为例}
 需要注意的是：GNU/Linux不同发行版的安装方法各不相同，因此在安装其它发行版（如Arch Linux）时就应该格外注意下文所述方法并不是“放诸四海而皆准”的。警告！安装时不要联网！\par
@@ -507,12 +507,11 @@ Manual page apt(8) line 1 (press h for help or q to quit)
 如果你需要一个man的图形前端，使用apt\footnote{参见下一章}安装以下软件包：xman或gman（依赖man2html，需手动安装）。你可以在伪终端使用“gman”或“xman”命令显示它们的图形界面。我更倾向于gman。它能够修改manpath\footnote{man文件的目录}（而不是使用export命令或修改“.bashrc”命令）并使用不同的文档浏览器。\par
 \subsubsection{环境变量}
 现在我们已经知道可以在Shell中输入命令并执行它。那么Shell是如何执行命令的？其实除了几个内建命令（如cd），大多数命令都是特定文件夹中的可执行文件。如ls就位于/bin。这些特定文件夹都被记录在PATH环境变量中。\par
-那么如何修改GNU/Linux中的环境变量呢？你需要修改对应用户的\footnote{每个用户都有一个，你需要一个一个修改。}“.bashrc”文件。现在我们要将“/usr/local/texlive/2019/bin/x86\_64-linux”\footnote{如果你喜欢\LaTeX 排版，对于这个路径你不会陌生。}加入PATH变量，切换到对应用户，并输入命令：
+那么如何修改GNU/Linux中的环境变量呢？你需要修改对应用户的\footnote{每个用户都有一个，你需要一个一个修改。}“.bashrc”文件。现在我们要将“/usr/local/texlive/2019/bin/x86\_64-linux”\footnote{如果你喜欢\LaTeX 排版，对于这个路径你不会陌生。}加入PATH变量，切换到对应用户，并输入命令\footnote{但我希望你已经将vim学得够好了。如果你不希望使用vim，请输入“echo "export PATH=/usr/local/texlive/2019/bin/x86\_64-linux:\$PATH" >> ～/.bashrc”，为什么这条命令会起作用参见下文：文件管理——常用命令——新建文件并写入内容。}：
 \begin{verbatim}
 vim ~/.bashrc
 ##注意：是“/.”不是“./”！
 ##当然你也可以使用你喜欢的编辑器，
-##但我希望你已经将vim学得够好了。
 \end{verbatim}
 对此，你将打开一个shell脚本文件。内容大致如下：
 \begin{verbatim}
@@ -546,8 +545,9 @@ export PATH=/usr/local/texlive/2019/bin/x86_64-linux:/usr/local/sbin:/usr/local/
 :/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:$PATH
 \end{verbatim}
 \subsubsection{批处理}
-如果你想要将两条命令写在一起，你可以使用“ \&\& ”。如“sudo apt update \&\& sudo apt upgrade”，这两条命令写在一起将产生极好的效果（具体请参见下文）。我们也可以先使用vim新建一个“.sh”文件（希望你vim已经学得足够好了），将命令一行一行写进去，使用“chmod +x [文件名]”实现可运行，再“./[文件名]”来运行它。\par
-bash还提供了选择语句、循环语句等多种高级功能，这里不再赘述。
+如果你想要将两条命令写在一起，你可以使用“ \&\& ”（注意，使用“\&\&”连接的命令仅当前面一个命令没有返回值（一般是执行成功）才执行后一个命令！）或“;”（无此限制）。如“sudo apt update \&\& sudo apt upgrade”，这两条命令写在一起将产生极好的效果（具体请参见下文：软件包管理器）。我们也可以先使用vim新建一个“.sh”文件（希望你vim已经学得足够好了。没有？参见下文：文件管理——常用命令——新建文件并写入内容），将命令一行一行写进去，使用“chmod +x [文件名]”实现可运行，再“./[文件名]”来运行它。\par
+bash还提供了选择语句、循环语句等多种高级功能，这里不再赘述。\par
+如何调整命令输出的内容（比如说，如果你使用“ls -A -R /”命令后屏幕会发疯（不要尝试））？一方面我们可以将命令输出的结果保存在文件中（参见下文：文件管理——常用命令——新建文件并写入内容），另一方面我们可以使用重定向符“|”，作用是将前一个命令输出的结果输入后一个命令。如：“ps -A  all | grep [查找内容]”就是将“ps -A all”的输出输入到“grep [查找内容]”。其他常用的命令有“more”与“less”，参见下文：文件管理（我相信你应该知道到那里去找了）。
 \subsection{软件包管理器：以APT为例}
 APT是一个Debian及其衍生版 \footnote{包括但不限于：Ubuntu Linux及其衍生版，Pure OS，Deepin Linux}中默认的强大的软件包管理器。它可用于从远程服务器及本地的\textbf{软件源}上安装Debian软件包（*.deb）。
 \subsubsection{首先，切换软件源！}
@@ -616,7 +616,7 @@ is another process using it?
 \end{verbatim}
 错误原因：无法获得排它锁——有进程占用apt。\par
 解决方案：1.删除锁文件：“sudo rm -rf /var/cache/apt/archives/lock ”。\par
-2.终结另一进程。参见下文。
+2.终结另一进程。参见下文：进程管理。
 \begin{center} upgrade \end{center}
 “apt upgrade”命令来自于apt-get，被用于从软件源（配置于sources.list）中更新所有已安装且存在可用更新的软件包。当且仅当新的软件包满足依赖关系\footnote{依赖关系：举例说明。假设软件包a需要b的功能才能正常运行，那么它们之间就形成了依赖关系。a依赖b，b依赖于a，安装时先安装b。}时它才会被安装。这个操作不会移除已安装的软件包 \footnote{APT更新软件包的操作不是“先卸再装”，而是覆盖安装。}。若一个更新操作要求移除已安装的软件包，它将不会被执行。\footnote{apt-get的man命令输出为：已安装的软件包不会被重新安装。已安装软件包的新版本如果在不更改其他软件包的安装状态时无法安装，它将会保持现有版本。必须先使用“apt-get update”操作来使apt-get明白哪个软件包具有新版本。\par
 可用选项：“--allow-unauthenticated”。它将会忽视由于软件包数字签名无法被检查。它将在使用本地源时十分有用，但在数据来源无法被认证是这个选项将十分危险。}
@@ -628,7 +628,7 @@ is another process using it?
 例：你安装了依赖于a的b软件包，则在你安装b时，a也会自动被安装。但当你卸载b时，a不会自动被卸载。此时你就可以使用这个命令来移除它们。你通过install安装的软件包也（理论上）不会被自动移除。 \par
 \textbf{{\color{red}{你需要检查列出的将被卸载的软件的列表，确保其不包括你需要的软件包（尽管它们有可能作为另一个软件包的依赖而被安装）。你可以通过apt-mark将它们标记为“手动（Manual）”}}}\footnote{apt-get的man命令输出为：“apt-get dist-upgrade”（命令名称不同）高级地执行upgrade命令的功能并智能地处理改变的依赖关系。apt-get有一个“聪明”的冲突处理系统。如果必要，它将以较为不重要的软件包为代价首先升级最重要的软件包。因此本命令有可能移除某些软件包。may therefore remove some packages. The /etc/apt/sources.list file contains a list of locations from which to retrieve desired packagefiles. 参见apt\_preferences的man帮助（第5部分）来了解并更改针对个别软件包的策略（这一段翻译地不好。请参见原文）。} \par
 \begin{center} edit-sources \end{center}
-“apt edit-sources”命令允许你用你喜欢的文本编辑器修改sources.list并提供基本的完整性检查。（我希望你已经把VIM学好了）  \par
+“apt edit-sources”命令允许你用你喜欢的文本编辑器修改sources.list并提供基本的完整性检查。（我希望你已经把VIM学好了。你也可以使用其他的编辑器）  \par
 \begin{center} install，remove，purge \end{center}
 将会在apt-get中介绍。\footnote{“apt install [软件包名]”提供一条显示在屏幕底部的进度条，而apt-get没有。使用“--show-progress”选项已显现。}\par
 \begin{center} show \end{center}
@@ -722,7 +722,7 @@ dpkg是一个可以安装，编译，卸载，管理Debian软件包的工具。�
 \begin{verbatim}
 ##先演示一个失败的安装：
 sgcomputers@sgcomputers:~/Downloads$ sudo dpkg -i texstudio-qt4_2.12.14-1_amd64.deb
-[sudo] password for yuzj: 
+[sudo] password for sgcomputers: 
 Selecting previously unselected package texstudio-qt4.
 (Reading database ... 269615 files and directories currently installed.)
 Preparing to unpack texstudio-qt4_2.12.14-1_amd64.deb ...
@@ -764,7 +764,7 @@ Processing triggers for hicolor-icon-theme (0.17-2) ...
 ##现在演示一个成功的安装：
 
 sgcomputers@sgcomputers:~/Downloads$ sudo dpkg -i google-chrome-stable_current_amd64.deb
-[sudo] password for yuzj: 
+[sudo] password for sgcomputers: 
 Selecting previously unselected package google-chrome-stable.
 (Reading database ... 269615 files and directories currently installed.)
 Preparing to unpack google-chrome-stable_current_amd64.deb ...
@@ -787,7 +787,7 @@ Processing triggers for mime-support (3.60ubuntu1) ...
 \begin{verbatim}
 sgcomputers@sgcomputers:~$ sudo dpkg -l *apt*
 ##列出所有内含“apt”的软件包。
-[sudo] password for yuzj: 
+[sudo] password for sgcomputers: 
 Desired=Unknown/Install/Remove/Purge/Hold
 | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
 |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
@@ -872,7 +872,7 @@ apt-get是处理软件包的命令行工具，它有时作为用户的使用使�
 示例：
 \begin{verbatim}
 sgcomputers@sgcomputers:~$ sudo apt-get install inkscape
-[sudo] password for yuzj: 
+[sudo] password for sgcomputers: 
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
@@ -927,7 +927,7 @@ Processing triggers for libc-bin (2.27-3ubuntu1) ...
 示例：
 \begin{verbatim}
 sgcomputers@sgcomputers:~/COM_Zh_CN/TeX$ sudo apt-get remove rhythmbox
-[sudo] password for yuzj: 
+[sudo] password for sgcomputers: 
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
@@ -1080,8 +1080,8 @@ sgcomputers@sgcomputers-pc:~$ pwd
 /home/sgcomputers
 \end{verbatim}
 注意不要与“passwd”命令搞混。
-\subsubsection{touch}
-这个命令可以新建文件（不过它的用途不只是新建文件）。如：
+\subsubsection{新建文件并写入内容}
+“touch”命令可以新建文件（不过它的用途不只是新建文件）。如：
 \begin{verbatim}
 sgcomputers@sgcomputers-pc:~$ ls
 Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
@@ -1089,17 +1089,15 @@ Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 
 sgcomputers@sgcomputers-pc:~$ touch a b c
 ##新建文件
+
 sgcomputers@sgcomputers-pc:~$ ls
 a  b  c  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 ##再看看这里有什么
 
-sgcomputers@sgcomputers-pc:~$ rm a b c
-##删除文件。
-
-sgcomputers@sgcomputers-pc:~$ ls
-Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
-##确认已经被删除了
-
+sgcomputerssgcomputers:~/Documents$ echo "echo Yeah!"> d
+##向文件“d”中写入内容“echo Yeah!”
+##“>”是一个重定向符，用于将输出内容写入到一个文件中（删除原有内容）。
+##追加内容请使用“>>”。
 \end{verbatim}
 \subsubsection{ls}
 \cite{manls}\par
@@ -1124,11 +1122,26 @@ sgcomputers@sgcomputers:~$ ls -l
 ##列出一张详细的表来！
 total 40
 ##总用量40
-drwxrwxrwx 5 yuzj yuzj 4096 Apr 26 09:44 COM_Zh_CN
-drwxr-xr-x 2 yuzj yuzj 4096 Apr 19 18:03 Desktop
+drwxrwxrwx 5 sgcomputers sgcomputers 4096 Apr 26 09:44 COM_Zh_CN
+drwxr-xr-x 2 sgcomputers sgcomputers 4096 Apr 19 18:03 Desktop
+-r--rw-r-- 1 root sgcomputers    0 Jun 26 08:37 a
+lrwxrwxrwx 1 sgcomputers sgcomputers    1 Jun 26 08:47 a1 -> a
+##这个“drwxr-xr-x 2 sgcomputers sgcomputers”是什么意思？
+##第一位：“d”说明是一个目录文件（俗称是一个文件夹）（刚才已经讲过，GNU/Linux中目录文件是一种特殊的文件）
+##目录文件显示为蓝色。
+##第一位：“-”说明是一个普通文件，显示为白色。
+##第一位：“l”说明是一个链接文件。显示为天蓝色，并且显示源文件。
+##可执行文件会显示为绿色。
+##第2、3、4（记为第一组，以此类推），5、6、7，8、9、10位显示文件权限。
+##其中第一组为文件所有者的权限，第二组为与所有组的权限，第三组为其他用户的权限。
+##这里的“所有”是“拥有”的意思。
+##目录的“x”为可以进入。如根目录下有“root”目录：
+##drwx------  16 root root  4096 Jun 25 15:03 root
+##这个目录就不可被除root用户以外其他用户进入。
+##使用“chmod +x”命令后变为“drwx--x--x  16 root root  4096 Jun 25 15:03 root”
 ##省略一部分
 
-yuzj@yuzj-Latitude-5290:~$ ls -R
+sgcomputers@sgcomputers-Latitude-5290:~$ ls -R
 ##我想查看该目录下的全部文件！递归显示所有文件
 ##警告！这个命令能够大大消耗系统资源！如“ls / -R -a -l”
 ##其实你会发现在大多数情况下，“-r”的意思都是“递归”（recursive）。
@@ -1147,11 +1160,11 @@ Abstract.utf8.md  Doing  LICENSE.md  ReadMe.md  TeX
 sgcomputers@sgcomputers:~$ ls -a -l
 ##显示所有的文件，包括隐藏的。
 total 392
-drwxr-xr-x 28 yuzj yuzj   4096 May  1  2019 .
+drwxr-xr-x 28 sgcomputers sgcomputers   4096 May  1  2019 .
 drwxr-xr-x  4 root root   4096 Apr 19 17:37 ..
 ##两个句点“..”的意思是上一个目录。
--rw-------  1 yuzj yuzj    612 Apr 30 16:48 .bash_history
--rw-r--r--  1 yuzj yuzj    220 Apr 19 17:37 .bash_logout
+-rw-------  1 sgcomputers sgcomputers    612 Apr 30 16:48 .bash_history
+-rw-r--r--  1 sgcomputers sgcomputers    220 Apr 19 17:37 .bash_logout
 ##省略一大部分
 \end{verbatim}
 \subsubsection{cd}
@@ -1280,7 +1293,7 @@ cp [源文件] [目的目录]
 \Large \textbf{mount命令} \normalsize \par
 \cite{manmnt}\par
 mount命令是一个非常有用的命令。它能够挂载设备和文件夹。\par
-注意，如果你需要挂载NTFS文件系统，你需要使用apt（参见下文）安装ntfs-3g。\par
+注意，如果你需要挂载NTFS文件系统，你需要使用apt安装ntfs-3g。\par
 mount命令基本用法：\par
 mount [[−t] [type]] [device] [dir]\par
 例如，有如下磁盘结构：
@@ -1311,13 +1324,13 @@ mount −−bind [olddir] [newdir]\par
 mount\par
 不带参数及选项的“mount”命令将列出所有已挂载的文件系统。\par
 \begin{verbatim}
-root@yuzj-Latitude-5290:/home/yuzj# mount
-/dev/sda4 on /media/yuzj/E086190E8618E736 type fuseblk
+root@sgcomputers-Latitude-5290:/home/sgcomputers# mount
+/dev/sda4 on /media/sgcomputers/E086190E8618E736 type fuseblk
 (rw,nosuid,nodev,relatime,user_id=0,group_id=0,default_permissions,
 allow_other,blksize=4096,uhelper=udisks2)
 ##大部分内容被省略了。
 \end{verbatim}
-常见错误：
+常见错误（如果你的磁盘存在坏道或者权限不正确也会导致挂载失败）：
 \begin{verbatim}
 sgcomputers@sgcomputers-pc:~$ sudo mount -t ntfs-3g /dev/sda2 /media/win10
 ntfs-3g-mount: failed to access mountpoint /media/win10: No such file or directory
@@ -1345,57 +1358,91 @@ lrwxrwxrwx 1 root root 10 6月  16  2019 f86fcaf9-2d5c-4560-a844-66a758a953c5 ->
 \end{verbatim}
 第二列，即“/”指挂载点。后面几列较为复杂（文件系统--“ntfs-3g”，挂载选项--默认“defaults”，自动备份--NTFS免备份设0，开机检查--免检设0），请参考fstab的man帮助，不再赘述。\par
 所以，我们只需要在文件末端添上“UUID=9AFA3F56FA3F2E3F  /media/win10 ntfs-3g defaults   0 0”并重启即可。
-\subsubsection{文件权限及 chmod命令}
-文件权限大致上分“读”（r）、“写”（w）与“执行”（w）三种。你可以使用“chmod”命令改变它。如：
+\subsubsection{文件权限的相关命令}
+文件权限大致上分“读”（r）、“写”（w）与“执行”（w）三种。你可以使用“chmod”命令改变它。标准用法：“chmod [用户][运算符][权限] [文件] [参数]”。可使用参数“-R”递归更改目录权限。如：
 \begin{verbatim}
-root@sgcomputers:/home/yuzj/COM_Zh_CN/TeX# ./Compile.sh 
-bash: ./Compile.sh: 权限不够 
-##（Premission Declined）
+sgcomputerssgcomputers:~/Documents$ echo "echo Yeah!"> d
+##向文件“d”中写入内容“echo Yeah!”
+##这其实是一条命令，要求终端输出“Yeah!”
 
-root@sgcomputers:/home/yuzj/COM_Zh_CN/TeX# chmod  +x Compile.sh 
-##增加“执行”权限
+sgcomputerssgcomputers:~/Documents$ cat d
+##查看文件内容
+echo Yeah!
 
-root@sgcomputers:/home/yuzj/COM_Zh_CN/TeX# ./Compile.sh 
-Start XeLaTeX......1/5
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex)
-restricted \write18 enabled.
-entering extended mode
-(./Main.tex
-##省略大量内容，不过它确实在执行“Compile.sh”中的命令！
+sgcomputerssgcomputers:~/Documents$ ./d
+##尝试执行，发现权限不足。
+bash: ./d: Permission denied
 
-root@sgcomputers:/home/yuzj/COM_Zh_CN/TeX# chmod  -r  Compile.sh 
-##现在删除“读”的权限。
+sgcomputerssgcomputers:~/Documents$ ls -l
+##使用ls命令检查权限。
+total 8
+drwxrwxr-x 4 sgcomputers sgcomputers 4096 Jun 26 08:17 COM_Zh_CN
+-rw-rw-r-- 1 sgcomputers sgcomputers   11 Jun 26 09:04 d
+##发现没有“执行”权限。
 
-root@sgcomputers:/home/yuzj/COM_Zh_CN/TeX# exit
-exit
-##退出root账户。
+sgcomputerssgcomputers:~/Documents$ chmod a+x d
+##对所有用户（a）增加执行权限
+##所有组：g。所有者：u。如“ chmod u+x [文件名]”仅仅增加所有者权限。
 
-sgcomputers@sgcomputers:~/COM_Zh_CN/TeX$ vim Compile.sh
-## 使用vim打开，就像这样：                   
-~                                      
-~
-~ 
-~             
-"Compile.sh" [权限不足]              0,0-1        全部
+sgcomputerssgcomputers:~/Documents$ ./d
+##尝试执行成功。
+Yeah!
 
-sgcomputers@sgcomputers:~/COM_Zh_CN/TeX$ su
-密码：
+sgcomputerssgcomputers:~/Documents$ ls -l
+total 8
+drwxrwxr-x 4 sgcomputers sgcomputers 4096 Jun 26 08:17 COM_Zh_CN
+-rwxrwxr-x 1 sgcomputers sgcomputers   11 Jun 26 09:04 d
 
-root@sgcomputers:/home/yuzj/COM_Zh_CN/TeX# chmod  +r  Compile.sh 
+\end{verbatim}
+使用“chown”命令能够更改文件的所有者。标准用法：“chown [所有者]:[所有组] [文件] [参数]”。可使用参数“-R”递归更改目录权限。如：
+\begin{verbatim}
+##我们还是以上文中的“d”文件为例。
+sgcomputerssgcomputers:~/Documents$ chown root:root d
+##更改所有者为root：报错。
+chown: changing ownership of 'd': Operation not permitted
 
-root@sgcomputers:/home/yuzj/COM_Zh_CN/TeX# exit
-exit
+sgcomputerssgcomputers:~/Documents$ sudo chown root:root d
+##使用root权限，成功。
+[sudo] password for sgcomputers: 
 
-sgcomputers@sgcomputers:~/COM_Zh_CN/TeX$ vim Compile.sh
-## 使用vim打开，就像这样
-echo Start XeLaTeX......1/5
-xelatex Main.tex
-echo BiBTeX......2/5
-bibtex Main
-
-~
-"Compile.sh" 18L, 301C               1,1          全部
-
+sgcomputerssgcomputers:~/Documents$ ls -l
+##确认一下。
+total 8
+drwxrwxr-x 4 sgcomputers sgcomputers 4096 Jun 26 08:17 COM_Zh_CN
+-rwxrwxr-x 1 root root   11 Jun 26 09:04 d
+\end{verbatim}
+这是非常好用的命令，能够在不删除数据的情况下防止学生打开游戏（当然，“不法分子”也会利用这个命令防止老师读取游戏文件夹。技术是把双刃剑，因此请妥善掌握你的root密码）。
+\subsubsection{打开文件并显示里面的内容}
+你当然可以使用“vim [文件名]”来打开文件，但对于vim学习得不好的同学来说恐怕事情会复杂得多：vim一打开就无法退出了（这种情况经常在初学者身上发生。如果你被卡住了，请单击“ESC”，键入“:qa!”并回车）！我们使用以下命令：cat、more与less。\par
+我们先用“ls -l -A -R > 1”得到一个较大的文件“1”。命令“cat 1 -n”（标准用法：“cat [文件名] [参数]”，参数“-n”会显示行号）将会使屏幕发疯。现在使用“more 1”：
+\begin{verbatim}
+::::::::::::::
+1
+::::::::::::::
+##上面显示了文件名。
+.:
+total 288
+-rw-------  1 sgcomputers sgcomputers    100 Jun 26 08:18 .Xauthority
+-rw-------  1 sgcomputers sgcomputers   4013 Jun 26 09:15 .bash_history
+-rw-r--r--  1 sgcomputers sgcomputers    220 Jun 24 13:16 .bash_logout
+-rw-r--r--  1 sgcomputers sgcomputers   3830 Jun 24 14:05 .bashrc
+drwx------ 14 sgcomputers sgcomputers   4096 Jun 25 18:11 .cache
+drwxrwxr-x 31 sgcomputers sgcomputers   4096 Jun 25 18:11 .config
+--More--(0%)
+##刚好一屏！输入“q”退出。
+\end{verbatim}
+“less 1”也会得到类似的效果（请读者自己尝试）。\par
+还可以使用“cat 1 -n | more”（如果你学得好的话，你就会知道管道符的含义。参见上文：基本概念及操作——批处理）得到：
+\begin{verbatim}
+  1  .:
+2  total 288
+3  -rw-------  1 sgcomputers sgcomputers    100 Jun 26 08:18 .Xauthority
+4  -rw-------  1 sgcomputers sgcomputers   4013 Jun 26 09:15 .bash_history
+5  -rw-r--r--  1 sgcomputers sgcomputers    220 Jun 24 13:16 .bash_logout
+6  -rw-r--r--  1 sgcomputers sgcomputers   3830 Jun 24 14:05 .bashrc
+7  drwx------ 14 sgcomputers sgcomputers   4096 Jun 25 18:11 .cache
+8  drwxrwxr-x 31 sgcomputers sgcomputers   4096 Jun 25 18:11 .config
+--More--
 \end{verbatim}
 \subsection{图形化文件管理器}
 你现在已经有一个PCManFM的文件管理器了。如果你喜欢cinnamon的文件管理器，安装“nautilus”。KDE，“dolphin”。注意，默认的文件管理器有一个bug：请到Edit-Preference-advanced中修改默认伪终端（这东西的英文你应该知道了）
@@ -1466,7 +1513,7 @@ sgcomputers@sgcomputers:~/COM_Zh_CN/TeX$ sudo ps -A all | grep apt
 缺点：
 \begin{itemize}
 	\item 误报率高。
-	\item 在GNU/Linux机器上资源占用极大，比传说中的“卡巴死机”\footnote{这是对卡巴斯基较旧版本（系统占用极大）的调侃。现在的最新版（2019）比以前好多了（当然，这与计算机性能提升也有关系）。}还让人抓狂。其cygwin版本（参见下文）好多了。
+	\item 在GNU/Linux机器上资源占用极大，比传说中的“卡巴死机”\footnote{这是对卡巴斯基较旧版本（系统占用极大）的调侃。现在的最新版（2019）比以前好多了（当然，这与计算机性能提升也有关系）。}还让人抓狂。其cygwin版本（参见下文：在Windows操作系统上使用GNU/Linux命令）好多了。
 	\item 查杀速度较慢。
 \end{itemize}
 \subsection{命令行模式}
@@ -1676,7 +1723,7 @@ htop ##任务管理器，可选，或gnome-system-monitor
 除用于向公众表明本作品是依照知识共享公共许可协议（CCPL）授权以外，如未经“知识共享”事先书面同意，任何一方均不得使用“知识共享”（Creative Commons）商标和其他相关商标及标识。任何被允许的使用都必须符合“知识共享”的现行商标使用准则。该准则已在其网站上发布或可应要求随时提供。为避免疑义，本段关于商标的限制性规定不构成本许可之一部分。\par
 您可以通过\url{https://creativecommons.org/}（最后连接于2019年6月23日10:57:40）联系“知识共享”
 \chapter{GNU宣言}
-GNU宣言\footnote{我将这份历史文件添加进本技术指南的目的，是为了让程序员在商业化如潮水般推进时，能够关注一些其它理念。该份文件仅代表自由软件运动捍卫者的观点，并不能代表YuZJ Lab的观点或立场。\cite{gnum}，被引用时文章内所有链接均有效。}（如下所示）由\href{http://www.stallman.org/}{Richard Stallman}在1985年撰写，用来请求大家支持GNU操作系统的开发。其部分文本摘自1983年撰写的初始声明。直到1987年，因为开发的原因它时时小有更改；那时起，看起来最好是保持它不再改变。\par
+GNU宣言\footnote{我将这份历史文件添加进本技术指南的目的，是为了让程序员在商业化如潮水般推进时，能够关注一些其它理念。该份文件仅代表自由软件运动捍卫者的观点，并不能代表sgcomputers Lab的观点或立场。\cite{gnum}，被引用时文章内所有链接均有效。}（如下所示）由\href{http://www.stallman.org/}{Richard Stallman}在1985年撰写，用来请求大家支持GNU操作系统的开发。其部分文本摘自1983年撰写的初始声明。直到1987年，因为开发的原因它时时小有更改；那时起，看起来最好是保持它不再改变。\par
 时过境迁，我们认识到使用不同的措辞可以避免一些常见的误解。从1993年起，我们添加了脚注来澄清这些问题。\footnote{注意，有些脚注是由GNU CTT加的。}\par
 如果你想安装GNU/Linux系统，我们建议你使用\href{http://www.gnu.org/distros}{100\%自由的GNU/Linux发行版}之一。如果你想做出贡献，请参看\url{http://www.gnu.org/help/help.html}。\par
 GNU工程是自由软件运动的一部分，该运动旨在\href{http://www.gnu.org/philosophy/free-sw.html}{捍卫软件用户的自由}。把GNU和“开源”一词联系在一起是错误的—该词汇是1998年由一些不赞同自由软件运动之道德价值的人士发明的。他们使用该词汇来推动同一领域的\href{http://www.gnu.org/philosophy/open-source-misses-the-point.html}{非道德方案}。\par
@@ -1781,7 +1828,7 @@ GNU将把操作系统软件从竞争的王国中移除。你不能在此取胜�
 \section{我该如何对这个工程做出贡献？}
 请将更改的内容写成一个txt文件，它应该像这样子：
 \begin{verbatim}
-COM:https://github.com/YuZJLab/COM_Zh_CN
+COM:https://github.com/sgcomputersLab/COM_Zh_CN
 [版本号]
 [错误性质]
 [详细内容]
@@ -1798,7 +1845,7 @@ COM:https://github.com/YuZJLab/COM_Zh_CN
 \end{verbatim}
 例如：
 \begin{verbatim}
-COM:https://github.com/YuZJLab/COM_Zh_CN
+COM:https://github.com/sgcomputersLab/COM_Zh_CN
 [CONT]
 commit 156ba48adc942a41a219a65752187bcb7981b99b
 内容略。
@@ -1846,9 +1893,9 @@ rm -f *.fdb_latexmk
 \end{verbatim*}
 无论你使用何种编译方式，你最终将会得到Main.PDF。这就是最终的文件。
 \section{更新链接}
-【github】\url{https://github.com/YuZJLab/COM_Zh_CN}，最后连接于2019年6月23日11:14:29。
+【github】\url{https://github.com/sgcomputersLab/COM_Zh_CN}，最后连接于2019年6月23日11:14:29。
 \section{关于作者}
-YuZJ，浙江省慈溪市实验高中2019届学生，电教委员。
+sgcomputers，浙江省慈溪市实验高中2019届学生，电教委员。
 \addcontentsline{toc}{section}{参考书目}
 \bibliography{Reference}
 \end{document}
