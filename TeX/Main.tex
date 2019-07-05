@@ -8,13 +8,14 @@
 \setCJKmainfont{msyhl.ttc}
 \usepackage{color}
 \usepackage{graphicx}
+\usepackage{geometry}
+\geometry{top=0.5in, bottom=0.5in, left=0.5in, right=0.5in}
 \usepackage[super]{nth}
 \bibliographystyle{amsplain}
 \usepackage{hyperref}
 \hypersetup{hidelinks,bookmarks=true,bookmarksopen=true,pdftitle=电教委员完全（不）技术指南,pdfauthor=sgcomputers Lab}
-\usepackage[inner=0.5in,outer=1in]{geometry}
-\usepackage{wrapfig}
 \begin{document}
+\pagenumbering{Roman}
 \setcounter{tocdepth}{3}
 \title{电教委员（不）完全技术指南（简体中文）}
 \author{sgcomputers Lab}
@@ -1615,7 +1616,7 @@ Wine——一种神奇的能够让Windows程序运行于GNU/Linux的小程序。
 \section{GNU/Linux的教学实现}
 这一章将会谈到如何使用GNU/Linux实现日常教学任务。\par
 1.安装操作系统：我们选择Lubuntu Linux 19.04 \footnote{注意，请安装图形界面：cinnamon或lxde（它们与Windows操作系统界面风格更接近，因此将会被更多人接受）。除非你会自己写硬件驱动程序或者你是自由软件运动的忠实粉丝（当然这些人也不会使用Debian），请安装非自由固件。安装过程不再赘述。下同。}或Ubuntu 18.10或Linux Mint 19 \footnote{除非你会自己写硬件驱动程序或者你是自由软件运动的忠实粉丝，请安装第三方媒体解码器和驱动程序。对于初学者，我十分推荐Linux Mint Cinnamon。}或Deepin Linux。 \par
-2.配置软件源\footnote{我选用的是网易源。具体配置方法参见上一章或参见：\url{https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/}（最后连接于2019年06月20日18:49:00）}，使用“sudo apt update \&\& sudo apt upgrade -y”更新软件包索引文件和软件包并安装以下软件：
+2.配置软件源\footnote{我选用的是网易源。具体配置方法参见上一章或参见：\url{https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/}（最后连接于2019年06月20日18:49:00）}，使用“sudo apt update \&\& sudo apt upgrade -y”更新软件包索引文件和软件包并安装以下软件（如果你使用了Debian GNU/Linux9.9 最小安装，你还要安装man、less与sudo）：
 \begin{verbatim}
 ##你可以从软件源中下载绝大部分软件。
 ##软件源中也许软件名称不同。
@@ -1656,6 +1657,7 @@ htop ##任务管理器，可选，或gnome-system-monitor
 3.移除其它软件包（谨慎操作！）（如果你安装了Lubuntu，你可以移除qtpass、compton、2048-qt、ibus*、inkscape、abiword、gnumeric、noblenote、transmission*、trojita*、quassel、qpdfview、mpv、discover*、plasma-discover、qapt-deb-installer、qps、muon、partitionmanager），再用“apt autoremove”完善依赖关系，最后使用synaptic（新立得软件包管理器）完全移除（purge）“not installed(residual config)”（未安装（残存配置））的软件包。\par
 4.配置搜狗拼音输入法。
 \section{在Windows操作系统上使用GNU/Linux命令：CygWin}
+CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序在Windows操作系统上运行的程序。你可以借此使用优秀的GNU/Linux程序。
 \appendix
 \chapter{跋}
 在创作这本书的时候，我深深地感到了我语言的苍白、英语水平低下，对计算机知识的了解也仅仅浮于表面。我不得不对在计算机方面雄心勃勃的电教委员说，学好英语是第一要务。\par
