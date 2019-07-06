@@ -1,4 +1,13 @@
 @echo off
+del *.log
+del *.aux
+del *.bbl
+del *.blg
+del *.toc
+del *.out
+del *.fls
+del *.fdb_latexmk
+del *.syntex.gz
 echo Start XeLaTeX......1/6
 xelatex Main
 echo BiBTeX......2/6

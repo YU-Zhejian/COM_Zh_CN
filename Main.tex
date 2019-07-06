@@ -3,9 +3,11 @@
 %使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者sgcomputers，
 %邮箱\theafamily@126.com（最后连接于2019年06月20日17:32:17）。
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%!ERR!
 \documentclass{book}
 \usepackage{xeCJK}
-\setCJKmainfont{msyhl.ttc}
+\usepackage{indentfirst}
+\setCJKmainfont{wqy-zenhei.ttc}
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{geometry}
@@ -20,8 +22,13 @@
 \shadowsize=2pt
 \usepackage{flafter}
 \usepackage{picinpar}
-\usepackage[timestamp]{draftcopy}
+\usepackage[timestamp,all]{draftcopy}
 \draftcopyName{内部}{}
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\alph{subsection}}
+\renewcommand{\thesubsubsection}{[\arabic{subsubsection}]}
+\makeatletter\renewcommand{\verbatim@font}{\footnotesize \color{blue}} \makeatletter
 \begin{document}
 \setcounter{tocdepth}{3}
 \title{电教委员（不）完全技术指南（简体中文）}
@@ -38,15 +45,15 @@ Copyright \copyright{} 2018-2019 sgcomputers Lab. \par
 使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者sgcomputers，邮箱\url{theafamily@126.com}（最后连接于2019年06月20日17:32:17）。\par
 \large{\textbf{{\color{red}{对本文档所引起的任何后果不作担保！}}}}\normalsize\par
 \section{序}
-首先，在这里提及非自由软件并非我的意愿。作为自由软件运动的支持者，我当然希望你们使用自由软件。但技术所限，非自由的内容不得不被包括在内。\par
-“天覆地载，物号数万，而事亦因之，曲成而不遗。”（来自于《天工开物·序言》）人类在计算机技术上的创造亦是如此。很高兴生活在信息时代（也许马上应改为“数据时代”），国内外优秀的软件都可以被免费或付费地获取以为我们所用。然而“工欲善其事，必先利其器”，对于我们来说，掌握如何高效率地使用计算机是十分重要的。如一位数学教师可用\LaTeX\footnote{\LaTeX 是一个产生于 \TeX 的一个排版系统。它在编辑公式方面十分强大（使用 \AmSTeX 宏包 ），并且能够胜任巨型文档和复杂的排版任务（如交叉引用、创建索引等等）。它使用“LaTeX Project Public Li­cense （LPPL）”开放源代码。做一点小小的说明：如果不喜欢完全使用鼠标来编辑公式，当编辑复杂公式时我更倾向于\LaTeX。\LaTeX 更多依赖键盘，但是不是一个所见即所得的软件，你需要“编译”\LaTeX 代码才能得到正确的文件。}而不是MS Office \footnote{MS是Microsoft（微软）的缩写，MS Office 是微软公司发布的非自由付费办公套件。相对于\LaTeX ，它最大的优点是所见即所得和具有图形界面。} 来高效地编辑公式，或者使用Visual Basic.Net\footnote{Visual Basic.Net（简称VB.Net）是微软公司开发的一种编程语言，由Visual Basic（VB）6.0升级得到。在保留易用性的基础上，提供以前版本所不具有的功能。}语言来进行运算（如数列求和）。因此，结合自己的工作经历，为了方便信息化教学的开展，我不自量力地"年来著书一种"，为希望掌握关于如何高效地使用教室计算机的初级和高级技巧的电教委员或者其余希望提高计算机技能的教师、学生及其他教职人员编写了这份文件。\par
+首先声明一下：在这里提及非自由软件并非我的意愿。作为自由软件运动的支持者，我当然希望你们使用自由软件。但技术所限，非自由的内容不得不被包括在内。\par
+“天覆地载，物号数万，而事亦因之，曲成而不遗。”（来自于《天工开物·序言》）人类在计算机技术上的创造亦是如此。很高兴生活在信息时代（也许马上应改为“数据时代”），国内外优秀的软件都可以被免费或付费地获取以为我们所用。然而“工欲善其事，必先利其器”，对于我们来说，掌握如何高效率地使用计算机是十分重要的。如一位数学教师可用\LaTeX\footnote{\LaTeX 是一个产生于 \TeX 的一个排版系统。它在编辑公式方面十分强大（使用 \AmSTeX 等宏包 ），并且能够胜任巨型文档和复杂的排版任务（如交叉引用、创建索引、管理参考文献资料等等）。它使用“LaTeX Project Public Li­cense （LPPL）”开放源代码，并拥有CTAN（综合的TeX档案库网络，拥有\LaTeX 近乎全部的宏包和使用教程，并存在多个镜像站如TUNA源）（【CTAN: Comprehensive TeX Archive Network】\url{https://www.ctan.org/}，最后连接于2019年7月6日21:08:02）的管理组织。做一点小小的说明：如果不喜欢完全使用鼠标来编辑公式，当编辑复杂公式时我更倾向于\LaTeX。\LaTeX 更多依赖键盘，但是不是一个所见即所得的软件。就像编写网页一样，你需要“编译”（Compile）\LaTeX 代码才能得到正确的文件。再做一点小小的说明，本文档就是用\LaTeX 编写的。}而不是MS Office \footnote{MS是Microsoft（微软）的缩写，MS Office 是微软公司发布的非自由付费办公套件。相对于\LaTeX ，它最大的优点是所见即所得和具有图形界面。} 来高效地编辑公式或使用Git\footnote{这个一点都不讨厌（Git在英文中有“讨厌的人”意），是一个高效易用的分布式版本控制软件。官方网站\url{https://git-scm.com/}（最后连接于2019年7月6日21:06:04）。}管理自己的论文。因此，结合自己的工作经历，为了方便信息化教学的开展，我不自量力地"年来著书一种"，为希望掌握关于如何高效地使用教室计算机的初级和高级技巧的电教委员或者其余希望提高计算机技能的教师、学生及其他教职人员编写了这份文件。\par
 手册中题为“入门”的章节是针对初学者的（前提条件：你需要知道开机按钮在哪里。详情请参阅主机的说明书），它大致介绍了Windows操作系统和MS Office等软件来实现日常教学，Windows操作系统的简单技巧与最基础的Windows安全。题为“进阶”的章节是针对已有一定技能基础并希望尝试更加有效的Windows安全工具（如使用以GNU/Linux\footnote{应该使用“GNU/Linux”而不是“Linux”。请参见【Richard Stallman之GNU/Linux问答】\url{https://www.gnu.org/gnu/gnu-linux-faq.html}（最后连接于2019年06月20日17:32:59）。关于GNU/Linux的详细介绍参见下文：“入门——操作系统——GNU/Linux及其发行版”。}为操作系统的反病毒光盘清除计算机病毒——我暂时不会教你手工杀毒，那是尤金·卡巴斯基\footnote{俄罗斯“卡巴斯基实验室”创立者及董事长。1989年10月的一次手工杀毒（Cascade病毒）激起了他对于计算机反病毒的兴趣并在这方面深度研究，不久即写出反病毒软件并于1997年成立卡巴斯基实验室。目前专注病毒研究。}之类大神干的事）的电教委员的。题为“高级”的章简单地节介绍了GNU/Linux 操作系统的一部分入门知识及其教学实现。\par
 在使用这份手册时，最重要的是实践。本人才疏学浅，文本中或许有（大量）错误\footnote{尤其是对于GNU/Linux， \LaTeX 排版系统或者VIM等高级文本编辑器 。}，请广大读者不吝赐教。联系方式：\url{theafamily@126.com}（最后连接于2019年06月20日17:32:17）。如果文档中存在任何侵权之处，请按邮箱联系。一经确认，将立刻改正。“丐大业文人，弃置案头。此书于功名进取，毫不相关也。”\par
 时己亥年肆月廿七日，西历2019年5月1日\par
 慈溪sgcomputers于家之书房
 \section{关于互联网安全的提示}
-\begin{window}[2,r,{\shadowbox{\parbox[t]{6cm}{\footnotesize 以下为对原文中重要内容的引用。火绒工程师认为：所谓的“下载器”和“高速下载通道”既没有用处，也没有存在的必要。为了躲避这些“下载器”的侵扰，用户可以去某个软件的官网下载产品，一般不用担心下载到下载器。这些“下载器”存在的意义就是为了捆绑安装其他软件。这些捆绑软件无一例外都不是用户当时想要的，如果想要这些软件，在下载站上都能找到。总之，除了给用户制造麻烦，所谓这些“高速下载通道”和“下载器”没有任何作用。\normalsize}}},{}]
-{\color{red}{本书内所有网络链接在“最后连接时间”前均有效且已经过Norton Safe Web的Edge插件、Microsoft SmartScreen筛选器及卡巴斯基网络反病毒（包含于卡巴斯基免费版2019，病毒库更新时间为检测当天12:00）检测。\par 注意，本书中提到的所有应用程序都应该从其官方网站或镜像源处下载。我们不推荐本书的使用者从任何非官方软件发布处（如腾讯电脑管家或PC6等下载站）下载任何本书中提到的软件（官方认可的镜像源除外）。请参见【火绒安全-下载站行业乱象：流氓软件和电脑病毒重灾区】\url{https://www.huorong.cn/info/149181215360.html}（最后连接于2019年6月21日16:20:40）}}。\par 同样需要声明的是，从任何网站下载“破解版”或“注册机”“算号器（KeyGen）”“KMS注册机（这里仅指非法的KMS服务器。合法的服务器不用担心）”（以下简称“侵权程序”）都是不被允许的。这些侵权程序大部分含有“后门”或直接携带病毒（主要表现为网络蠕虫、挖矿机程序和Rootkit，或皆有）。具体请参见【“小马激活”病毒日感染数万台电脑 建议百度、360屏蔽该关键词】\url{https://www.huorong.cn/info/146173867117.html}，【“小马激活”病毒新变种分析报告】\url{https://www.huorong.cn/info/146173922919.html}，【激活工具带毒感染量近60万 北京等四城市用户不被攻击】\url{https://www.huorong.cn/info/1526627586130.html}，【火绒安全警报：病毒伪装成激活工具  强制安装360、2345浏览器】\url{https://www.huorong.cn/info/1535631707148.html}（最后连接于2019年6月21日16:30:28）。\par 对于错误反馈，任何由于违反以上两条原则导致的问题将不会被回复。\par 如果你确信你的下载站提供了可靠的软件，你也需要使用哈希校验来确保文件可靠性。方法：使用7Zip在文件资源管理器中的右键菜单“CRC SHA”选项校验哈希值并于官方提供的哈希制作比较。如果一致，那么这个软件可视为是官方的。
+\begin{window}[2,r,{\shadowbox{\parbox  [t]{6cm}{\footnotesize 以下为对原文中重要内容的引用。火绒工程师认为：所谓的“下载器”和“高速下载通道”既没有用处，也没有存在的必要。为了躲避这些“下载器”的侵扰，用户可以去某个软件的官网下载产品，一般不用担心下载到下载器。这些“下载器”存在的意义就是为了捆绑安装其他软件。这些捆绑软件无一例外都不是用户当时想要的，如果想要这些软件，在下载站上都能找到。总之，除了给用户制造麻烦，所谓这些“高速下载通道”和“下载器”没有任何作用。\normalsize}}},{}]
+本书内所有网络链接在“最后连接时间”前均有效且已经过Norton Safe Web的Edge插件、Microsoft SmartScreen筛选器及卡巴斯基网络反病毒（包含于卡巴斯基免费版2019，病毒库更新时间为检测当天12:00）检测。 {\color{red}{\textbf{注意，至少我坚持认为本书中提到的所有应用程序都应该从其官方网站或镜像源处下载。我们不推荐本书的使用者从任何非官方软件发布处\footnote{如腾讯电脑管家“软件中心”（提供过时的软件，如“Avira Antivir Personal 个人免费版”。软件链接：\url{https://pc.qq.com/detail/19/detail_819.html}（最后连接于2019年7月6日21:20:15），最新版本发布日期应该已经是2019了。）或PC6等下载站（请参见【火绒安全-下载站行业乱象：流氓软件和电脑病毒重灾区】\url{https://www.huorong.cn/info/149181215360.html}（最后连接于2019年6月21日16:20:40）。以上两篇文章中提到的问题目前还存在）。}下载任何本书中提到的软件（官方认可的镜像源除外）。}}}。\par 同样需要声明的是，从任何网站下载“破解版”或“注册机”“算号器（KeyGen）”“KMS注册机（这里仅指非法的KMS服务器。合法的服务器不用担心）”（以下简称“侵权程序”）都是不被允许的。这些侵权程序大部分含有“后门”或直接携带病毒（主要表现为网络蠕虫、挖矿机程序和Rootkit，或皆有）。具体请参见【“小马激活”病毒日感染数万台电脑 建议百度、360屏蔽该关键词】\url{https://www.huorong.cn/info/146173867117.html}，【“小马激活”病毒新变种分析报告】\url{https://www.huorong.cn/info/146173922919.html}，【激活工具带毒感染量近60万 北京等四城市用户不被攻击】\url{https://www.huorong.cn/info/1526627586130.html}，【火绒安全警报：病毒伪装成激活工具  强制安装360、2345浏览器】\url{https://www.huorong.cn/info/1535631707148.html}（最后连接于2019年6月21日16:30:28）。\par 对于错误反馈，任何由于违反以上两条原则导致的问题将不会被回复。\par 如果你确信你的下载站提供了可靠的软件，你也需要使用哈希校验来确保文件可靠性。方法：使用7Zip在文件资源管理器中的右键菜单“CRC SHA”选项校验哈希值并于官方提供的哈希制作比较。如果一致，那么这个软件可视为是官方的。
 \end{window}
 经检测的镜像站列表如下（检测于2019年6月22日17:16:47）：
 \begin{itemize}
@@ -65,7 +72,6 @@ Copyright \copyright{} 2018-2019 sgcomputers Lab. \par
 \mainmatter
 \chapter{入门}
 \section{视窗操作系统及安装}
-
 \begin{window}[2,r,{\shadowbox{\parbox[t]{9cm}{ \begin{center}32位与64位：\end{center}\footnotesize 在“我的电脑”（Windows7）或“此电脑”（Windows10）或“This Computer”（英文版）上右击，属性，在“系统”栏目中能看到“系统类型”中是32位操作系统还是64位操作系统就行了（比如说，对于x64位的操作系统你会发现“64位操作系统，基于x64处理器”）。且32位的CPU仅能安装32位操作系统，64位的CPU可安装两者。32位的操作系统仅能运行32位程序，而64位的操作系统可运行两者且效率更高。目前几乎所有市面上的CPU（如Intel Core i3/i5/i7 \nth{8} Gen）均为64位架构，且仅支持Windows10 64位和部分版本的GNU/Linux操作系统。当然国产CPU应视情况而定。AMD64（直译为由AMD公司推出的64位架构）与x86\_64（Intel在x86架构下开发的64位版本x86，简写x64）在这里不作区分。arm64为高通处理器制造的64位，一般仅仅安装在手机、平板电脑或其他轻薄本、二合一本上，不常见。此时你应该选择Windows10 arm64这个特殊的版本。\normalsize}}},{}]
 这一章节将介绍操作系统的基本知识，如何在你的计算机上安装Windows10，及Windows10的基本使用。\par
 操作系统是一种可用于使用户得以与计算机交流，承载其它计算机程序的计算机程序，因此计算机必须安装操作系统才能运行。无论是国内还是国外，多种优秀的操作系统都可以为我们所用。通常我们使用Windows 操作系统来完成日常事务，GNU/Linux 搭建服务器。作为一种手机操作系统，Android正在数以万计的手机上被使用。有时我们还为特殊任务使用UNIX（亦称“尤尼克斯”），IBM 360、OS2（都是大型机操作系统，我们电教委员用不着），BSD \footnote{具体还分为FreeBSD、NetBSD与OpenBSD。附加信息：如Android x86（一个用于某些Android模拟器的操作系统）就是基于FreeBSD，OpenBSD号称全球最安全（最难学？）的操作系统。} 等操作系统。\par
@@ -120,7 +126,7 @@ Copyright \copyright{} 2018-2019 sgcomputers Lab. \par
 	\includegraphics[scale=0.6]{pic/WinComp}
 \end{center}
 \subsection{激活操作系统}
-如果你的计算机自带激活（比如说DELL的机器），Windows副本将在安装完后自动被激活。否则，你就需要输入序列号。使用未授权的KMS或其它破解行为违法并极易“引狼入室”，在这里不描述。如果你的工作组有Windows激活服务器（hefadeKMS），请请教网络管理员。\par
+如果你的计算机自带激活（比如说DELL的机器），Windows副本将在安装完后自动被激活。否则，你就需要输入序列号。使用未授权的KMS或其它破解行为违法并极易“引狼入室”，在这里不描述。如果你的工作组有Windows激活服务器（合法的KMS服务器）或者你的组织已经替你购买了正版操作系统（比如说浙江大学国际校区），请请教网络管理员。\par
 你需要设置自动更新。如果你的工作组有Windows更新服务器，请请教网络管理员。否则，如果连接外网，Windows将自动更新。\par
 Windows更新将会提供最新的安全补丁，安装它们有利于提升电脑安全性。例如，以前横扫世界的“冲击波”病毒只攻击没有安装特定型号补丁的旧型号Windows操作系统。
 \subsection{反病毒软件}
@@ -265,7 +271,7 @@ notepad又称“记事本”，是大多数Windows系统的必备组件。一般
 \subsection{VIM}
 自由软件。
 \begin{center}
-	\includegraphics[scale=0.7]{pic/vim.png}\\    \includegraphics[scale=0.7]{pic/gvim.png}
+	\includegraphics[scale=0.7]{pic/vim.png}\par   \includegraphics[scale=0.7]{pic/gvim.png}
 \end{center}
 分别为终端模式与图形界面。好的，一看到这个终端模式的画面，你就应该知道这个软件不好对付。其实图形界面也不好对付。
 \subsubsection{下载安装}
@@ -277,7 +283,7 @@ notepad又称“记事本”，是大多数Windows系统的必备组件。一般
 以及一个台湾的文档《大家來學VIM（一個歷久彌新的編輯器）》：\url{http://www.study-area.org/tips/vim/}（最后连接于2019年06月20日18:41:24），官方文档均可在\url{https://www.vim.org/docs.php}（最后连接于2019年06月20日18:42:01，网速较慢）中被找到。
 \subsection{GNU EMACS}
 \begin{center}
-	\includegraphics[scale=0.8]{pic/emacs-terminal}\\    \includegraphics[scale=0.8]{pic/Emacs-GUI}
+	\includegraphics[scale=0.8]{pic/emacs-terminal}\par   \includegraphics[scale=0.8]{pic/Emacs-GUI}
 \end{center}
 分别为终端模式与图形界面。EMACS全称Editor MACroS，即宏文本编辑器，是一个十分强大的自由文本编辑器和集成开发环境（IDE），与 Vim 被公认为最受程序员欢迎的文本编辑器之一，最初由 Richard Stallman 编写（所以当然是自由软件），目前最新版本26.2。\par
 这个编辑器历史悠久（默认界面不太现代化），集成语法高亮、编译、调试、版本控制、邮件、游戏（比如说贪吃蛇）和网络浏览器等功能。入门门槛较高，学习曲线陡，但若熟练将带给你很高的效率。你需要记住大量的快捷键。\par
@@ -533,7 +539,7 @@ Manual page apt(8) line 1 (press h for help or q to quit)
 ##当前行号（有时还会显示百分比）。按“h”键显示帮助即“man man”，
 ##“q”退出帮助系统。
 \end{verbatim}
-\Large \par\textbf{用法示例}\footnote{具体请参见man的帮助：“man -a man”。。\par 这里提供一些man的其它知识：\par 1.man命令的基础用法是“man [选项] [page].[section]。其中[page]是需要查找的帮助手册名称。\par 2.下述的“第n部分”是有特殊含义的。大致为：1-可执行程序或shell命令，2-调用系统核心，3-调用运行库，4-特殊文件，5-配置文件结构，6-游戏，7-多方面内容（杂项），8-系统管理命令（一般需要root权限），9-内核惯例。} \normalsize \par
+\Large  \textbf{用法示例}\footnote{具体请参见man的帮助：“man -a man”。。\par 这里提供一些man的其它知识：\par 1.man命令的基础用法是“man [选项] [page].[section]。其中[page]是需要查找的帮助手册名称。\par 2.下述的“第n部分”是有特殊含义的。大致为：1-可执行程序或shell命令，2-调用系统核心，3-调用运行库，4-特殊文件，5-配置文件结构，6-游戏，7-多方面内容（杂项），8-系统管理命令（一般需要root权限），9-内核惯例。} \normalsize \par
 “man foo”显示foo的帮助。\par
 “man foo.7”显示man的帮助，第7部分。\par
 “man -a foo”逐个显示所有foo的帮助。\par
@@ -827,7 +833,7 @@ Desired=Unknown/Install/Remove/Purge/Hold
 | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
 |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
 ||/ Name                          Version                Architecture Description
-+++-=============================-======================-============-===========================
++++-=============================-======================-============-======================
 ii  apt                           1.8.1                  amd64        commandline package manager
 ii  apt-config-icons              0.12.6-2               all          APT configuration snippet 
 un  apt-doc                       <none>                 <none>       (no description available)
@@ -1708,8 +1714,8 @@ htop ##任务管理器，可选，或gnome-system-monitor
 （5）使用“normal”并回车启动grub。
 \subsection{进入了initramfs？}
 请参考下一步提示信息：如果告诉你“a manual fsck is needed”，请使用fsck命令对根目录及其它相关目录进行检查（一路y过来即可）。如果要求你输入root密码，那么有可能是fstab文件出错，使用vim修改一下。
-\backmatter
 \appendix
+\renewcommand{\thechapter}{\Roman{chapter}}
 \chapter{跋}
 在创作这本书的时候，我深深地感到了我语言的苍白、英语水平低下，对计算机知识的了解也仅仅浮于表面。我不得不对在计算机方面雄心勃勃的电教委员说，学好英语是第一要务。\par
 “技”海无涯，这本书将永远“不”完全，并会不断完善下去。恳请广大读者不吝赐教。
