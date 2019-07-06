@@ -32,6 +32,7 @@
 	\Huge 试行本 \normalsize
 \end{center}
 \tableofcontents
+\frontmatter
 \section{Copyright 版权}
 Copyright \copyright{} 2018-2019 sgcomputers Lab. \par
 使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者sgcomputers，邮箱\url{theafamily@126.com}（最后连接于2019年06月20日17:32:17）。\par
@@ -44,7 +45,7 @@ Copyright \copyright{} 2018-2019 sgcomputers Lab. \par
 时己亥年肆月廿七日，西历2019年5月1日\par
 慈溪sgcomputers于家之书房
 \section{关于互联网安全的提示}
-\begin{window}[2,r,{\shadowbox{\parbox[t]{6cm}{以下为对原文中重要内容的引用。火绒工程师认为：所谓的“下载器”和“高速下载通道”既没有用处，也没有存在的必要。为了躲避这些“下载器”的侵扰，用户可以去某个软件的官网下载产品，一般不用担心下载到下载器。这些“下载器”存在的意义就是为了捆绑安装其他软件。这些捆绑软件无一例外都不是用户当时想要的，如果想要这些软件，在下载站上都能找到。总之，除了给用户制造麻烦，所谓这些“高速下载通道”和“下载器”没有任何作用。}}},{}]
+\begin{window}[2,r,{\shadowbox{\parbox[t]{6cm}{\footnotesize 以下为对原文中重要内容的引用。火绒工程师认为：所谓的“下载器”和“高速下载通道”既没有用处，也没有存在的必要。为了躲避这些“下载器”的侵扰，用户可以去某个软件的官网下载产品，一般不用担心下载到下载器。这些“下载器”存在的意义就是为了捆绑安装其他软件。这些捆绑软件无一例外都不是用户当时想要的，如果想要这些软件，在下载站上都能找到。总之，除了给用户制造麻烦，所谓这些“高速下载通道”和“下载器”没有任何作用。\normalsize}}},{}]
 {\color{red}{本书内所有网络链接在“最后连接时间”前均有效且已经过Norton Safe Web的Edge插件、Microsoft SmartScreen筛选器及卡巴斯基网络反病毒（包含于卡巴斯基免费版2019，病毒库更新时间为检测当天12:00）检测。\par 注意，本书中提到的所有应用程序都应该从其官方网站或镜像源处下载。我们不推荐本书的使用者从任何非官方软件发布处（如腾讯电脑管家或PC6等下载站）下载任何本书中提到的软件（官方认可的镜像源除外）。请参见【火绒安全-下载站行业乱象：流氓软件和电脑病毒重灾区】\url{https://www.huorong.cn/info/149181215360.html}（最后连接于2019年6月21日16:20:40）}}。\par 同样需要声明的是，从任何网站下载“破解版”或“注册机”“算号器（KeyGen）”“KMS注册机（这里仅指非法的KMS服务器。合法的服务器不用担心）”（以下简称“侵权程序”）都是不被允许的。这些侵权程序大部分含有“后门”或直接携带病毒（主要表现为网络蠕虫、挖矿机程序和Rootkit，或皆有）。具体请参见【“小马激活”病毒日感染数万台电脑 建议百度、360屏蔽该关键词】\url{https://www.huorong.cn/info/146173867117.html}，【“小马激活”病毒新变种分析报告】\url{https://www.huorong.cn/info/146173922919.html}，【激活工具带毒感染量近60万 北京等四城市用户不被攻击】\url{https://www.huorong.cn/info/1526627586130.html}，【火绒安全警报：病毒伪装成激活工具  强制安装360、2345浏览器】\url{https://www.huorong.cn/info/1535631707148.html}（最后连接于2019年6月21日16:30:28）。\par 对于错误反馈，任何由于违反以上两条原则导致的问题将不会被回复。\par 如果你确信你的下载站提供了可靠的软件，你也需要使用哈希校验来确保文件可靠性。方法：使用7Zip在文件资源管理器中的右键菜单“CRC SHA”选项校验哈希值并于官方提供的哈希制作比较。如果一致，那么这个软件可视为是官方的。
 \end{window}
 经检测的镜像站列表如下（检测于2019年6月22日17:16:47）：
@@ -61,20 +62,23 @@ Copyright \copyright{} 2018-2019 sgcomputers Lab. \par
 	\item 【Mirrors@NWAFU】\url{https://mirrors.nwafu.edu.cn/}
 	\item \url{https://mirrors.sohu.com/}
 \end{itemize}
+\mainmatter
 \chapter{入门}
-\section{操作系统}
+\section{视窗操作系统及安装}
+
+\begin{window}[2,r,{\shadowbox{\parbox[t]{9cm}{ \begin{center}32位与64位：\end{center}\footnotesize 在“我的电脑”（Windows7）或“此电脑”（Windows10）或“This Computer”（英文版）上右击，属性，在“系统”栏目中能看到“系统类型”中是32位操作系统还是64位操作系统就行了（比如说，对于x64位的操作系统你会发现“64位操作系统，基于x64处理器”）。且32位的CPU仅能安装32位操作系统，64位的CPU可安装两者。32位的操作系统仅能运行32位程序，而64位的操作系统可运行两者且效率更高。目前几乎所有市面上的CPU（如Intel Core i3/i5/i7 \nth{8} Gen）均为64位架构，且仅支持Windows10 64位和部分版本的GNU/Linux操作系统。当然国产CPU应视情况而定。AMD64（直译为由AMD公司推出的64位架构）与x86\_64（Intel在x86架构下开发的64位版本x86，简写x64）在这里不作区分。arm64为高通处理器制造的64位，一般仅仅安装在手机、平板电脑或其他轻薄本、二合一本上，不常见。此时你应该选择Windows10 arm64这个特殊的版本。\normalsize}}},{}]
 这一章节将介绍操作系统的基本知识，如何在你的计算机上安装Windows10，及Windows10的基本使用。\par
 操作系统是一种可用于使用户得以与计算机交流，承载其它计算机程序的计算机程序，因此计算机必须安装操作系统才能运行。无论是国内还是国外，多种优秀的操作系统都可以为我们所用。通常我们使用Windows 操作系统来完成日常事务，GNU/Linux 搭建服务器。作为一种手机操作系统，Android正在数以万计的手机上被使用。有时我们还为特殊任务使用UNIX（亦称“尤尼克斯”），IBM 360、OS2（都是大型机操作系统，我们电教委员用不着），BSD \footnote{具体还分为FreeBSD、NetBSD与OpenBSD。附加信息：如Android x86（一个用于某些Android模拟器的操作系统）就是基于FreeBSD，OpenBSD号称全球最安全（最难学？）的操作系统。} 等操作系统。\par
-我们将个人计算机操作系统大致分为两类：桌面操作系统与服务器操作系统。这一节介绍桌面操作系统为主。你可以参考它们的网站来了解你感兴趣的操作系统。服务器操作系统“自度非吾业也”，这里不再赘述。
-\subsection{视窗操作系统及安装}
-\begin{window}[2,r,{\shadowbox{\parbox[t]{9cm}{ \begin{center}32位与64位：\end{center}在“我的电脑”（Windows7）或“此电脑”（Windows10）或“This Computer”（英文版）上右击，属性，在“系统”栏目中能看到“系统类型”中是32位操作系统还是64位操作系统就行了（比如说，对于x64位的操作系统你会发现“64位操作系统，基于x64处理器”）。且32位的CPU仅能安装32位操作系统，64位的CPU可安装两者。32位的操作系统仅能运行32位程序，而64位的操作系统可运行两者且效率更高。目前几乎所有市面上的CPU（如Intel Core i3/i5/i7 \nth{8} Gen）均为64位架构，且仅支持Windows10 64位和部分版本的GNU/Linux操作系统。当然国产CPU应视情况而定。AMD64（直译为由AMD公司推出的64位架构）与x86\_64（Intel在x86架构下开发的64位版本x86，简写x64）在这里不作区分。arm64为高通处理器制造的64位，一般仅仅安装在手机、平板电脑或其他轻薄本、二合一本上，不常见。此时你应该选择Windows10 arm64这个特殊的版本.}}},{}]
+我们将个人计算机操作系统大致分为两类：桌面操作系统与服务器操作系统。这一节介绍桌面操作系统为主。你可以参考它们的网站来了解你感兴趣的操作系统。服务器操作系统“自度非吾业也”，这里不再赘述。\par
 对于中国的用户来说，视窗操作系统恐怕是最熟悉的操作系统了。该系统自Windows 3.1就在中国发布，并在Windows95面市后以其美观易用（和虚弱的版权保护）横扫中国国产操作系统。因此作为一个被广为接受（那就是说，市场占有率极高）的操作系统，学习它是十分重要的。\par
-作为微软公司最新发布的操作系统，Windows10以其美观的界面，强大的可操作性与兼容性成为目前为止最好的Windows操作系统\footnote{当然，见仁见智。微软的竞争对手比如说GNU就不这么认为。参考【微软公司的软件是恶意软件】\url{http://www.gnu.org/proprietary/malware-microsoft.html}（最后连接于2019年06月20日17:35:43）}。它还包括最新的IIS \footnote{Internet Information Service，互联网信息服务。IIS是一种Web（网页）服务组件，其中包括Web服务器、FTP服务器、NNTP服务器和SMTP服务器，分别用于网页浏览、文件传输、新闻服务和邮件发送等方面，它使得在网络（包括互联网和局域网）上发布信息成了一件很容易的事。\cite{iisinfo}}、SmartScreen筛选器\footnote{一个网络安全检查程序，会检查你浏览的网页和下载内容是否含毒（顺带防止下载“激活工具”）。}及.Net Framework \footnote{.Net Framework：到目前为止你只需要知道以下内容就行了：（1）这个程序为由VB.Net，VC\#等产生的应用程序提供承载平台。（2）对于Windows XP，你应该安装.Net Framework 4.0。对于Windows7，你至少应该安装.Net Framework 4.8。Windows10自带.Net Framework。}与.Net Core。要学习一个操作系统，你首先要安装它。下面以介绍了一些简单的方法。注意，为避免病毒侵入（以及安装时下载更新“浪费时间”），安装时请断网。\par
+作为微软公司最新发布的操作系统，Windows10以其美观的界面，强大的可操作性与兼容性成为目前为止最好的Windows操作系统\footnote{当然，见仁见智。微软的竞争对手比如说GNU就不这么认为。参考【微软公司的软件是恶意软件】\url{http://www.gnu.org/proprietary/malware-microsoft.html}（最后连接于2019年06月20日17:35:43）}。它还包括最新的IIS \footnote{Internet Information Service，互联网信息服务。IIS是一种Web（网页）服务组件，其中包括Web服务器、FTP服务器、NNTP服务器和SMTP服务器，分别用于网页浏览、文件传输、新闻服务和邮件发送等方面，它使得在网络（包括互联网和局域网）上发布信息成了一件很容易的事。\cite{iisinfo}}、SmartScreen筛选器\footnote{一个网络安全检查程序，会检查你浏览的网页和下载内容是否含毒（顺带防止下载“激活工具”）。}及.Net Framework \footnote{.Net Framework：到目前为止你只需要知道以下内容就行了：（1）这个程序为由VB.Net，VC\#等产生的应用程序提供承载平台。（2）对于Windows XP，你应该安装.Net Framework 4.0。对于Windows7，你至少应该安装.Net Framework 4.8。Windows10自带.Net Framework。}与.Net Core。\par
+要学习一个操作系统，你首先要安装它。下面以介绍了一些简单的方法。注意，为避免病毒侵入（以及安装时下载更新“浪费时间”），安装时请断网。\par
 首先回答一个问题：安装哪个版本的Windown10?对于目前的硬件生产商，我建议你安装64位（64-bit）操作系统。版本上，我建议使用“专业版”而不是“家庭版”\footnote{设备自带激活除外}，因为专业版提供了家庭版所不具有的管理功能（如组策略）。专业版可在Microsoft Store买到。专业版已经可以胜任教学操作，不需要升级为专业工作站版。\par
+\end{window}
 法一：自Windows7及以上升级\par
 自Windows7及以上的操作系统\footnote{指Windows7，Windows8，Windows8.1及较旧版本的Windows10，无论32位还是64位。}升级是一个明智的决定。它能够保存你的大部分信息、文件及软件。它唯一的不足是不能在32位于64位之间自由切换。\par
 首先你需要一个工具：Media Creation Tool。它可在【下载Windows10】\url{https://www.microsoft.com/zh-cn/software-download/windows10}（最后连接于2019年06月20日18:14:17）处被下载。之后以管理员权限运行它\footnote{为了实现这一步，你需要以“Administrator”账户登录，并右击该程序，选择“以管理员权限运行”}。将会弹出“适用的声明和许可条款”，请在{\color{red}{仔细阅读}}后选择“我接受许可条款”（当然你也可以选择退出安装，如果你不同意）并单击“下一步”，在“你想执行什么操作？”时单击“升级这台电脑”。之后将会下载Windows10并创建介质，真正的安装程序将从介质中启动。大部分随后的操作与法二相同，在此不再赘述。\par
-\end{window}
+
 法二：使用安装光盘或USB设备引导安装\par
 对于希望更加自由地安装操作系统并有一定技术水平的人可以选择安装光盘或USB设备引导安装。安装镜像可在【下载 Windows10 光盘映像（ISO 文件）】\url{https://www.microsoft.com/zh-cn/software-download/windows10ISO}（最后连接于2019年06月20日18:14:17）得到或在Media Creation Tool中创建。Rufus的最新版本也支持下载Windows10。
 \begin{center}
@@ -108,74 +112,7 @@ Copyright \copyright{} 2018-2019 sgcomputers Lab. \par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 法四：使用其它安装程序\par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{GNU/Linux及其发行版}
-GNU/Linux产生于Minix，而Minix产生于Unix。具体产生历史不再赘述。\par
-首先，GNU/Linux是以Linux为内核，辅以GNU\footnote{GNU（GNU is Not Unix的递归缩写）是一个由理查德·斯托曼为推广自由软件发起的运动（自由软件运动）的一部分。它产生了一些如 Gnu Emacs（参见下文：文本编辑器——GNU Emacs）、gcc（GNU Compiler Collection，即GNU编译器套件，包含 C、C++、Objective-C、Fortran、Ada、Go、D 等语言（那个，别问我它们是什么，我也不知道）的编译器及这些语言的运行库，由 Richard Stallman 于 1987 年发布，最新版本 7.4）、GIMP（GNU Image Manipulation Program，图像处理软件，号称“GNU/Linux下的 PhotoShop”）等自由软件。具体请参看附录中的“GNU宣言”。}工具集的操作系统。因此，说“Linux操作系统”是不合适的。\par
-（通俗地讲，）发行版是你可以下载安装的GNU/Linux版本。基于学习难度、兼容性及易用性，我们主要使用以下GNU/Linux发行版：
-\begin{itemize}
-	\item Arch Linux：一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛除外）。
-	\item CentOS：“社区企业操作系统”的缩写，稳定性较强，社区维护，免费下载安装。
-	\item Debian GNU/Linux：参见上文。虽然软件更新较慢，但稳定性较强。
-	\item Gentoo Linux：一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛除外）。
-	\item Fedora：前瞻性性较强，社区维护并由RedHat基金会支持，免费下载安装。
-	\item Kali Linux：黑客专用，不适合用于教学。
-	\item Red Hat Enterprise Linux （RHEL）：稳定性和保密程度极强，付费下载安装。不适合用于教学。
-	\item Ubuntu：一个基于Debian GNU/Linux的发行版，前瞻性性较强，支持的软件包极多，适合用于教学。在“高级”章中我们将会使用此发行版作为示例。
-	\item Linux Mint：同上。目前最适合于初学者的GNU/Linux发行版。十分人性化，建议初学者选用。适合用于教学。
-	\item Pure OS：一个认证完全自由的发行版。
-	\item （半）国产操作系统这里不再赘述。
-\end{itemize}
-\subsubsection{GNU/Linux的优点}
-\begin{itemize}
-	\item  适用于配置较低的或生产较早的机器\footnote{废话，人家本来就长寿嘛。}。运行速度快。\par
-	\item 自由软件支持者可以选用\footnote{仅限于其中的部分发行版。能通过理查德·斯托曼检验的发行版并不多。具体请参见【自由的GNU/Linux发行版】\url{http://www.gnu.org/distros/free-distros.html}（最后连接于2019年06月20日18:16:24）}。\par
-	\item 拥有权力无限大的root用户，不会受到类似于Window操作系统中“System”或“TrustedInstaller”等权限超级大的“用户”制约\footnote{我举一个例子：Windows操作系统在Administrator权限下尝试删除“C:\textbackslash Windows\textbackslash notepad.exe”（即“记事本”）会出错，而在Linux下删除整个根目录“/”都不会出问题（当然这会导致你的计算机无法启动，但至少删除的任务完成了，是吧？）。}。\par
-	\item 具有功能十分强大的软件（如“rm”——个删除文件的命令行工具）（当然，见仁见智，我不得不说这些强大的软件并不易用。）。
-	\item 几乎不可能中毒。但你还是要使用诸如clamav之类的反病毒软件。
-\end{itemize}
-\subsubsection{GNU/Linux的缺点}
-\begin{itemize}
-\item 入门门槛高。我们只建议经验丰富的电教委员尝试。
-\item 硬件驱动少（尤其是完全使用自由软件时）。原因在于自由软件开发者有限，自由的硬件厂商有限（根本原因当然是GNU/Linux市场占有率极低）因此在新型号的机器上某些驱动无法被加载。但是不同发行版间兼容性差异还是存在的，如Debian GNU/Linux兼容性就弱于Ubuntu Linux。
-\item 软件数量有限（这里的意思是说，比较“大众化”的软件（如腾讯QQ，微信）有限（但是有有道词典，搜狗输入法，WPS2019办公软件与网易云音乐）），并且对“.exe”的可执行文件支持极差（即使采用Wine或其它类似技术）。	
-\end{itemize}
-\subsection{（半）国产操作系统概况}
-国产操作系统主要以GNU/Linux或BSD为内核。在MS Windows进入中国前曾经繁荣过一段时间。但目前其民用桌面操作系统在国内占有的市场份额极小，大部分国产操作系统为政府或军事机构服务。现列举一些著名的操作系统：
-\subsubsection{红旗Linux}
-\url{http://www.redflag-linux.com/}（最后连接于2019年06月20日18:17:29）。 \par
-红旗Linux操作系统产生于科索沃战争。当时，前南斯拉夫的计算机安装的操作系统均为MS DOS操作系统。美国军方使用信息战等手段让前南斯拉夫的通讯系统几乎全部瘫痪。这件事让中国政府部门深感研发出拥有自主知识产权的操作系统有多么重要。中国科学院软件研究所奉命研制基于GNU/Linux的自主操作系统，并于1999年8月发布了红旗Linux 1.0版。最初主要用于关系国家安全的重要政府部门。红旗操作系统至今为止仍是最大最成熟的国产操作系统。最新版本9。 \cite{rflinux} \par
-\large 实测\par
-\normalsize  经过虚拟机安装测验发现，红旗Linux主要基于Fedora。在Live映像中已经安装网易云音乐、WPS办公软件、WineQQ （QQ的非官方GNU/Linux版）、Electric WeChat（微信的非官方GNU/Linux版） 等常用软件。安装版所自带的Yum源 \footnote{Yum与APT将会在“高级”篇中讲到} 所能够提供的软件包数量没有Fedora官方发行版多，并且下载速度较国内镜像源（如TUNA \footnote{TUNA，全称Tsinghua University Network Association，是清华大学一群爱好网络技术的极客组成的社团。} 源）慢。因此，我并不支持在教学上使用此操作系统。
-\begin{center}
-	\includegraphics[scale=0.5]{pic/redflag}
-\end{center}
-\subsubsection{Deepin Linux}
-\url{https://www.deepin.org/}\par
-\cite{deepininfo}深度操作系统基于Linux内核，以桌面应用为主的开源GNU/Linux操作系统，支持笔记本、台式机和一体机。深度操作系统（deepin）包含深度桌面环境（DDE）和近30款深度原创应用，及数款来自开源社区的应用软件，支撑广大用户日常的学习和工作。另外，通过深度商店还能够获得近千款应用软件的支持，满足您对操作系统的扩展需求。深度操作系统由专业的操作系统研发团队和深度技术社区（www.deepin.org）共同打造，其名称来自深度技术社区名称“deepin”一词，意思是对人生和未来深刻的追求和探索。
-\large 实测\par
-\normalsize 免费下载安装，安装较为方便。APT镜像源较多，更新较快。适合用于教学。同样拥有WineQQ与Electric WeChat，体验接近Ubuntu。适合用于教学。
-\begin{center}
-	\includegraphics[scale=0.5]{pic/deepin}
-\end{center}
-\subsubsection{Start OS}
-\url{http://www.startos.org/}\par
-\cite{startosinfo} StartOS是由东莞瓦力网络科技有限公司发行的开源操作系统，符合国人的使用习惯，预装常用的精品软件，操作系统具有运行速度快，安全稳定，界面美观，操作简洁明快等特点。\par
-StartOS使用全新的包管理，全新的操作界面，是一个易用，安全，稳定，易扩展，更加符合中国人操作习惯的桌面操作系统。Linux 系统的安全，稳定是众所周知的事情，StartOS 将朝着易用的方向坚持走出自己的特色。最新版本5.1。\par
-\large 实测\par
-\normalsize 免费下载安装。安装并未过多简化，仅仅减少步骤。你还是需要GNU/Linux分区相关知识。但安装速度快。\par
-图形界面接近于WindowsXP。软件较少且落后（如LibreOffice仅3.1——目前6.2.3，Emacs仅24——目前26.2，GIMP仅2.8-目前2.10）。因此，我并不支持在教学上使用此操作系统。
-\begin{center}
-	\includegraphics[scale=0.5]{pic/startos}
-\end{center}
-\subsubsection{Ubuntu Kylin}
-\url{https://www.ubuntukylin.com/}\par
-优麒麟（Ubuntu Kylin）是由天津麒麟信息技术有限公司主导开发的全球开源项目，其宗旨是通过研发用户友好的桌面环境以及特定需求的应用软件，为全球 Linux 桌面用户带来非凡的全新体验！\par
-优麒麟操作系统是 Ubuntu 官方衍生版，得到来自 Debian、Ubuntu、Mate、LUPA 等国际社区及众多国内外社区爱好者的广泛参与和热情支持。其开发贡献者可参见Ubuntu Kylin开发者团队列表。\cite{ukinfo}
-\large 实测\par
-\normalsize 免费下载安装。除了切换桌面，增加默认安装WPS、搜狗拼音输入法等外，与Ubuntu区别不大。适合用于教学。
-\begin{center}
-	\includegraphics[scale=0.4]{pic/uk}
-\end{center}
+
 \section{Windows：开箱设置}
 这一章节将介绍安装完Windows10操作系统后的“开箱设置（First Things First）”。包括：实现日常教学所需的软件，自动更新及常见的反病毒软件。\par
 首先你需要在桌面上搞到“计算机”。找到“开始”菜单--设置--个性化（一个大方块）--主题（左边的长方形）--桌面图标设置（如图），选中“计算机”后单击“确定”。
@@ -183,7 +120,7 @@ StartOS使用全新的包管理，全新的操作界面，是一个易用，安�
 	\includegraphics[scale=0.6]{pic/WinComp}
 \end{center}
 \subsection{激活操作系统}
-如果你的计算机自带激活，Windows副本将自动被激活。否则，你就需要输入序列号。使用未授权的KMS或其它破解行为违法并极易“引狼入室”，在这里不描述。\par
+如果你的计算机自带激活（比如说DELL的机器），Windows副本将在安装完后自动被激活。否则，你就需要输入序列号。使用未授权的KMS或其它破解行为违法并极易“引狼入室”，在这里不描述。如果你的工作组有Windows激活服务器（hefadeKMS），请请教网络管理员。\par
 你需要设置自动更新。如果你的工作组有Windows更新服务器，请请教网络管理员。否则，如果连接外网，Windows将自动更新。\par
 Windows更新将会提供最新的安全补丁，安装它们有利于提升电脑安全性。例如，以前横扫世界的“冲击波”病毒只攻击没有安装特定型号补丁的旧型号Windows操作系统。
 \subsection{反病毒软件}
@@ -201,7 +138,7 @@ Windows更新将会提供最新的安全补丁，安装它们有利于提升电�
 注意，你应该关注“家用Windows10产品”，而不是“企业”。\par
 现在也许你会问一个问题：360在哪里呀？我不得不遗憾地告诉你：360由于送检产品与实际用户可以获得的产品存在不符，已经在AV-Test、AV-C机构黑名单上了。AV-Test最后一次测试于2017年10月，参见\url{https://www.av-test.org/en/antivirus/home-windows/manufacturer/qihoo-360/}（最后连接于2019年06月20日18:33:02）。AV-C最后一次测试位于2016年，参见\url{https://www.av-comparatives.org/vendors/qihoo/}（最后连接于2019年06月20日18:33:12）。
 \subsubsection{教学用免费反病毒软件排行榜}
-综合以上评测机构的数据加以自身使用经验，推荐以下反病毒软件：\par
+综合以上评测机构的数据加以自身使用经验，推荐以下反病毒软件：\footnote{说明中的wine指的是原生wine，不是deepin-wine。}\par
 1.卡巴斯基免费版\par
 地址：\url{https://www.kaspersky.com.cn/downloads/thank-you/free-antivirus-download}（最后连接于2019年06月20日18:33:26）。\par
 优点：反病毒能力强劲，自我保护功能极强，病毒库更新快，支持任务计划及静默操作，中国用户支持好。\par
@@ -419,10 +356,97 @@ GNU/Linux可用于Windows反病毒原因是：Windows二进制文件\footnote{�
 这一个章节将以 Lubuntu\footnote{这是Ubuntu的一个衍生版本，除了将默认桌面替换为LXDE外与“正常”的Ubuntu没有大的区别。} 19.04为例，指示电教委员如何安装GNU/Linux平台使其与Windows操作系统共存，简单的GNU/Linux设置及使用GNU/Linux实现日常教学。\par
 \section{免责声明}
 {\color{red} {注意，我希望一个能力较强，英语水平较高且经验丰富的电教委员学习这部分内容。sgcomputers Lab对产生的任何错误概不负责，请自行备份旧操作系统！一切翻译内容如与最新版的英文文章有所冲突，皆以最新版为准！}}\par
-GNU/Linux的更新速度较快，我写的内容恐怕很快就会过时。希望读者给予反馈。GNU/Linux是一个博大精深的体系，请原谅我不断使用“参见下文”。
-\section{安装GNU/Linux：以图形界面安装为例}
-需要注意的是：GNU/Linux不同发行版的安装方法各不相同，因此在安装其它发行版（如Arch Linux）时就应该格外注意下文所述方法并不是“放诸四海而皆准”的。警告！安装时不要联网！\par
-首先你需要一张Ubuntu Linux的启动光盘或U盘。我仍旧推荐TUNA源：\url{https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/lubuntu/releases/19.04/release/lubuntu-19.04-desktop-amd64.iso}（最后连接于2019年06月20日18:44:45）。之后使用与Windows相同的方法写入光盘（或U盘）。现在你将计算机开启，将光盘插入光驱后重启。你将被引导到光盘启动\footnote{参见上文Windows安装。}。你将看到\footnote{如果你使用UEFI启动，你将看不到此界面。此时你应在“GNU Grub”界面选择“Try Ubuntu 19.04”。}左图所示界面。选择“English”\footnote{不推荐安装中文的GNU/Linux操作系统。具体设置中文显示方法请参考下文。}并敲两下回车键。在一段时间的等待后，你将看到：
+GNU/Linux的更新速度较快，我写的内容恐怕很快就会过时。希望读者给予反馈。GNU/Linux是一个博大精深的体系，请原谅我不断使用“参见下文”。\par
+请你确保一下内容后学习这一章：
+\begin{itemize}
+	\item 你已经完全学习了VimTutor，知道vi与vim的基本使用方法（如，打开、保存、另存为文件，文件内查找等等）、区别和联系。大多数GNU/Linux发行版都自带vi。若否，学习这些内容。某一些发行版也自带GNU Nano编辑器，如果实在学不会vim可以试一试这个。
+	\item 你拥有一台闲置的计算机或虚拟机；或者计算机上的所有内容已经被备份到了可移动媒体上；或者你的班主任及任课老师非常和善，能够容忍由于你“疯狂”实验导致的数天的宕机。
+	\item 不错的英语水平。比如说你应该毫无障碍地看懂这份资料：You can generally also specify long option names with a single -; for example, -batch as well as --batch.  You can use any unambiguous abbreviation for a --option. Various environment variables and window system resources also affect the operation of Emacs.  See the main documentation. Report bugs to bug-gnu-emacs@gnu.org.  First, please see the Bugs section of the Emacs manual or the file BUGS.这是由“emacs --help”命令生成的GNU Emacs26.2的帮助内容的最后一小部分。
+	\item 你已经学会了Windows系统上CygWin中无需图形界面的命令。你至少应该学会以下命令：ls、pwd、cd、rm、mkdir、cp、mv、cat、more、less的精确用法，知道管道符的作用。
+	\item 在一台真实的机器上操作前，务必确保你已经完整地读完了本书的最新版本！
+\end{itemize}
+\section{在Windows操作系统上使用GNU/Linux命令：CygWin}
+CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序在Windows操作系统上运行的程序。你可以借此使用优秀的GNU/Linux程序。官网：\url{http://www.cygwin.com/}（最后连接于2019年7月6日16:22:55）。请下载安装包后作以下设置：
+\begin{itemize}
+\item 选择“Install from Internet”，开始在线安装（你也可以使用“Download without Installing”离线整个软件源，不建议）。
+\item “Root Directory”作为根目录，请选择“C:\textbackslash cygwin”便于维护。
+\item “Local Package Directory”请选择“下载”文件夹。
+\item 软件源请选择tuna源，或其它可信软件源。之后会存在一些卡顿和无响应，属于正常情况，不要担心。
+\item 软件包请选择“Best”外加你需要的软件包。注意，不建议安装桌面系统。
+\item 安装完后别忘了添加/bin、/sbin、/usr/bin、/usr/sbin到系统PATH变量（你可以选择Windows环境变量，也可以使用“export PATH”命令）。 
+\end{itemize}
+请注意，没有apt软件包管理器。我建议你可以选择安装ClamAV为Windows杀毒。
+\section{GNU/Linux及其发行版}
+GNU/Linux产生于Minix，而Minix产生于Unix。具体产生历史不再赘述。\par
+首先，GNU/Linux是以Linux为内核，辅以GNU\footnote{GNU（GNU is Not Unix的递归缩写）是一个由理查德·斯托曼为推广自由软件发起的运动（自由软件运动）的一部分。它产生了一些如 Gnu Emacs（参见下文：文本编辑器——GNU Emacs）、gcc（GNU Compiler Collection，即GNU编译器套件，包含 C、C++、Objective-C、Fortran、Ada、Go、D 等语言（那个，别问我它们是什么，我也不知道）的编译器及这些语言的运行库，由 Richard Stallman 于 1987 年发布，最新版本 7.4）、GIMP（GNU Image Manipulation Program，图像处理软件，号称“GNU/Linux下的 PhotoShop”）等自由软件。具体请参看附录中的“GNU宣言”。}工具集的操作系统。因此，说“Linux操作系统”是不合适的。\par
+（通俗地讲，）发行版是你可以下载安装的GNU/Linux版本。基于学习难度、兼容性及易用性，我们主要使用以下GNU/Linux发行版：
+\begin{itemize}
+	\item Arch Linux：一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛除外）。
+	\item CentOS：“社区企业操作系统”的缩写，稳定性较强，社区维护，免费下载安装。
+	\item Debian GNU/Linux：参见上文。虽然软件更新较慢，但稳定性较强（仅限于Stable分支）。
+	\item Gentoo Linux：一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛除外）。
+	\item Fedora：前瞻性性较强，社区维护并由RedHat基金会支持，免费下载安装。
+	\item Kali Linux：内含大部分黑客专用的工具，使用apt软件包管理器，适合用于教学。
+	\item Red Hat Enterprise Linux （RHEL）：稳定性和保密程度极强，付费下载安装。不适合用于教学。
+	\item Ubuntu：一个基于Debian GNU/Linux的发行版，前瞻性性较强，支持的软件包极多，适合用于教学。在“高级”章中我们将会使用此发行版作为示例。
+	\item Linux Mint：同上。目前最适合于初学者的GNU/Linux发行版。十分人性化，建议初学者选用。适合用于教学。
+	\item Pure OS：一个认证完全自由的发行版。
+	\item （半）国产操作系统这里不再赘述。
+\end{itemize}
+\subsubsection{GNU/Linux的优点}
+\begin{itemize}
+	\item  适用于配置较低的或生产较早的机器\footnote{废话，人家本来就长寿嘛。}。运行速度快。\par
+	\item 自由软件支持者可以选用\footnote{仅限于其中的部分发行版。能通过理查德·斯托曼检验的发行版并不多。具体请参见【自由的GNU/Linux发行版】\url{http://www.gnu.org/distros/free-distros.html}（最后连接于2019年06月20日18:16:24）}。\par
+	\item 拥有权力无限大的root用户，不会受到类似于Window操作系统中“System”或“TrustedInstaller”等权限超级大的“用户”制约\footnote{我举一个例子：Windows操作系统在Administrator权限下尝试删除“C:\textbackslash Windows\textbackslash notepad.exe”（即“记事本”）会出错，而在Linux下删除整个根目录“/”都不会出问题（当然这会导致你的计算机无法启动，但至少删除的任务完成了，是吧？）。}。\par
+	\item 具有功能十分强大的软件（如“rm”——个删除文件的命令行工具）（当然，见仁见智，我不得不说这些强大的软件并不易用。）。
+	\item 几乎不可能中毒。但你还是要使用诸如clamav之类的反病毒软件。
+\end{itemize}
+\subsubsection{GNU/Linux的缺点}
+\begin{itemize}
+	\item 入门门槛高。我们只建议经验丰富的电教委员尝试。
+	\item 硬件驱动少（尤其是完全使用自由软件时）。原因在于自由软件开发者有限，自由的硬件厂商有限（根本原因当然是GNU/Linux市场占有率极低）因此在新型号的机器上某些驱动无法被加载。但是不同发行版间兼容性差异还是存在的，如Debian GNU/Linux兼容性就弱于Ubuntu Linux。
+	\item 软件数量有限（这里的意思是说，比较“大众化”的软件（如腾讯QQ，微信）有限（但是有有道词典，搜狗输入法，WPS2019办公软件与网易云音乐）），并且对“.exe”的可执行文件支持极差（即使采用Wine或其它类似技术）。	
+\end{itemize}
+\subsection{（半）国产操作系统概况}
+国产操作系统主要以GNU/Linux或BSD为内核。在MS Windows进入中国前曾经繁荣过一段时间。但目前其民用桌面操作系统在国内占有的市场份额极小，大部分国产操作系统为政府或军事机构服务。现列举一些著名的操作系统：
+\subsubsection{红旗Linux}
+\url{http://www.redflag-linux.com/}（最后连接于2019年06月20日18:17:29）。 \par
+红旗Linux操作系统产生于科索沃战争。当时，前南斯拉夫的计算机安装的操作系统均为MS DOS操作系统。美国军方使用信息战等手段让前南斯拉夫的通讯系统几乎全部瘫痪。这件事让中国政府部门深感研发出拥有自主知识产权的操作系统有多么重要。中国科学院软件研究所奉命研制基于GNU/Linux的自主操作系统，并于1999年8月发布了红旗Linux 1.0版。最初主要用于关系国家安全的重要政府部门。红旗操作系统至今为止仍是最大最成熟的国产操作系统。最新版本9。 \cite{rflinux} \par
+\large 实测\par
+\normalsize  经过虚拟机安装测验发现，红旗Linux主要基于Fedora。在Live映像中已经安装网易云音乐、WPS办公软件、WineQQ （QQ的非官方GNU/Linux版）、Electric WeChat（微信的非官方GNU/Linux版） 等常用软件。安装版所自带的Yum源 \footnote{Yum与APT将会在“高级”篇中讲到} 所能够提供的软件包数量没有Fedora官方发行版多，并且下载速度较国内镜像源（如TUNA \footnote{TUNA，全称Tsinghua University Network Association，是清华大学一群爱好网络技术的极客组成的社团。} 源）慢。因此，我并不支持在教学上使用此操作系统。
+\begin{center}
+	\includegraphics[scale=0.5]{pic/redflag}
+\end{center}
+\subsubsection{Deepin Linux}
+\url{https://www.deepin.org/}\par
+\cite{deepininfo}深度操作系统基于Linux内核，以桌面应用为主的开源GNU/Linux操作系统，支持笔记本、台式机和一体机。深度操作系统（deepin）包含深度桌面环境（DDE）和近30款深度原创应用，及数款来自开源社区的应用软件，支撑广大用户日常的学习和工作。另外，通过深度商店还能够获得近千款应用软件的支持，满足您对操作系统的扩展需求。深度操作系统由专业的操作系统研发团队和深度技术社区（www.deepin.org）共同打造，其名称来自深度技术社区名称“deepin”一词，意思是对人生和未来深刻的追求和探索。
+\large 实测\par
+\normalsize 免费下载安装，安装较为方便。APT镜像源较多，更新较快。适合用于教学。同样拥有WineQQ与Electric WeChat，体验接近Ubuntu。适合用于教学。
+\begin{center}
+	\includegraphics[scale=0.5]{pic/deepin}
+\end{center}
+\subsubsection{Start OS}
+\url{http://www.startos.org/}\par
+\cite{startosinfo} StartOS是由东莞瓦力网络科技有限公司发行的开源操作系统，符合国人的使用习惯，预装常用的精品软件，操作系统具有运行速度快，安全稳定，界面美观，操作简洁明快等特点。\par
+StartOS使用全新的包管理，全新的操作界面，是一个易用，安全，稳定，易扩展，更加符合中国人操作习惯的桌面操作系统。Linux 系统的安全，稳定是众所周知的事情，StartOS 将朝着易用的方向坚持走出自己的特色。最新版本5.1。\par
+\large 实测\par
+\normalsize 免费下载安装。安装并未过多简化，仅仅减少步骤。你还是需要GNU/Linux分区相关知识。但安装速度快。\par
+图形界面接近于WindowsXP。软件较少且落后（如LibreOffice仅3.1——目前6.2.3，Emacs仅24——目前26.2，GIMP仅2.8-目前2.10）。因此，我并不支持在教学上使用此操作系统。
+\begin{center}
+	\includegraphics[scale=0.5]{pic/startos}
+\end{center}
+\subsubsection{Ubuntu Kylin}
+\url{https://www.ubuntukylin.com/}\par
+优麒麟（Ubuntu Kylin）是由天津麒麟信息技术有限公司主导开发的全球开源项目，其宗旨是通过研发用户友好的桌面环境以及特定需求的应用软件，为全球 Linux 桌面用户带来非凡的全新体验！\par
+优麒麟操作系统是 Ubuntu 官方衍生版，得到来自 Debian、Ubuntu、Mate、LUPA 等国际社区及众多国内外社区爱好者的广泛参与和热情支持。其开发贡献者可参见Ubuntu Kylin开发者团队列表。\cite{ukinfo}
+\large 实测\par
+\normalsize 免费下载安装。除了切换桌面，增加默认安装WPS、搜狗拼音输入法等外，与Ubuntu区别不大。适合用于教学。
+\begin{center}
+	\includegraphics[scale=0.4]{pic/uk}
+\end{center}
+\section{安装GNU/Linux：以Lubuntu19.04为例}
+需要注意的是：GNU/Linux不同发行版的安装方法各不相同，因此在安装其它发行版（如Arch Linux）时就应该格外注意下文所述方法并不是“放诸四海而皆准”的。警告！安装时不要联网（这次主要是为了防止安装器从原始软件源下载文件——这将会使安装过程难以忍受的长）！\par
+首先你需要一张Ubuntu Linux的启动光盘或U盘。我仍旧推荐TUNA源：\url{https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/lubuntu/releases/19.04/release/lubuntu-19.04-desktop-amd64.iso}（最后连接于2019年06月20日18:44:45）。之后使用与Windows相同的方法写入光盘（或U盘）。现在你将计算机开启，将光盘插入光驱后重启。你将被引导到光盘启动\footnote{参见上文Windows安装。}。你将看到\footnote{如果你使用UEFI启动，你将看不到此界面。此时你应在“GNU Grub”界面选择“Try Ubuntu 19.04”。}左图所示界面。选择“English”\footnote{不推荐安装中文的GNU/Linux操作系统，这将会使终端乱码。具体设置中文显示方法请参考下文。}并敲两下回车键。在一段时间的等待后，你将看到：
 \begin{center}
 	\includegraphics[scale=0.5]{pic/lubinst1}	\includegraphics[scale=0.4]{pic/lubinst2}
 \end{center}
@@ -441,17 +465,18 @@ GNU/Linux的更新速度较快，我写的内容恐怕很快就会过时。希�
 \begin{center}
 	\includegraphics[scale=0.4]{pic/lubinst6}	\includegraphics[scale=0.4]{pic/lubinst7}
 \end{center}
-现在你应该选择另外一块硬盘，完成后界面位于左图。首先单击“New partition table”新建GPT分区表如右图：
+现在你应该选择另外一块硬盘，完成后界面位于左图。首先单击“New partition table”新建GPT分区表如右图（这里抱歉地说一下：我的计算机Windows选用了MBR分区，GNU/Linux选用GPT分区，是由于主板已经有更换——请放心，BIOS-Legacy能够从GPT分区启动GNU/Linux，但无法启动Windows。因此如果你的主板不支持BIOS-UEFI，请不要使用工具将MBR转换为GPT。否则Windows将无法启动）：
 \begin{center}
 	\includegraphics[scale=0.4]{pic/lubinst8}	\includegraphics[scale=0.4]{pic/lubinst9}\\
 	\includegraphics[scale=0.4]{pic/lubinst10}	\includegraphics[scale=0.4]{pic/lubinst11}
 \end{center}
-选中“Free Space”（空白空间），单击“Create”新建分区。先建立根目录（/）分区\footnote{注意到“Monut point”（挂载点）选项了吗？在那里修改为/。}。这是GNU/Linux最重要的分区，分配60000MB。再以相同的方法建立“/home”分区，分配40000MB。剩余约2GB建立一个“Swap”（这是在“File system”，文件系统中设置的，设置为“Linuxswap”）分区。该分区将被当成内存使用，因此不需要特别大。\par
-再单击“Next”之前，请确保“Boot loader”（启动引导器）被安装在了安装Windows的位置。
+选中“Free Space”（空白空间），单击“Create”新建分区。先建立根目录（/）分区\footnote{注意到“Monut point”（挂载点）选项了吗？在那里修改为/。}。这是GNU/Linux最重要的分区，分配60000MB。再以相同的方法建立“/home”分区，分配40000MB。剩余约2GB建立一个“Swap”（这是在“File system”，文件系统中设置的，设置为“Linuxswap”）分区。该分区将被当成内存使用，因此不需要特别大。一般6GB已经是上限了。\par
+再单击“Next”之前，请确保“Boot loader”（启动引导器）被安装在了安装Windows的硬盘。这主要是为了防止在BIOS中再次调整启动磁盘。
 \begin{center}
 	\includegraphics[scale=0.6]{pic/lubinst12}
 \end{center}
-设置用户。我们选择“SGComputers”作为用户名。再设置密码，不设置自动登录（“Automatically login”）。确认后即可安装了。\footnote{与Debian GNU/Linux，RHEL或Cent OS不同的是Ubuntu习惯先刷入整个操作系统再删除软件包而不是先安装基本系统再安装软件包。}
+设置用户。我们选择“SGComputers”作为用户名。再设置密码，不设置自动登录（“Automatically login”）。确认后即可安装了。\footnote{与Debian GNU/Linux，RHEL或Cent OS不同的是Ubuntu习惯先刷入整个操作系统再删除软件包而不是先安装基本系统再安装软件包。}\par
+安装过程最容易
 \section{GNU/Linux开箱设置}
 \subsection{基本概念及操作}
 这一章将会介绍GNU/Linux的一些基本知识。\footnote{你可以阅读以下内容的man帮助（见下）：intro，ascii，fstab，mount，chmod，filesystem。我还推荐青木修的《Debian 参考手册》\url{https://www.debian.org/doc/manuals/debian-reference/}（最后连接于2019年06月20日18:47:54）和《Debian维护指南》\url{https://www.debian.org/doc/manuals/debmake-doc/}（最后连接于2019年06月20日18:46:56）及【C语言中文网-->Linux学习教程，Linux入门教程（超详细）】，地址\url{http://c.biancheng.net/linux_tutorial/}（最后连接于2019年06月20日17:31:40）。}\par
@@ -563,7 +588,9 @@ APT是一个Debian及其衍生版 \footnote{包括但不限于：Ubuntu Linux及
 \begin{center}
 	\includegraphics[scale=0.4]{pic/src1}	\includegraphics[scale=0.4]{pic/src2}
 \end{center}
-进入“Download From”，选择“Other...”中的中国的服务器（如TUNA源。我选择了网易源）。单击“Close”，软件包索引文件就会重新加载。
+进入“Download From”，选择“Other...”中的中国的服务器（如TUNA源。我选择了网易源）。单击“Close”，软件包索引文件就会重新加载。\par
+如果你没有这个工具，请修改Sources.list。\par
+对于安装了Debian操作系统的电教委员，请在Debian官网获取详细信息后选择是否安装Testing以取代Stable获得更好的体验。严厉禁止电教委员使用Unstable。
 \subsubsection{APT}
 \cite{manAPT}\par
 APT为软件包管理系统提供了一个高级的终端界面，且包含了一些比默认工具（如apt-get或apt-cache之类特殊化的APT工具）更容易交互使用的选项。\footnote{注意，某些命令会在apt-get或apt-cache中介绍。 \par “[软件包名]”仅代表“某个软件包”，并不针对某一特殊软件包。}\footnote{来自于man命令输出的结果。我将尽可能贴切地翻译。 \par apt命令包含一些来自于apt-get及apt-cache之类特殊化的APT工具的命令（如“apt install [软件包名]”来自于“apt-get install [软件包名]”，“apt list”或“apt show [软件包名]”来自于“apt-cache”）。}\par
@@ -1663,8 +1690,25 @@ htop ##任务管理器，可选，或gnome-system-monitor
 \end{verbatim}
 3.移除其它软件包（谨慎操作！）（如果你安装了Lubuntu，你可以移除qtpass、compton、2048-qt、ibus*、inkscape、abiword、gnumeric、noblenote、transmission*、trojita*、quassel、qpdfview、mpv、discover*、plasma-discover、qapt-deb-installer、qps、muon、partitionmanager），再用“apt autoremove”完善依赖关系，最后使用synaptic（新立得软件包管理器）完全移除（purge）“not installed(residual config)”（未安装（残存配置））的软件包。\par
 4.配置搜狗拼音输入法。
-\section{在Windows操作系统上使用GNU/Linux命令：CygWin}
-CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序在Windows操作系统上运行的程序。你可以借此使用优秀的GNU/Linux程序。
+\section{救命！我的系统炸了！}
+如果任何类似的事情发生，首先要做的是不要恐慌。首先请检查电源与显示器是否插上（别笑——相信我，很多人都会忽略这一点）。先回忆一下你进行了什么操作（如果你无可救药地在安装时删除了Windows分区——希望你已经备份了），现在按照以下操作：
+\subsection{启动管理器工作正常吗？}
+如果启动管理器工作正常，你就应该发现安装的操作系统排列在一个窗口里。此时请进入GNU/Linux操作系统。如果不是这样，请检查：\par
+1.请确定不是主板原因，比如说主板启动自检发出了很长的“嘟——”（或者是“嘀——”）说明你的内存坏了。如果主板正常并且你发现了一个“grub rescure>”的shell，进入下一环节。\par
+2.硬盘都插好了吗？正在启动的硬盘是否安装了grub？\par
+3.是不是删除了一个分区？如果你成功地删除了根目录——恭喜你，你可以重装系统了。如果不是，请按以下步骤操作：
+\begin{center}
+	\includegraphics{pic/grubrescure}\\
+	这是完整操作。
+\end{center}
+（1）输入ls查看连接在主板上的磁盘和分区。\par
+（2）确定/boot/grub所在分区。通过“ls (磁盘，分区)”查找对应的分区格式，我们只需要关注ext2分区（似乎我这个版本还识别不出ext4）。使用“ls （磁盘，分区）/”来识别根目录。\par
+（3）使用“set root”与“set prefix”命令设置启动目录。\par
+（4）使用“insmod”命令设置normal.nod。\par
+（5）使用“normal”并回车启动grub。
+\subsection{进入了initramfs？}
+请参考下一步提示信息：如果告诉你“a manual fsck is needed”，请使用fsck命令对根目录及其它相关目录进行检查（一路y过来即可）。如果要求你输入root密码，那么有可能是fstab文件出错，使用vim修改一下。
+\backmatter
 \appendix
 \chapter{跋}
 在创作这本书的时候，我深深地感到了我语言的苍白、英语水平低下，对计算机知识的了解也仅仅浮于表面。我不得不对在计算机方面雄心勃勃的电教委员说，学好英语是第一要务。\par
