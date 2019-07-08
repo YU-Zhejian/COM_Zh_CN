@@ -12,38 +12,44 @@
 \usepackage{geometry} %设置页面排版
 \geometry{top=0.5in, bottom=0.5in, left=0.5in, right=0.5in}
 \usepackage[super]{nth} %生成序数词
-\bibliographystyle{plain}
-
+\bibliographystyle{alpha}
 \usepackage{metalogo} %生成TeX标志
 \usepackage{texnames} %生成TeX标志
 \usepackage{fancybox} %生成带阴影的盒子
 \shadowsize=2pt %配置盒子
 \usepackage{flafter}%使得所有浮动体不能被放置在其浮动环境之前
 \usepackage{picinpar} %生成文本环绕
+\usepackage{indentfirst}%生成段落
+\usepackage[toc]{multitoc}%双栏目录
+\makeatletter\renewcommand{\verbatim@font}{\footnotesize \color{blue}} \makeatletter%修改verbatim环境格式
  %生成章节中文名和盒子
-\renewcommand{\thechapter}{\Roman{chapter}}
-\renewcommand{\thesection}{\arabic{section}}
-\renewcommand{\thesubsection}{\arabic{subsection}}
-\renewcommand{\thesubsubsection}{[\arabic{subsubsection}]}
-\makeatletter\renewcommand{\verbatim@font}{\footnotesize \color{blue}} \makeatletter
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 \usepackage{titlesec}
 \renewcommand{\bibname}{参考文献}
 \renewcommand{\contentsname}{目录}
 \renewcommand{\appendixname}{附录}
 \titleformat{\chapter}[frame]{\bf \Huge}{\small 第 \thechapter 部分}{0pt}{}
-\titleformat{\section}[frame]{\bf \LARGE}{\small 第 \thechapter . \thesection 章}{0pt}{}
-\titleformat{\subsection}[frame]{\bf\Large}{\small 第 \thechapter . \thesection .\thesubsection 节}{0pt}{}
-\titleformat{\subsubsection}[frame]{\bf\large}{\small 第 \thechapter . \thesection .\thesubsection .\thesubsubsection 小节}{0pt}{}
+\titleformat{\section}[frame]{\bf \LARGE}{\small 第 \thesection 章}{0pt}{}
+\titleformat{\subsection}[frame]{\bf\Large}{\small 第\thesubsection 节}{0pt}{}
+\titleformat{\subsubsection}[frame]{\bf\large}{\small 第\thesubsubsection 小节}{0pt}{}
 \linespread{1.2} %行距命令
 \usepackage{hyperref} %生成书签，这个应被放在末尾
 \hypersetup{hidelinks,bookmarks=true,bookmarksopen=true,pdftitle=电教委员完全（不）技术指南,pdfauthor=YuZJ Lab}
 \begin{document}
-	
 \setcounter{tocdepth}{3}
-\title{\Huge 电教委员（不）完全技术指南（简体中文）\normalsize}
-\author{\large YuZJ Lab \normalsize}
-\date{编译日期：\today}
-\maketitle
+\begin{titlepage}
+	\vspace*{10mm}
+	\begin{center}
+		\fbox{\Huge \textsf{\textbf{电教委员（不）完全技术指南（简体中文）}}\normalsize}\\\vspace*{5mm}
+		\large 作者：YuZJ Lab \\\vspace*{5mm}
+		\large 编译日期：\today\normalsize
+	\end{center}
+\vspace*{25mm}
+\shadowbox{\parbox[t]{8cm}{“工欲善其事，必先利其器”，对于我们来说，掌握如何高效率地使用计算机是十分重要的。为了方便信息化教学的开展，我结合自己的工作经历，不自量力地“年来著书一种”，为希望掌握关于如何高效地使用教室计算机的初级和高级技巧的电教委员或者其余希望提高计算机技能的教师、学生及其他教职人员编写了这份文件。}}
+\end{titlepage}
 \begin{center}
 	\Huge 试行本 \normalsize
 \end{center}
@@ -51,16 +57,16 @@
 \chapter{在开始之前}
 \section{Copyright 版权}
 Copyright \copyright{} 2018-2019 YuZJ Lab. \par
-使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者YuZJ，邮箱\url{theafamily@126.com}（最后连接于2019年06月20日17:32:17）。\par
-\large{\textbf{{\color{red}{对本文档所引起的任何后果不作担保！}}}}\normalsize\par
+使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者YuZJ，邮箱\url{theafamily@126.com}（最后连接于2019年06月20日17:32:17）。
+\begin{center}\large{\textbf{{\color{red}{对本文档所引起的任何后果不作担保！}}}}\normalsize\end{center}
 \section{序}
 首先声明一下：在这里提及非自由软件并非我的意愿。作为自由软件运动的支持者，我当然希望你们使用自由软件。但技术所限，非自由的内容不得不被包括在内。\par
-“天覆地载，物号数万，而事亦因之，曲成而不遗。”（来自于《天工开物·序言》）人类在计算机技术上的创造亦是如此。很高兴生活在信息时代（也许马上应改为“数据时代”），国内外优秀的软件都可以被免费或付费地获取以为我们所用。然而“工欲善其事，必先利其器”，对于我们来说，掌握如何高效率地使用计算机是十分重要的。如一位数学教师可用\LaTeX\footnote{\LaTeX 是一个产生于 \TeX 的一个排版系统。它在编辑公式方面十分强大（使用 \AmSTeX 等宏包 ），并且能够胜任巨型文档和复杂的排版任务（如交叉引用、创建索引、管理参考文献资料等等）。它使用“LaTeX Project Public Li­cense （LPPL）”开放源代码，并拥有CTAN（综合的TeX档案库网络，拥有\LaTeX 近乎全部的宏包和使用教程，并存在多个镜像站如TUNA源）（【CTAN: Comprehensive TeX Archive Network】\url{https://www.ctan.org/}，最后连接于2019年7月6日21:08:02）的管理组织。做一点小小的说明：如果不喜欢完全使用鼠标来编辑公式，当编辑复杂公式时我更倾向于\LaTeX。\LaTeX 更多依赖键盘，但是不是一个所见即所得的软件。就像编写网页一样，你需要“编译”（Compile）\LaTeX 代码才能得到正确的文件。再做一点小小的说明，本文档就是用\LaTeX 编写的。}而不是MS Office \footnote{MS是Microsoft（微软）的缩写，MS Office 是微软公司发布的非自由付费办公套件。相对于\LaTeX ，它最大的优点是所见即所得和具有图形界面。} 来高效地编辑公式或使用Git\footnote{这个一点都不讨厌（Git在英文中有“讨厌的人”意），是一个高效易用的分布式版本控制软件。官方网站\url{https://git-scm.com/}（最后连接于2019年7月6日21:06:04）。}管理自己的论文。因此，结合自己的工作经历，为了方便信息化教学的开展，我不自量力地"年来著书一种"，为希望掌握关于如何高效地使用教室计算机的初级和高级技巧的电教委员或者其余希望提高计算机技能的教师、学生及其他教职人员编写了这份文件。\par
-手册中题为“入门”的章节是针对初学者的（前提条件：你需要知道开机按钮在哪里。详情请参阅主机的说明书），它大致介绍了Windows操作系统和MS Office等软件来实现日常教学，Windows操作系统的简单技巧与最基础的Windows安全。题为“进阶”的章节是针对已有一定技能基础并希望尝试更加有效的Windows安全工具（如使用以GNU/Linux\footnote{应该使用“GNU/Linux”而不是“Linux”。请参见【Richard Stallman之GNU/Linux问答】\url{https://www.gnu.org/gnu/gnu-linux-faq.html}（最后连接于2019年06月20日17:32:59）。关于GNU/Linux的详细介绍参见下文：“入门——操作系统——GNU/Linux及其发行版”。}为操作系统的反病毒光盘清除计算机病毒——我暂时不会教你手工杀毒，那是尤金·卡巴斯基\footnote{俄罗斯“卡巴斯基实验室”创立者及董事长。1989年10月的一次手工杀毒（Cascade病毒）激起了他对于计算机反病毒的兴趣并在这方面深度研究，不久即写出反病毒软件并于1997年成立卡巴斯基实验室。目前专注病毒研究。}之类大神干的事）的电教委员的。题为“高级”的章简单地节介绍了GNU/Linux 操作系统的一部分入门知识及其教学实现。\par
-在介绍多种多样的软件时，我遵循的原则是性能——易用性——价格。在性能相同的情况下，易用性优先（大多是专有软件），但我也不会忘了推荐一些不错的自由免费软件以减少希望廉价使用正版软件者的开支。\par
-在使用这份手册时，最重要的是实践。本人才疏学浅，文本中或许有（大量）错误\footnote{尤其是对于GNU/Linux， \LaTeX 排版系统或者VIM等高级文本编辑器 。}，请广大读者不吝赐教。联系方式：\url{theafamily@126.com}（最后连接于2019年06月20日17:32:17）。如果文档中存在任何侵权之处，请按邮箱联系。一经确认，将立刻改正。“丐大业文人，弃置案头。此书于功名进取，毫不相关也。”\par
-时己亥年肆月廿七日，西历2019年5月1日\par
-慈溪YuZJ于家之书房
+“天覆地载，物号数万，而事亦因之，曲成而不遗。”（来自于《天工开物·序言》）人类在计算机技术上的创造亦是如此。很高兴生活在信息时代（也许马上应改为“数据时代”），国内外优秀的软件都可以被免费或付费地获取以为我们所用。然而“工欲善其事，必先利其器”，对于我们来说，掌握如何高效率地使用计算机是十分重要的。如一位数学教师可用\LaTeX\footnote{\LaTeX 是一个产生于 \TeX 的一个排版系统。它在编辑公式方面十分强大（使用 \AmSTeX 等宏包 ），并且能够胜任巨型文档和复杂的排版任务（如交叉引用、创建索引、管理参考文献资料等等）。它使用“LaTeX Project Public Li­cense （LPPL）”开放源代码，并拥有CTAN（综合的TeX档案库网络，拥有\LaTeX 近乎全部的宏包和使用教程，并存在多个镜像站如TUNA源）（【CTAN: Comprehensive TeX Archive Network】\url{https://www.ctan.org/}，最后连接于2019年7月6日21:08:02）的管理组织与tug（\TeX 用户组：【TeX Users Group (TUG)】\url{http://www.tug.org/}（最后连接于2019年7月8日15:05:21））。做一点小小的说明：如果不喜欢完全使用鼠标来编辑公式，当编辑复杂公式时我更倾向于\LaTeX。\LaTeX 更多依赖键盘，但是不是一个所见即所得的软件。就像编写网页一样，你需要“编译”（Compile）\LaTeX 代码才能得到正确的文件。再做一点小小的说明，本文档就是用\LaTeX 编写的。}而不是MS Office \footnote{MS是Microsoft（微软）的缩写，MS Office 是微软公司发布的非自由付费办公套件。相对于\LaTeX ，它最大的优点是所见即所得和具有图形界面。} 来高效地编辑公式或使用Git\footnote{这个一点都不讨厌（Git在英文中有“讨厌的人”意），是一个高效易用的分布式版本控制软件。官方网站\url{https://git-scm.com/}（最后连接于2019年7月6日21:06:04）。}管理自己的论文。因此，为了方便信息化教学的开展，我结合自己的工作经历，不自量力地“年来著书一种”，为希望掌握关于如何高效地使用教室计算机的初级和高级技巧的电教委员或者其余希望提高计算机技能的教师、学生及其他教职人员编写了这份文件。\par
+手册中题为“入门”的章节是针对初学者的（前提条件：你需要知道开机按钮在哪里。详情请参阅主机的说明书），它大致介绍了Windows操作系统和MS Office等软件来实现日常教学，Windows操作系统的简单技巧与最基础的Windows安全。题为“进阶”的章节是针对已有一定技能基础并希望尝试更加有效的Windows安全工具（如使用以GNU/Linux\footnote{应该使用“GNU/Linux”而不是“Linux”。请参见【Richard Stallman之GNU/Linux问答】\url{https://www.gnu.org/gnu/gnu-linux-faq.html}（最后连接于2019年06月20日17:32:59）。关于GNU/Linux的详细介绍参见\pageref{sec:gnulinux}页\ref{sec:gnulinux}。}为操作系统的反病毒光盘清除计算机病毒——我暂时不会教你手工杀毒，那是尤金·卡巴斯基\footnote{俄罗斯“卡巴斯基实验室”创立者及董事长。1989年10月的一次手工杀毒（Cascade病毒）激起了他对于计算机反病毒的兴趣并在这方面深度研究，不久即写出反病毒软件并于1997年成立卡巴斯基实验室。目前专注病毒研究。}之类大神干的事）的电教委员的。题为“高级”的章简单地节介绍了GNU/Linux 操作系统的一部分入门知识及其教学实现。\par
+在介绍多种多样的软件时，我遵循的原则是法律——性能——易用性——价格。在性能相同的情况下，易用性优先（大多是专有软件），但我也不会忘了推荐一些不错的自由免费软件以减少希望廉价使用正版软件者的开支。\par
+ 在使用这份手册时，最重要的是实践。本人才疏学浅，文本中或许有（大量）错误\footnote{尤其是对于GNU/Linux， \LaTeX 排版系统或者VIM等高级文本编辑器 。}，请广大读者不吝赐教。联系方式：\url{theafamily@126.com}（最后连接于2019年06月20日17:32:17）。如果文档中存在任何侵权之处，请按邮箱联系。一经确认，将立刻改正。“丐大业文人，弃置案头。此书于功名进取，毫不相关也。”\par
+ 时己亥年肆月廿七日，西历2019年5月1日\par
+ 慈溪YuZJ于家之书房
 \section{关于互联网安全的提示}
 \begin{window}[2,r,{\shadowbox{\parbox  [t]{6cm}{\footnotesize 以下为对原文中重要内容的引用。火绒工程师认为：所谓的“下载器”和“高速下载通道”既没有用处，也没有存在的必要。为了躲避这些“下载器”的侵扰，用户可以去某个软件的官网下载产品，一般不用担心下载到下载器。这些“下载器”存在的意义就是为了捆绑安装其他软件。这些捆绑软件无一例外都不是用户当时想要的，如果想要这些软件，在下载站上都能找到。总之，除了给用户制造麻烦，所谓这些“高速下载通道”和“下载器”没有任何作用。\normalsize}}},{}]
 本书内所有网络链接在“最后连接时间”前均有效且已经过Norton Safe Web的Edge插件、Microsoft SmartScreen筛选器及卡巴斯基网络反病毒（包含于卡巴斯基免费版2019，病毒库更新时间为检测当天12:00）检测。 {\color{red}{\textbf{注意，至少我坚持认为本书中提到的所有应用程序都应该从其官方网站或镜像源处下载。我们不推荐本书的使用者从任何非官方软件发布处\footnote{如腾讯电脑管家“软件中心”（提供过时的软件，如“Avira Antivir Personal 个人免费版”。软件链接：\url{https://pc.qq.com/detail/19/detail_819.html}（最后连接于2019年7月6日21:20:15），最新版本发布日期应该已经是2019了。）或PC6等下载站（请参见【火绒安全-下载站行业乱象：流氓软件和电脑病毒重灾区】\url{https://www.huorong.cn/info/149181215360.html}（最后连接于2019年6月21日16:20:40）。以上两篇文章中提到的问题目前还存在）。}下载任何本书中提到的软件（官方认可的镜像源除外）。}}}。\par 同样需要声明的是，从任何网站下载“破解版”或“注册机”“算号器（KeyGen）”“KMS注册机（这里仅指非法的KMS服务器。合法的服务器不用担心）”（以下简称“侵权程序”）都是不被允许的。这些侵权程序大部分含有“后门”或直接携带病毒（主要表现为网络蠕虫、挖矿机程序和Rootkit，或皆有）。具体请参见【“小马激活”病毒日感染数万台电脑 建议百度、360屏蔽该关键词】\url{https://www.huorong.cn/info/146173867117.html}，【“小马激活”病毒新变种分析报告】\url{https://www.huorong.cn/info/146173922919.html}，【激活工具带毒感染量近60万 北京等四城市用户不被攻击】\url{https://www.huorong.cn/info/1526627586130.html}，【火绒安全警报：病毒伪装成激活工具  强制安装360、2345浏览器】\url{https://www.huorong.cn/info/1535631707148.html}（最后连接于2019年6月21日16:30:28）。\par 对于错误反馈，任何由于违反以上两条原则导致的问题将不会被回复。\par 如果你确信你的下载站提供了可靠的软件，你也需要使用哈希校验来确保文件可靠性。方法：使用7Zip在文件资源管理器中的右键菜单“CRC SHA”选项校验哈希值并于官方提供的哈希制作比较。如果一致，那么这个软件可视为是官方的。
@@ -226,7 +232,7 @@ Copyright \copyright{} 2018-2019 YuZJ Lab. \par
 \includegraphics[scale=0.55]{pic/ziprate.PNG}	
 \end{center}
 通过以上数据，我们认为最好的压缩算法是运用于7Zip的LZMA2（极限压缩）。\par
-如何在“资源管理器”中修改文件打开方式呢？右键单击某个文件，你将会发现“打开方式”菜单。若菜单标题为“打开方式(H)    >”那么这个文件已经有打开方式，你应在它的子菜单中选择打开方式。如果没有你需要的打开方式或标题为“打开方式(H)....”，那你就应该选择“选择其他应用”。一个对话框将会被显示（如下图）此时你需要使用鼠标滚轮向下滚动直至底部。如果没有发现你想要的应用，单击“更多应用”；还没有，单击“在这台电脑上查找其他应用”。此时你就需要知道你需要的应用的具体位置。一般应有位于“C:\textbackslash Program Files”“C:\textbackslash Program Files(x86)”“C:\textbackslash Users\textbackslash [用户名] \textbackslash AppData”的相应子目录或在安装时你自己指定的目录。{\color{red}{为了避免这个问题，你需要在安装程序时记下安装位置。}}如果出现了无法修改打开方式的问题，清理注册表（参见下文：性能工具）。
+如何在“资源管理器”中修改文件打开方式呢？右键单击某个文件，你将会发现“打开方式”菜单。若菜单标题为“打开方式(H)    >”那么这个文件已经有打开方式，你应在它的子菜单中选择打开方式。如果没有你需要的打开方式或标题为“打开方式(H)....”，那你就应该选择“选择其他应用”。一个对话框将会被显示（如下图）此时你需要使用鼠标滚轮向下滚动直至底部。如果没有发现你想要的应用，单击“更多应用”；还没有，单击“在这台电脑上查找其他应用”。此时你就需要知道你需要的应用的具体位置。一般应有位于“C:\textbackslash Program Files”“C:\textbackslash Program Files(x86)”“C:\textbackslash Users\textbackslash [用户名] \textbackslash AppData”的相应子目录或在安装时你自己指定的目录。{\color{red}{为了避免这个问题，你需要在安装程序时记下安装位置。}}如果出现了无法修改打开方式的问题，清理注册表（参见\pageref{sec:usab}页\ref{sec:usab}）。
 \begin{center}
 	\includegraphics[scale=0.5]{pic/htopen}
 \end{center}
@@ -319,7 +325,7 @@ Emacs的中文支持较差，其使用手册（Emacs Reference Manual）暂无�
 \end{center}
 它不负“光速搜索”美名，搜索真得快——只是在开始时需要建立搜索索引比较耗时。还可按扩展名进行搜索（请在左侧面板右击设置）。官网\url{http://finder.sdo.com}似乎暂时无法访问，提供安装包哈希校验。md5：896b3b93ce29b16c294884437ee11631 sha1：d7873a901d7cbb9fb1cf2bbd3a3c0a7e99f4f5f5 光速搜索1.0.1.280。
 \section{性能工具}
-这就是国产“杀毒软件”（如腾讯电脑管家）的优势——它们的“清理优化”功能更适合中国消费者。现在介绍三款国外性能软件。使用十分简单，因此仅附上截图：
+\label{sec:usab}这就是国产“杀毒软件”（如腾讯电脑管家）的优势——它们的“清理优化”功能更适合中国消费者。现在介绍三款国外性能软件。使用十分简单，因此仅附上截图：
 \begin{center}
 		\includegraphics[scale=0.5]{pic/ccc}\\
 	\includegraphics[scale=0.35]{pic/wdc}	\includegraphics[scale=0.3]{pic/wrc}
@@ -351,8 +357,8 @@ Emacs的中文支持较差，其使用手册（Emacs Reference Manual）暂无�
 \subsection{使用以GNU/Linux为操作系统的计算机急救工具}
 GNU/Linux可用于Windows反病毒原因是：Windows二进制文件\footnote{一般扩展名为*.EXE，*.dll（Windows运行库文件）或*.COM（MS DOS可执行文件）等。一般地，仅二进制文件可在Windows操作系统上运行。虽然*.BAT（批处理文件。你可以把多个命令写入一个批处理文件并让Windows按照预定次序，满足预定条件地一次执行所有命令），*.CMD（类似于批处理文件，支持更多的命令，仅在Windows2000以上可用），*.VBS（VB Script，一种类似于VB的脚本语言），*.VBE（加密的VBS），*.JS（Java Script），*.JSE（不用说了吧），*.WSF，*.WSH，*.MSC（微软控制台文件）等文件也可直接在Windows操作系统上运行，但他们需要解释器。}与GNU/Linux二进制文件的结构是不同的（具体请参考其他专业书籍），因此Windows的EXE病毒大多数情况下无法在GNU/Linux上运行（使用Wine \footnote{一种类似于虚拟机的技术，它可允许Windows应用程序在GNU/Linux，BSD等操作系统上运行。} 或其他类似技术除外），也就是说，Windows下的病毒一般无法感染GNU/Linux操作系统。\par
 大多数反病毒软件厂商都提供了“急救盘”，用于给无法启动或严重感染的计算机反病毒。大多数急救盘基于GNU/Linux \footnote{如Dr.Web和AVIRA基于Ubuntu 14（Dr.Web凭借Wine运行），Kaspersky基于Gentoo Linux x86\_64，ESET基于其它GNU/Linux操作系统。}，也有少部分（如Avast!）基于Windows。\par
-现将以Kaspersky Rescure Disk以演示GNU/Linux反病毒。至于如何安装GNU/Linux并反病毒请参见下文：高级：GNU/Linux的教学实现。\par
-现在你将计算机开启，将光盘插入光驱后重启。你将被引导到光盘启动\footnote{参见上文Windows安装。}。你将发现：
+现将以Kaspersky Rescure Disk以演示GNU/Linux反病毒。至于如何安装GNU/Linux并反病毒请参见\pageref{sec:avgl}页\ref{sec:avgl}\par
+现在你将计算机开启，将光盘插入光驱后重启。你将被引导到光盘启动。你将发现：
 \begin{center}
 	\includegraphics[scale=0.7]{pic/krd1}
 \end{center}
@@ -364,7 +370,7 @@ GNU/Linux可用于Windows反病毒原因是：Windows二进制文件\footnote{�
 \begin{center}
 	\includegraphics[scale=0.35]{pic/krd4}	\includegraphics[scale=0.35]{pic/krd5}
 \end{center}
-除了反病毒，KRD还提供了网络浏览器Firefox、终端、任务管理器Htop与Task Manager（参见“高级”章）、图像查看器Ristretto Imagine Viewer、文件管理器Midnight Commander与Thunar File Manager、文本编辑器Mousepad等。默认以root用户登录。其余设置较为复杂，请参照“高级”章。
+除了反病毒，KRD还提供了网络浏览器Firefox、终端、任务管理器Htop与Task Manager（参见\pageref{sec:pm}页\ref{sec:pm}）、图像查看器Ristretto Imagine Viewer、文件管理器Midnight Commander与Thunar File Manager、文本编辑器Mousepad等。默认以root用户登录。其余设置较为复杂，请参照“高级”章。
 \section{-驱动程序及硬件}
 \chapter{高级：GNU/Linux的教学实现}
 这一个章节将以 Lubuntu\footnote{这是Ubuntu的一个衍生版本，除了将默认桌面替换为LXDE外与“正常”的Ubuntu没有大的区别。} 19.04为例，指示电教委员如何安装GNU/Linux平台使其与Windows操作系统共存，简单的GNU/Linux设置及使用GNU/Linux实现日常教学。\par
@@ -391,13 +397,13 @@ CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序�
 \end{enumerate}
 请注意，没有apt软件包管理器。我建议你可以选择安装ClamAV为Windows杀毒。
 \section{GNU/Linux及其发行版}
-GNU/Linux产生于Minix，而Minix产生于Unix。具体产生历史不再赘述。\par
-首先，GNU/Linux是以Linux为内核，辅以GNU\footnote{GNU（GNU is Not Unix的递归缩写）是一个由理查德·斯托曼为推广自由软件发起的运动（自由软件运动）的一部分。它产生了一些如 Gnu Emacs（参见下文：文本编辑器——GNU Emacs）、gcc（GNU Compiler Collection，即GNU编译器套件，包含 C、C++、Objective-C、Fortran、Ada、Go、D 等语言（那个，别问我它们是什么，我也不知道）的编译器及这些语言的运行库，由 Richard Stallman 于 1987 年发布，最新版本 7.4）、GIMP（GNU Image Manipulation Program，图像处理软件，号称“GNU/Linux下的 PhotoShop”）等自由软件。具体请参看附录中的“GNU宣言”。}工具集的操作系统。因此，说“Linux操作系统”是不合适的。\par
+\label{sec:gnulinux} GNU/Linux产生于Minix，而Minix产生于Unix。具体产生历史不再赘述。\par
+首先，GNU/Linux是以Linux为内核，辅以GNU\footnote{GNU（GNU is Not Unix的递归缩写）是一个由理查德·斯托曼为推广自由软件发起的运动（自由软件运动）的一部分。它产生了一些如 Gnu Emacs、gcc（GNU Compiler Collection，即GNU编译器套件，包含 C、C++、Objective-C、Fortran、Ada、Go、D 等语言（那个，别问我它们是什么，我也不知道）的编译器及这些语言的运行库，由 Richard Stallman 于 1987 年发布，最新版本 7.4）、GIMP（GNU Image Manipulation Program，图像处理软件，号称“GNU/Linux下的 PhotoShop”）等自由软件。具体请参看附录中的“GNU宣言”。}工具集的操作系统。因此，说“Linux操作系统”是不合适的。\par
 （通俗地讲，）发行版是你可以下载安装的GNU/Linux版本。基于学习难度、兼容性及易用性，我们主要使用以下GNU/Linux发行版：
 \begin{description}
 	\item [Arch Linux] 一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛除外）。
 	\item [CentOS] “社区企业操作系统”的缩写，稳定性较强，社区维护，免费下载安装。
-	\item [Debian GNU/Linux] 参见上文。虽然软件更新较慢，但稳定性较强（仅限于Stable分支）。
+	\item [Debian GNU/Linux] 虽然软件更新较慢，但稳定性较强（仅限于Stable分支）。
 	\item [Gentoo Linux] 一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛除外）。
 	\item [Fedora] 前瞻性性较强，社区维护并由RedHat基金会支持，免费下载安装。
 	\item [Kali Linux] 内含大部分黑客专用的工具，使用apt软件包管理器，适合用于教学。
@@ -460,7 +466,7 @@ StartOS使用全新的包管理，全新的操作界面，是一个易用，安�
 \end{center}
 \section{安装GNU/Linux：以Lubuntu19.04为例}
 需要注意的是：GNU/Linux不同发行版的安装方法各不相同，因此在安装其它发行版（如Arch Linux）时就应该格外注意下文所述方法并不是“放诸四海而皆准”的。警告！安装时不要联网（这次主要是为了防止安装器从原始软件源下载文件——这将会使安装过程难以忍受的长）！\par
-首先你需要一张Ubuntu Linux的启动光盘或U盘。我仍旧推荐TUNA源：\url{https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/lubuntu/releases/19.04/release/lubuntu-19.04-desktop-amd64.iso}（最后连接于2019年06月20日18:44:45）。之后使用与Windows相同的方法写入光盘（或U盘）。现在你将计算机开启，将光盘插入光驱后重启。你将被引导到光盘启动\footnote{参见上文Windows安装。}。你将看到\footnote{如果你使用UEFI启动，你将看不到此界面。此时你应在“GNU Grub”界面选择“Try Ubuntu 19.04”。}左图所示界面。选择“English”\footnote{不推荐安装中文的GNU/Linux操作系统，这将会使终端乱码。具体设置中文显示方法请参考下文。}并敲两下回车键。在一段时间的等待后，你将看到：
+首先你需要一张Ubuntu Linux的启动光盘或U盘。我仍旧推荐TUNA源：\url{https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/lubuntu/releases/19.04/release/lubuntu-19.04-desktop-amd64.iso}（最后连接于2019年06月20日18:44:45）。之后使用与Windows相同的方法写入光盘（或U盘）。现在你将计算机开启，将光盘插入光驱后重启。你将被引导到光盘启动。你将看到\footnote{如果你使用UEFI启动，你将看不到此界面。此时你应在“GNU Grub”界面选择“Try Ubuntu 19.04”。}左图所示界面。选择“English”\footnote{不推荐安装中文的GNU/Linux操作系统，这将会使终端乱码。具体设置中文显示方法请参考下文。}并敲两下回车键。在一段时间的等待后，你将看到：
 \begin{center}
 	\includegraphics[scale=0.5]{pic/lubinst1}	\includegraphics[scale=0.4]{pic/lubinst2}
 \end{center}
@@ -551,10 +557,10 @@ Manual page apt(8) line 1 (press h for help or q to quit)
 “man foo”显示foo的帮助。\par
 “man foo.7”显示man的帮助，第7部分。\par
 “man -a foo”逐个显示所有foo的帮助。\par
-如果你需要一个man的图形前端，使用apt\footnote{参见下一章}安装以下软件包：xman或gman（依赖man2html，需手动安装）。你可以在伪终端使用“gman”或“xman”命令显示它们的图形界面。我更倾向于gman。它能够修改manpath\footnote{man文件的目录}（而不是使用export命令或修改“.bashrc”命令）并使用不同的文档浏览器。\par
+如果你需要一个man的图形前端，使用apt\footnote{参见\pageref{sec:apt}页\ref{sec:apt}}安装以下软件包：xman或gman（依赖man2html，需手动安装）。你可以在伪终端使用“gman”或“xman”命令显示它们的图形界面。我更倾向于gman。它能够修改manpath\footnote{man文件的目录}（而不是使用export命令或修改“.bashrc”命令）并使用不同的文档浏览器。\par
 \subsubsection{环境变量}
 现在我们已经知道可以在Shell中输入命令并执行它。那么Shell是如何执行命令的？其实除了几个内建命令（如cd），大多数命令都是特定文件夹中的可执行文件。如ls就位于/bin。这些特定文件夹都被记录在PATH环境变量中。\par
-那么如何修改GNU/Linux中的环境变量呢？你需要修改对应用户的\footnote{每个用户都有一个，你需要一个一个修改。}“.bashrc”文件。现在我们要将“/usr/local/texlive/2019/bin/x86\_64-linux”\footnote{如果你喜欢\LaTeX 排版，对于这个路径你不会陌生。}加入PATH变量，切换到对应用户，并输入命令\footnote{但我希望你已经将vim学得够好了。如果你不希望使用vim，请输入“echo "export PATH=/usr/local/texlive/2019/bin/x86\_64-linux:\$PATH" >> ～/.bashrc”，为什么这条命令会起作用参见下文：文件管理——常用命令——新建文件并写入内容。}：
+那么如何修改GNU/Linux中的环境变量呢？你需要修改对应用户的\footnote{每个用户都有一个，你需要一个一个修改。}“.bashrc”文件。现在我们要将“/usr/local/texlive/2019/bin/x86\_64-linux”\footnote{如果你喜欢\LaTeX 排版，对于这个路径你不会陌生。}加入PATH变量，切换到对应用户，并输入命令\footnote{但我希望你已经将vim学得够好了。如果你不希望使用vim，请输入“echo "export PATH=/usr/local/texlive/2019/bin/x86\_64-linux:\$PATH" >> ～/.bashrc”，为什么这条命令会起作用参见\pageref{sec:nf}页\ref{sec:nf}}：
 \begin{verbatim}
 vim ~/.bashrc
 ##注意：是“/.”不是“./”！
@@ -592,11 +598,11 @@ export PATH=/usr/local/texlive/2019/bin/x86_64-linux:/usr/local/sbin:/usr/local/
 :/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:$PATH
 \end{verbatim}
 \subsubsection{批处理}
-如果你想要将两条命令写在一起，你可以使用“ \&\& ”（注意，使用“\&\&”连接的命令仅当前面一个命令没有返回值（一般是执行成功）才执行后一个命令！）或“;”（无此限制）。如“sudo apt update \&\& sudo apt upgrade”，这两条命令写在一起将产生极好的效果（具体请参见下文：软件包管理器）。我们也可以先使用vim新建一个“.sh”文件（希望你vim已经学得足够好了。没有？参见下文：文件管理——常用命令——新建文件并写入内容），将命令一行一行写进去，使用“chmod +x [文件名]”实现可运行，再“./[文件名]”来运行它。\par
+\label{sec:bat}如果你想要将两条命令写在一起，你可以使用“ \&\& ”（注意，使用“\&\&”连接的命令仅当前面一个命令没有返回值（一般是执行成功）才执行后一个命令！）或“;”（无此限制）。如“sudo apt update \&\& sudo apt upgrade”，这两条命令写在一起将产生极好的效果（具体请参见\pageref{sec:apt}页\ref{sec:apt}）。我们也可以先使用vim新建一个“.sh”文件（希望你vim已经学得足够好了。没有？参见\pageref{sec:nf}页\ref{sec:nf}），将命令一行一行写进去，使用“chmod +x [文件名]”实现可运行，再“./[文件名]”来运行它。\par
 bash还提供了选择语句、循环语句等多种高级功能，这里不再赘述。\par
-如何调整命令输出的内容（比如说，如果你使用“ls -A -R /”命令后屏幕会发疯（不要尝试））？一方面我们可以将命令输出的结果保存在文件中（参见下文：文件管理——常用命令——新建文件并写入内容），另一方面我们可以使用重定向符“|”，作用是将前一个命令输出的结果输入后一个命令。如：“ps -A  all | grep [查找内容]”就是将“ps -A all”的输出输入到“grep [查找内容]”。其他常用的命令有“more”与“less”，参见下文：文件管理（我相信你应该知道到那里去找了）。
+如何调整命令输出的内容（比如说，如果你使用“ls -A -R /”命令后屏幕会发疯（不要尝试））？一方面我们可以将命令输出的结果保存在文件中（参见\pageref{sec:nf}页\ref{sec:nf}），另一方面我们可以使用重定向符“|”，作用是将前一个命令输出的结果输入后一个命令。如：“ps -A  all | grep [查找内容]”就是将“ps -A all”的输出输入到“grep [查找内容]”。其他常用的命令有“more”与“less”，参见\pageref{sec:nf}页\ref{sec:nf}）。
 \subsection{软件包管理器：以APT为例}
-APT是一个Debian及其衍生版 \footnote{包括但不限于：Ubuntu Linux及其衍生版，Pure OS，Deepin Linux}中默认的强大的软件包管理器。它可用于从远程服务器及本地的\textbf{软件源}上安装Debian软件包（*.deb）。
+\label{sec:apt}APT是一个Debian及其衍生版 \footnote{包括但不限于：Ubuntu Linux及其衍生版，Pure OS，Deepin Linux}中默认的强大的软件包管理器。它可用于从远程服务器及本地的\textbf{软件源}上安装Debian软件包（*.deb）。
 \subsubsection{首先，切换软件源！}
 不同的软件源下载速度不同，因此我们应该使用快速的软件源。如果你安装了图形界面，进入“Software Sources”——一个大部分Debian及其衍生版会安装的小工具。截图：
 \begin{center}
@@ -665,7 +671,7 @@ is another process using it?
 \end{verbatim}
 错误原因：无法获得排它锁——有进程占用apt。\par
 解决方案：1.删除锁文件：“sudo rm -rf /var/cache/apt/archives/lock ”。\par
-2.终结另一进程。参见下文：进程管理。
+2.终结另一进程。参见\pageref{sec:pm}页\ref{sec:pm}。
 \begin{center} upgrade \end{center}
 “apt upgrade”命令来自于apt-get，被用于从软件源（配置于sources.list）中更新所有已安装且存在可用更新的软件包。当且仅当新的软件包满足依赖关系\footnote{依赖关系：举例说明。假设软件包a需要b的功能才能正常运行，那么它们之间就形成了依赖关系。a依赖b，b依赖于a，安装时先安装b。}时它才会被安装。这个操作不会移除已安装的软件包 \footnote{APT更新软件包的操作不是“先卸再装”，而是覆盖安装。}。若一个更新操作要求移除已安装的软件包，它将不会被执行。\footnote{apt-get的man命令输出为：已安装的软件包不会被重新安装。已安装软件包的新版本如果在不更改其他软件包的安装状态时无法安装，它将会保持现有版本。必须先使用“apt-get update”操作来使apt-get明白哪个软件包具有新版本。\par
 可用选项：“--allow-unauthenticated”。它将会忽视由于软件包数字签名无法被检查。它将在使用本地源时十分有用，但在数据来源无法被认证是这个选项将十分危险。}
@@ -764,7 +770,7 @@ synaptic/disco,now 0.84.5 amd64 [installed]
 \end{verbatim}
 \subsubsection{dpkg}
 \cite{mandpkg}\par
-dpkg是一个可以安装，编译，卸载，管理Debian软件包的工具。它拥有一个友好的用户界面aptitude。dpkg本身完全通过命令行控制，命令包含一个（有且仅有）动作及零或多个选项。软件包按照状态（states\footnote{包括：未安装（not-installed），仅有配置文件（config-files），安装未完成（half-installed），已解包但未完成配置（unpacked），已安装（installed）等。}）及标记（selection states\footnote{包括：将安装（install），锁定（hold）（参见上文）（当参数“ --force-hold”被指定时，这些软件包也会被处理），将被删除（deinstall），将被完整删除（purge）}）分类。\footnote{有一些不常用的内容被省略了。}\par
+dpkg是一个可以安装，编译，卸载，管理Debian软件包的工具。它拥有一个友好的用户界面aptitude。dpkg本身完全通过命令行控制，命令包含一个（有且仅有）动作及零或多个选项。软件包按照状态（states\footnote{包括：未安装（not-installed），仅有配置文件（config-files），安装未完成（half-installed），已解包但未完成配置（unpacked），已安装（installed）等。}）及标记（selection states\footnote{包括：将安装（install），锁定（hold）（当参数“ --force-hold”被指定时，这些软件包也会被处理），将被删除（deinstall），将被完整删除（purge）}）分类。\footnote{有一些不常用的内容被省略了。}\par
 动作：-i \footnote{我认为安装软件包方面只讲这个动作就足够了。其它卸载等操作我们使用apt。}或--install将安装软件包\footnote{一个完整的安装过程包含：从软件包中解压缩控制文件，检查是否有旧版本（若存在，执行旧版本的“prerm”脚本），执行“preinst”脚本（若存在），备份旧版本（若有）并解包新版本（原位置），执行新版本（若存在旧版本）的“postrm”脚本，配置软件包（使用“--configure”选项查看它的过程）。\par 若出现依赖关系问题，请在安装完成后使用“apt -f install”来修正它。}。\par
 用法：“dpkg -i [软件包名].deb”\par
 示例：
@@ -1120,7 +1126,7 @@ GNU/Linux上有一个根目录（/ ），一切文件都被“挂载”（mount�
 /a/b/c
 \end{verbatim}
 那么，“/a/b/c”相对于“/a/b”就是“c”目录。\par
-相对路径十分有用。它可以避免我们多次重复键入绝对路径。具体参见下一节“cd”命令。
+相对路径十分有用。它可以避免我们多次重复键入绝对路径。具体参见\pageref{sec:cd}页\ref{sec:cd}。
 \subsection{常用命令}
 \subsubsection{pwd}
 这个命令用于显示当前工作目录的绝对路径。如：
@@ -1130,7 +1136,7 @@ sgcomputers@sgcomputers-pc:~$ pwd
 \end{verbatim}
 注意不要与“passwd”命令搞混。
 \subsubsection{新建文件并写入内容}
-“touch”命令可以新建文件（不过它的用途不只是新建文件）。如：
+\label{sec:nf}“touch”命令可以新建文件（不过它的用途不只是新建文件）。如：
 \begin{verbatim}
 sgcomputers@sgcomputers-pc:~$ ls
 Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
@@ -1217,7 +1223,7 @@ drwxr-xr-x  4 root root   4096 Apr 19 17:37 ..
 ##省略一大部分
 \end{verbatim}
 \subsubsection{cd}
-切换工作目录（比如说“sgcomputers@sgcomputers-pc:/\$ ”，此时工作目录就是“/”。工作目录位于“[用户名]@[计算机名]：”与“\$”（root用户是“\#”）中间）。{\color{red}{注意！GNU/Linux区分大小写！}}如：
+\label{sec:cd}切换工作目录（比如说“sgcomputers@sgcomputers-pc:/\$ ”，此时工作目录就是“/”。工作目录位于“[用户名]@[计算机名]：”与“\$”（root用户是“\#”）中间）。{\color{red}{注意！GNU/Linux区分大小写！}}如：
 \begin{verbatim}
 ##现在我们位于sgcomouters的“家”目录，即“/home/sgcomputers”。
 sgcomputers@sgcomputers-pc:/$ cd /
@@ -1481,7 +1487,7 @@ drwxrwxr-x 31 sgcomputers sgcomputers   4096 Jun 25 18:11 .config
 ##刚好一屏！输入“q”退出。
 \end{verbatim}
 “less 1”也会得到类似的效果（请读者自己尝试）。\par
-还可以使用“cat 1 -n | more”（如果你学得好的话，你就会知道管道符的含义。参见上文：基本概念及操作——批处理）得到：
+还可以使用“cat 1 -n | more”（如果你学得好的话，你就会知道管道符的含义。参见\pageref{sec:bat}页\ref{sec:bat}）得到：
 \begin{verbatim}
   1  .:
 2  total 288
@@ -1502,7 +1508,7 @@ MC全称“Midnight Commandar”，是一个强大的终端界面文件管理器
 \end{center}
 图形界面伪终端支持鼠标操作。终端界面需要fbterm（如果你的语言是中文）。注意下方有一行数字[x]，你需要按F[x]来实现。如退出：F10。
 \section{进程管理}
-图形界面工具有gnome-system-monitor、ksysguard、htop（命令行启动）与qps。这些工具使用简单，不再赘述。以下为ksysguard与htop的截图。
+\label{sec:pm}图形界面工具有gnome-system-monitor、ksysguard、htop（命令行启动）与qps。这些工具使用简单，不再赘述。以下为ksysguard与htop的截图。
 \begin{center}
 	\includegraphics[scale=0.7]{pic/ksysg}	\includegraphics[scale=0.7]{pic/htop}
 \end{center}
@@ -1550,7 +1556,7 @@ sgcomputers@sgcomputers:~/COM_Zh_CN/TeX$ sudo ps -A all | grep apt
 用来强制终结进程。用法：kill -9 [pid]。其中[pid]由ps命令给出。如：如果我们想终结上一个例子中新立得的进程（警告！不推荐！），我们可以：“sudo kill -9 15075”。\par
 一般我们以root权限运行此命令，并且只在一个你熟悉的应用程序失去响应或需要终结一个失败的apt（如，启动时自动更新）使用这个命令。{\color{red}{不要终结你不熟悉的进程，它可能是系统进程！}}
 \section{GNU/Linux下的反病毒软件}
-这一章将会介绍运行于GNU/Linux的反病毒软件ClamAV。当然如果你需要类似于Windows的反病毒体验，你可以使用ESET（付费）。\par
+\label{sec:avgl}这一章将会介绍运行于GNU/Linux的反病毒软件ClamAV。当然如果你需要类似于Windows的反病毒体验，你可以使用ESET（付费）。\par
 在使用前，你需要到软件源安装它。注意！ClamAV不提供实时保护！（所以你也不用担心它在后台占用资源了，是吧）
 \subsection{优点及不足}
 优点：
@@ -1562,7 +1568,7 @@ sgcomputers@sgcomputers:~/COM_Zh_CN/TeX$ sudo ps -A all | grep apt
 缺点：
 \begin{enumerate}
 	\item 误报率高。
-	\item 在GNU/Linux机器上资源占用极大，比传说中的“卡巴死机”\footnote{这是对卡巴斯基较旧版本（系统占用极大）的调侃。现在的最新版（2019）比以前好多了（当然，这与计算机性能提升也有关系）。}还让人抓狂。其cygwin版本（参见下文：在Windows操作系统上使用GNU/Linux命令）好多了。
+	\item 在GNU/Linux机器上资源占用极大，比传说中的“卡巴死机”\footnote{这是对卡巴斯基较旧版本（系统占用极大）的调侃。现在的最新版（2019）比以前好多了（当然，这与计算机性能提升也有关系）。}还让人抓狂。其cygwin版本好多了。
 	\item 查杀速度较慢。
 \end{enumerate}
 \subsection{命令行模式}
@@ -1664,7 +1670,7 @@ Wine——一种神奇的能够让Windows程序运行于GNU/Linux的小程序。
 \section{GNU/Linux的教学实现}
 这一章将会谈到如何使用GNU/Linux实现日常教学任务。\par
 1.安装操作系统：我们选择Lubuntu Linux 19.04 \footnote{注意，请安装图形界面：cinnamon或lxde（它们与Windows操作系统界面风格更接近，因此将会被更多人接受）。除非你会自己写硬件驱动程序或者你是自由软件运动的忠实粉丝（当然这些人也不会使用Debian），请安装非自由固件。安装过程不再赘述。下同。}或Ubuntu 18.10或Linux Mint 19 \footnote{除非你会自己写硬件驱动程序或者你是自由软件运动的忠实粉丝，请安装第三方媒体解码器和驱动程序。对于初学者，我十分推荐Linux Mint Cinnamon。}或Deepin Linux。 \par
-2.配置软件源\footnote{我选用的是网易源。具体配置方法参见上一章或参见：\url{https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/}（最后连接于2019年06月20日18:49:00）}，使用“sudo apt update \&\& sudo apt upgrade -y”更新软件包索引文件和软件包并安装以下软件（如果你使用了Debian GNU/Linux9.9 最小安装，你还要安装man、less与sudo）：
+2.配置软件源\footnote{我选用的是网易源。具体配置方法参见\pageref{sec:apt}页\ref{sec:apt}或参见：\url{https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/}（TUNA源）（最后连接于2019年06月20日18:49:00）}，使用“sudo apt update \&\& sudo apt upgrade -y”更新软件包索引文件和软件包并安装以下软件（如果你使用了Debian GNU/Linux9.9 最小安装，你还要安装man、less与sudo）：
 \begin{verbatim}
 ##你可以从软件源中下载绝大部分软件。
 ##软件源中也许软件名称不同。
