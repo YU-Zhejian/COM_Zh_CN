@@ -10,7 +10,7 @@
 \usepackage{color}
 \usepackage{graphicx}  %生成图片
 \usepackage{geometry} %设置页面排版
-\geometry{top=0.5in, bottom=0.5in, left=0.5in, right=0.5in}
+\geometry{top=0.5in, bottom=0.5in, left=0.5in, right=0.5in, papersize={21cm,29.7cm}}
 \usepackage[super]{nth} %生成序数词
 \bibliographystyle{alpha}
 \usepackage{metalogo} %生成TeX标志
@@ -36,17 +36,25 @@
 \titleformat{\subsection}[frame]{\bf\Large}{\small 第\thesubsection 节}{0pt}{}
 \titleformat{\subsubsection}[frame]{\bf\large}{\small 第\thesubsubsection 小节}{0pt}{}
 \linespread{1.2} %行距命令
+\usepackage{eso-pic}%背景图像命令
 \usepackage{hyperref} %生成书签，这个应被放在末尾
 \hypersetup{hidelinks,bookmarks=true,bookmarksopen=true,pdftitle=电教委员完全（不）技术指南,pdfauthor=YuZJ Lab}
 \begin{document}
 \setcounter{tocdepth}{3}
-\begin{titlepage}
-	\vspace*{10mm}
-	\begin{center}
-		\fbox{\Huge \textsf{\textbf{电教委员（不）完全技术指南（简体中文）}}\normalsize}\\\vspace*{5mm}
-		\large 作者：YuZJ Lab \\\vspace*{5mm}
-		\large 编译日期：\today\normalsize
+
+\begin{titlepage}	
+\AddToShipoutPictureBG*{\includegraphics[width=21cm,height=29.7cm]{pic/face.png}}
+{\color{white}{\vspace*{10mm}
+\begin{center}
+\doublebox{\parbox{18cm}{\begin{center}		
+							\fbox{\Huge \textsf{\textbf{电教委员（不）完全技术指南（简体中文）}}\normalsize}\\\vspace*{5mm}
+							\large 作者：YuZJ Lab \\\vspace*{5mm}
+							\large 编译日期：\today\normalsize	
+						\end{center}
+			}}
+
 	\end{center}
+}}
 \vspace*{25mm}
 \shadowbox{\parbox[t]{8cm}{“工欲善其事，必先利其器”，对于我们来说，掌握如何高效率地使用计算机是十分重要的。为了方便信息化教学的开展，我结合自己的工作经历，不自量力地“年来著书一种”，为希望掌握关于如何高效地使用教室计算机的初级和高级技巧的电教委员或者其余希望提高计算机技能的教师、学生及其他教职人员编写了这份文件。}}
 \end{titlepage}
@@ -404,16 +412,16 @@ CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序�
 首先，GNU/Linux是以Linux为内核，辅以GNU\footnote{GNU（GNU is Not Unix的递归缩写）是一个由理查德·斯托曼为推广自由软件发起的运动（自由软件运动）的一部分。它产生了一些如 Gnu Emacs、gcc（GNU Compiler Collection，即GNU编译器套件，包含 C、C++、Objective-C、Fortran、Ada、Go、D 等语言（那个，别问我它们是什么，我也不知道）的编译器及这些语言的运行库，由 Richard Stallman 于 1987 年发布，最新版本 7.4）、GIMP（GNU Image Manipulation Program，图像处理软件，号称“GNU/Linux下的 PhotoShop”）等自由软件。具体请参看附录中的“GNU宣言”。}工具集的操作系统。因此，说“Linux操作系统”是不合适的。\par
 （通俗地讲，）发行版是你可以下载安装的GNU/Linux版本。基于学习难度、兼容性及易用性，我们主要使用以下GNU/Linux发行版：
 \begin{description}
-	\item [Arch Linux] 一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛除外）。
-	\item [CentOS] “社区企业操作系统”的缩写，稳定性较强，社区维护，免费下载安装。
-	\item [Debian GNU/Linux] 虽然软件更新较慢，但稳定性较强（仅限于Stable分支）。
+	\item [Arch Linux] 一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛或者有善解人意的班主任者除外）。
+	\item [CentOS] “社区企业操作系统”的缩写，稳定性较强，社区维护，免费下载安装。软件过少，不适用于教学。
+	\item [Debian GNU/Linux] 虽然软件更新较慢，但稳定性较强（仅限于Stable分支）或者根本不稳定（Unstable分支）。
 	\item [Gentoo Linux] 一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛除外）。
-	\item [Fedora] 前瞻性性较强，社区维护并由RedHat基金会支持，免费下载安装。
-	\item [Kali Linux] 内含大部分黑客专用的工具，使用apt软件包管理器，适合用于教学。
+	\item [Fedora] 前瞻性性较强，社区维护并由RedHat基金会支持，免费下载安装。软件过少，不适用于教学。
+	\item [Kali Linux] 内含大部分黑客专用的工具，使用apt软件包管理器，默认使用root用户执行操作，非常不适合用于教学。{\color{red}{警告！！！！如果你成功地使用Kali黑掉了不属于你并且拥有复杂日志系统的网络（并且你愚蠢到留下了自己的MAC地址还没有改变它），你极有可能入狱。}}
 	\item [Red Hat Enterprise Linux （RHEL）] 稳定性和保密程度极强，付费下载安装。不适合用于教学。
-	\item [Ubuntu] 一个基于Debian GNU/Linux的发行版，前瞻性性较强，支持的软件包极多，适合用于教学。在“高级”章中我们将会使用此发行版作为示例。
-	\item [Linux Mint] 同上。目前最适合于初学者的GNU/Linux发行版。十分人性化，建议初学者选用。适合用于教学。
-	\item [Pure OS] 一个认证完全自由的发行版。
+	\item [Ubuntu] 一个基于Debian GNU/Linux的发行版，前瞻性性较强，支持的软件包极多，非常适合用于教学。在“高级”章中我们将会使用此发行版作为示例。
+	\item [Linux Mint] 同上。目前最适合于初学者的GNU/Linux发行版。十分人性化，建议初学者选用（大牛将在此略感蹩脚）。非常适合用于教学。
+	\item [Pure OS] 一个认证完全自由的发行版。官方软件源存在软件过少和下载速度慢的问题。但如果你是自由软件运动的铁杆支持者（并且还有善解人意的班主任），你可以使用它。
 	\item [（半）国产操作系统]这里不再赘述。
 \end{description}
 \subsubsection{GNU/Linux的优点}
