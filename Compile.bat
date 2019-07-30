@@ -6,6 +6,7 @@ del *.blg
 del *.toc
 del *.out
 del *.fls
+del *.brf
 del *.fdb_latexmk
 del *.syntex.gz
 echo Start XeLaTeX......1/6
@@ -26,5 +27,6 @@ del *.blg
 del *.toc
 del *.out
 del *.fls
+del *.brf
 del *.fdb_latexmk
 del *.syntex.gz

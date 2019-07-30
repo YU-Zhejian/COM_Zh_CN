@@ -5,6 +5,7 @@ rm -f *.blg
 rm -f *.toc
 rm -f *.out
 rm -f *.fls
+rm -f *.brf
 rm -f *.fdb_latexmk
 echo Start XeLaTeX......1/5
 xelatex Main.tex
@@ -22,5 +23,6 @@ rm -f *.blg
 rm -f *.toc
 rm -f *.out
 rm -f *.fls
+rm -f *.brf
 rm -f *.fdb_latexmk
 echo Done!
