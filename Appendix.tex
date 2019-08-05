@@ -53,7 +53,7 @@ Building dependency tree
 Processing triggers for systemd (240-6ubuntu5.1) …
 \end{verbatim}
 \subsection{配置VSFTPD}
-此时我建议你先使用“su”命令切换到root账户。这能节省时间。目前我的VSFTPD最高版本为3.0.3，配置文件是“/etc/vsftpd.conf”。使用Vim或其它你喜欢的编辑器打开它，取消注释（删除“\#”）以下内容：
+此时我建议你先使用“\verb|su|”命令切换到root账户。这能节省时间。目前我的VSFTPD最高版本为3.0.3，配置文件是“/etc/vsftpd.conf”。使用Vim或其它你喜欢的编辑器打开它，取消注释（删除“\verb|#|”）以下内容：
 \begin{verbatim}
 write_enable=YES
 ##这样做使用户具有上传信息的权限。
@@ -116,18 +116,18 @@ root@server:/#service vsftpd start
 \section{使用Telnetd配置远程登录服务器}
 这太简单了，安装“telnetd”（CentOS是“telnet-server”）软件包并设置防火墙即可。
 \section{使用SSHD与Git配置Git服务器}
-现在将使用sshd与git配置git版本控制服务器。首先使用软件源安装这两个应用，设置好防火墙并使用“sudo service sshd start”开启sshd服务。大部分命令与上一节创建FTP服务器类似，这里不再赘述。
+现在将使用sshd与git配置git版本控制服务器。首先使用软件源安装这两个应用，设置好防火墙并使用“\verb|sudo service sshd start|”开启sshd服务。大部分命令与上一节创建FTP服务器类似，这里不再赘述。
 \subsection{初始化}
-先使用“useradd git”新建用户“git”并修改密码，新建“/home/git/.ssh”目录并在里面创建“ authorized\_keys”文件。为了允许授权的用户访问服务器，请各位授权的用户运行“ssh-keygen”命令并将产生的“id\_rsa.pub”公钥文件发送到电教员手中（比如说，使用FTP），电教员将它们中的内容添加到“ authorized\_keys”文件末尾，一条公钥一行。\par
+先使用“\verb|useradd git|”新建用户“git”并修改密码，新建“/home/git/.ssh”目录并在里面创建“ authorized\_keys”文件。为了允许授权的用户访问服务器，请各位授权的用户运行“ssh-keygen”命令并将产生的“id\_rsa.pub”公钥文件发送到电教员手中（比如说，使用FTP），电教员将它们中的内容添加到“ authorized\_keys”文件末尾，一条公钥一行。\par
 为了防止入侵，请修改“/etc/passwd”文件的“git”用户对应的一行末尾“/bin/bash”为“/usr/bin/git-shell”，使他大致呈现“git:x:xxxx:xxxx:xxx:/home/git:/usr/bin/git-shell”（某些内容用x表示）。
 \subsection{创建仓库}
-到“/opt/git”目录，使用“git init --bare --share [仓库名].git”新建仓库并修改文件所有者为“git”并可读可写可执行，此时远程的用户就可以通过“ git clone git@[服务器地址]:/opt/git/[仓库名].git”来克隆这个仓库。未经授权的用户可以输入git用户的密码来访问。
+到“/opt/git”目录，使用“\verb|git init --bare --share [仓库名].git|”新建仓库并修改文件所有者为“git”并可读可写可执行，此时远程的用户就可以通过“\verb| git clone git@[服务器地址]:/opt/git/[仓库名].git|”来克隆这个仓库。未经授权的用户可以输入git用户的密码来访问。
 \section{从此告别U盘}
 我相信所有的电教员一定很反感U盘在教育教学中的使用：U盘不仅成为了病毒的“特快车道”，还有保密度低、容易遗失的不足。通过完善的网络配置即可除去U盘在教育教学中的使用。\par
 首先，请使用硬件（这个太简单了吧，把线剪掉就好了）或软件（推荐这一种。可以使用火绒的相关功能）方法禁用学生机的USB接口。之后请搭建一个高速FTP服务器，确保每台教师机和学生机都能登录服务器。这样需要什么教学资源只要下载即可。或者也可以搭建无盘服务器，将教学资源放在服务器上。
 \chapter{GNU宣言}
-GNU宣言\footnote{我将这份历史文件添加进本技术指南的目的，是为了让程序员在商业化如潮水般推进时，能够关注一些其它理念。该份文件仅代表自由软件运动捍卫者的观点，并不能代表sgcomputers Lab的观点或立场。\cite{gnum}，被引用时文章内所有链接均有效。}（如下所示）由\href{http://www.stallman.org/}{Richard Stallman}在1985年撰写，用来请求大家支持GNU操作系统的开发。其部分文本摘自1983年撰写的初始声明。直到1987年，因为开发的原因它时时小有更改；那时起，看起来最好是保持它不再改变。\par
-时过境迁，我们认识到使用不同的措辞可以避免一些常见的误解。从1993年起，我们添加了脚注来澄清这些问题。\footnote{注意，有些脚注是由GNU CTT加的。}\par
+GNU宣言\footnote{我将这份历史文件添加进本技术指南的目的，是为了让程序员在商业化如潮水般推进时，能够关注一些其它理念。该份文件仅代表自由软件运动捍卫者的观点，并不能代表YuZJ Lab的观点或立场。\cite{gnum}，被引用时文章内所有链接均有效。注意，有些脚注是由GNU CTT加的。}（如下所示）由\href{http://www.stallman.org/}{Richard Stallman}在1985年撰写，用来请求大家支持GNU操作系统的开发。其部分文本摘自1983年撰写的初始声明。直到1987年，因为开发的原因它时时小有更改；那时起，看起来最好是保持它不再改变。\par
+时过境迁，我们认识到使用不同的措辞可以避免一些常见的误解。从1993年起，我们添加了脚注来澄清这些问题。\par
 如果你想安装GNU/Linux系统，我们建议你使用\href{http://www.gnu.org/distros}{100\%自由的GNU/Linux发行版}之一。如果你想做出贡献，请参看\url{http://www.gnu.org/help/help.html}。\par
 GNU工程是自由软件运动的一部分，该运动旨在\href{http://www.gnu.org/philosophy/free-sw.html}{捍卫软件用户的自由}。把GNU和“开源”一词联系在一起是错误的—该词汇是1998年由一些不赞同自由软件运动之道德价值的人士发明的。他们使用该词汇来推动同一领域的\href{http://www.gnu.org/philosophy/open-source-misses-the-point.html}{非道德方案}。\par
 \section{GNU为何？GNU并非UNIX！}

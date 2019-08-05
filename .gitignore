@@ -37,3 +37,4 @@ Temporary Items
 *.fls
 *.fdb_latexmk
 *.syntex.gz
+*.brf
