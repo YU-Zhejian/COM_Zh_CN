@@ -6,26 +6,28 @@
 这一个章节将以 Lubuntu\footnote{这是Ubuntu的一个衍生版本，除了将默认桌面替换为LXDE外与“正常”的Ubuntu没有大的区别。} 19.04为例，指示电教委员如何安装GNU/Linux平台使其与Windows操作系统共存，简单的GNU/Linux设置及使用GNU/Linux实现日常教学。\par
 \section{免责声明}
 {\color{red} {注意，我希望一个能力较强，英语水平较高且经验丰富的电教委员学习这部分内容。YuZJ Lab对产生的任何错误概不负责，请自行备份旧操作系统！一切翻译内容如与最新版的英文文章有所冲突，皆以最新版为准！}}\par
-GNU/Linux的更新速度较快，我写的内容恐怕很快就会过时。希望读者给予反馈。GNU/Linux是一个博大精深的体系，请原谅我不断使用“参见下文”。\par
-请你确保一下内容后学习这一章：
+GNU/Linux的更新速度较快，我写的内容恐怕很快就会过时。希望读者给予反馈。GNU/Linux是一个博大精深的体系，请原谅我不断使用“参见...”。\par
+请你确保以下内容后学习这一章：
 \begin{enumerate}
-	\item 你已经完全学习了VimTutor，知道vi与vim的基本使用方法（如，打开、保存、另存为文件，文件内查找等等）、区别和联系。大多数GNU/Linux发行版都自带vi。若否，学习这些内容。某一些发行版也自带GNU Nano编辑器，如果实在学不会vim可以试一试这个。
+	\item 你已经完全学习了VimTutor，知道vi与vim的基本使用方法（如，打开、保存、另存为文件，文件内查找等等）、区别和联系。大多数GNU/Linux发行版都自带vi。否则，学习这些内容。某一些发行版也自带GNU Nano编辑器，如果实在学不会vim可以试一试这个。
 	\item 你拥有一台闲置的计算机或虚拟机；或者计算机上的所有内容已经被备份到了可移动媒体上；或者你的班主任及任课老师非常和善，能够容忍由于你“疯狂”实验导致的数天的宕机。
-	\item 不错的英语水平。比如说你应该毫无障碍地看懂这份资料：You can generally also specify long option names with a single -; for example, -batch as well as --batch.  You can use any unambiguous abbreviation for a --option. Various environment variables and window system resources also affect the operation of Emacs.  See the main documentation. Report bugs to bug-gnu-emacs@gnu.org.  First, please see the Bugs section of the Emacs manual or the file BUGS.这是由“emacs --help”命令生成的GNU Emacs26.2的帮助内容的最后一小部分。
-	\item 你已经学会了Windows系统上CygWin中无需图形界面的命令。你至少应该学会以下命令：ls、pwd、cd、rm、mkdir、cp、mv、cat、more、less的精确用法，知道管道符的作用。
-	\item 在一台真实的机器上操作前，务必确保你已经完整地读完了本书的最新版本！
+	\item 不错的英语水平。比如说你应该毫无障碍地看懂这份资料：“You can generally also specify long option names with a single -; for example, -batch as well as --batch.  You can use any unambiguous abbreviation for a --option. Various environment variables and window system resources also affect the operation of Emacs.  See the main documentation. Report bugs to bug-gnu-emacs@gnu.org.  First, please see the Bugs section of the Emacs manual or the file BUGS.”这是由“emacs --help”命令生成的GNU Emacs26.2的帮助内容的最后一小部分。
+	\item 你已经学会了Windows系统上CygWin中无需图形界面的命令。你至少应该学会以下命令：ls、pwd、cd、rm、mkdir、cp、mv、cat、more、less、tar的用法，知道管道符的作用。
+	\item 在一台真实的机器上操作前，务必确保你已经完整地读完了本书的最新版本！当然，在虚拟机上操作无此限制。
 \end{enumerate}
 \section{在Windows操作系统上使用GNU/Linux命令：CygWin}
 CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序在Windows操作系统上运行的程序。你可以借此使用优秀的GNU/Linux程序。官网：\url{http://www.cygwin.com/}（最后连接于2019年7月6日16:22:55）。请下载安装包后作以下设置：
 \begin{enumerate}
 \item 选择“Install from Internet”，开始在线安装（你也可以使用“Download without Installing”离线整个软件源，不建议）。
 \item “Root Directory”作为根目录，请选择“C:\textbackslash cygwin”便于维护。
-\item “Local Package Directory”请选择“下载”文件夹。
-\item 软件源请选择tuna源，或其它可信软件源。之后会存在一些卡顿和无响应，属于正常情况，不要担心。
-\item 软件包请选择“Best”外加你需要的软件包。注意，不建议安装桌面系统。
-\item 安装完后别忘了添加/bin、/sbin、/usr/bin、/usr/sbin到系统PATH变量（你可以选择Windows环境变量，也可以使用“export PATH”命令）。 
+\item “Local Package Directory”请选择“D:\textbackslash cygwin\_inst”文件夹。
+\item 软件源请选择tuna源、USTC源，或其它可信软件源。之后会存在一些卡顿和无响应，属于正常情况，不要担心。
+\item 软件包请选择“Best”外加你需要的软件包。注意，不建议安装桌面系统或者X-Window系统。
+\item 安装完后别忘了添加/bin、/usr/sbin到系统PATH变量（你可以选择Windows环境变量，也可以使用“export PATH”命令）。 
+\item 除了首次安装时默认需要安装的软件包以外，你需要安装如下软件包（可能会有重复，但你安装就是了）：bash、bzip2、clamav（反病毒软件，可选）、cmake（编译软件，可选）、coreunits、cygwin、dash、emacs（文本编辑器，可选。但相对于官方发布的Windows版，我还是更倾向于这个版本）、gcc-*（编译软件，可选）、git（版本控制，可选。我个人认为官方的Windows版好一些）、grep、gzip、info、less、make（编译软件，可选）、man-db、shutdown、tar、vim、xz、zsh、p7zip、zip。
+\item 注意，CygWin安装软件时的操作不同于apt。CygWin先删除旧软件包，再安装新软件包。
 \end{enumerate}
-请注意，没有apt软件包管理器。我建议你可以选择安装ClamAV为Windows杀毒。
+请注意，这里没有apt软件包管理器。如果你需要加装软件或者卸载软件，再次运行安装程序即可。我建议你可以选择安装ClamAV为Windows杀毒。
 \section{GNU/Linux及其发行版}
 \label{sec:gnulinux} GNU/Linux产生于Minix，而Minix产生于Unix。具体产生历史不再赘述。\par
 首先，GNU/Linux是以Linux为内核，辅以GNU\footnote{GNU（GNU is Not Unix的递归缩写）是一个由理查德·斯托曼为推广自由软件发起的运动（自由软件运动）的一部分。它产生了一些如 Gnu Emacs、gcc（GNU Compiler Collection，即GNU编译器套件，包含 C、C++、Objective-C、Fortran、Ada、Go、D 等语言（那个，别问我它们是什么，我也不知道）的编译器及这些语言的运行库，由 Richard Stallman 于 1987 年发布，最新版本 7.4）、GIMP（GNU Image Manipulation Program，图像处理软件，号称“GNU/Linux下的 PhotoShop”）等自由软件。具体请参看附录中的“GNU宣言”。}工具集的操作系统。因此，说“Linux操作系统”是不合适的。\par
@@ -62,16 +64,17 @@ CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序�
 \subsubsection{红旗Linux}
 \url{http://www.redflag-linux.com/}（最后连接于2019年06月20日18:17:29）。 \par
 红旗Linux操作系统产生于科索沃战争。当时，前南斯拉夫的计算机安装的操作系统均为MS DOS操作系统。美国军方使用信息战等手段让前南斯拉夫的通讯系统几乎全部瘫痪。这件事让中国政府部门深感研发出拥有自主知识产权的操作系统有多么重要。中国科学院软件研究所奉命研制基于GNU/Linux的自主操作系统，并于1999年8月发布了红旗Linux 1.0版。最初主要用于关系国家安全的重要政府部门。红旗操作系统至今为止仍是最大最成熟的国产操作系统。最新版本9。 \cite{rflinux} \par
-\begin{center}\large \bf 实测 \normalall\end{center} \par
-经过虚拟机安装测验发现，红旗Linux主要基于Fedora。在Live映像中已经安装网易云音乐、WPS办公软件、WineQQ （QQ的非官方GNU/Linux版）、Electric WeChat（微信的非官方GNU/Linux版） 等常用软件。安装版所自带的Yum源 \footnote{Yum与APT将会在“高级”篇中讲到} 所能够提供的软件包数量没有Fedora官方发行版多，并且下载速度较国内镜像源（如TUNA \footnote{TUNA，全称Tsinghua University Network Association，是清华大学一群爱好网络技术的极客组成的社团。} 源）慢。因此，我并不支持在教学上使用此操作系统。
+\paragraph{实测}
+经过虚拟机安装测验发现，红旗Linux与Fedora十分相似，都使用RPM作为默认软件包管理器。在Live映像中已经安装网易云音乐、WPS办公软件、WineQQ （QQ的非官方GNU/Linux版）、Electric WeChat（微信的非官方GNU/Linux版） 等常用软件。安装版所自带的Yum源 \footnote{Yum与APT将会在“高级”篇中讲到} 所能够提供的软件包数量没有Fedora官方发行版多，并且下载速度较国内镜像源（如TUNA \footnote{TUNA，全称Tsinghua University Network Association，是清华大学一群爱好网络技术的极客组成的社团。} 源）慢。安转软件容易产生依赖问题（比如说我安装GNU Emacs就失败了——并且还是旧版）因此，我并不支持在教学上使用此操作系统。
 \begin{center}
 	\includegraphics[scale=0.5]{pic/redflag}
 \end{center} \par
 \subsubsection{Deepin Linux}
 \url{https://www.deepin.org/}\par
 \cite{deepininfo}深度操作系统基于Linux内核，以桌面应用为主的开源GNU/Linux操作系统，支持笔记本、台式机和一体机。深度操作系统（deepin）包含深度桌面环境（DDE）和近30款深度原创应用，及数款来自开源社区的应用软件，支撑广大用户日常的学习和工作。另外，通过深度商店还能够获得近千款应用软件的支持，满足您对操作系统的扩展需求。深度操作系统由专业的操作系统研发团队和深度技术社区（www.deepin.org）共同打造，其名称来自深度技术社区名称“deepin”一词，意思是对人生和未来深刻的追求和探索。
-\begin{center}\large \bf 实测 \normalall\end{center} \par
- 免费下载安装，安装较为方便。APT镜像源较多，更新较快。适合用于教学。同样拥有WineQQ与Electric WeChat，体验接近Ubuntu。适合用于教学。
+\paragraph{实测}
+免费下载安装，安装较为方便。APT镜像源较多，更新较快。同样拥有WineQQ与Electric WeChat，体验接近Ubuntu（桌面除外）。适合用于教学。\par
+缺陷：一部分预装软件的界面（如深度软件安装器）过于简洁，不够强大。应用程序卸载不需要root权限。桌面的形式不适用于高效率教学生活，较难适应。
 \begin{center}
 	\includegraphics[scale=0.5]{pic/deepin}
 \end{center} \par
@@ -79,9 +82,9 @@ CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序�
 \url{http://www.startos.org/}\par
 \cite{startosinfo} StartOS是由东莞瓦力网络科技有限公司发行的开源操作系统，符合国人的使用习惯，预装常用的精品软件，操作系统具有运行速度快，安全稳定，界面美观，操作简洁明快等特点。\par
 StartOS使用全新的包管理，全新的操作界面，是一个易用，安全，稳定，易扩展，更加符合中国人操作习惯的桌面操作系统。Linux 系统的安全，稳定是众所周知的事情，StartOS 将朝着易用的方向坚持走出自己的特色。最新版本5.1。\par
-\begin{center}\large \bf 实测 \normalall\end{center} \par
+\paragraph{实测}
 免费下载安装。安装并未过多简化，仅仅减少步骤。你还是需要GNU/Linux分区相关知识。但安装速度快。\par
-图形界面接近于WindowsXP。软件较少且落后（如LibreOffice仅3.1——目前6.2.3，Emacs仅24——目前26.2，GIMP仅2.8-目前2.10）。因此，我并不支持在教学上使用此操作系统。
+图形界面接近于WindowsXP。软件太糟糕了——少且落后（如LibreOffice仅3.1——目前6.2.3，Emacs仅24——目前26.2，GIMP仅2.8-目前2.10）。因此，我并不支持在教学上使用此操作系统。
 \begin{center}
 	\includegraphics[scale=0.5]{pic/startos}
 \end{center} \par
@@ -89,8 +92,8 @@ StartOS使用全新的包管理，全新的操作界面，是一个易用，安�
 \url{https://www.ubuntukylin.com/}\par
 优麒麟（Ubuntu Kylin）是由天津麒麟信息技术有限公司主导开发的全球开源项目，其宗旨是通过研发用户友好的桌面环境以及特定需求的应用软件，为全球 Linux 桌面用户带来非凡的全新体验！\par
 优麒麟操作系统是 Ubuntu 官方衍生版，得到来自 Debian、Ubuntu、Mate、LUPA 等国际社区及众多国内外社区爱好者的广泛参与和热情支持。其开发贡献者可参见Ubuntu Kylin开发者团队列表。\cite{ukinfo}
-\begin{center}\large \bf 实测 \normalall\end{center} \par
-免费下载安装。除了切换桌面，增加默认安装WPS、搜狗拼音输入法等外，与Ubuntu区别不大。适合用于教学。
+\paragraph{实测}
+免费下载安装。除了切换桌面，增加默认安装WPS、搜狗拼音输入法等外，与Ubuntu区别不大。适合用于教学。确实针对中国消费者做了不少优化。
 \begin{center}
 	\includegraphics[scale=0.4]{pic/uk}
 \end{center} \par
@@ -150,7 +153,7 @@ sgcomputers login:
 \begin{center}
 	\includegraphics[scale=0.9]{pic/term1} \includegraphics[scale=0.9]{pic/term2}
 \end{center} \par
-现在教你一个有用的命令：“shutdown now”，作用是关机。“shutdown -r now”或“reboot”则为重启。
+现在教你一个有用的命令：“shutdown now”，作用是关机。“shutdown -r now”或“reboot”则为重启。还有，你可以在一个（伪）终端中使用上下键显示之前的命令，或者依据之前的命令在输入命令的一部分时敲击tab自动补全。
 \subsubsection{用户管理（注意！重要内容！）}
 \cite{DebianRef}\par
 在GNU/Linux中，你会发现某些操作（如“apt install aptitude”）是普通用户无法执行的。此时你就需要root用户。\par
@@ -163,7 +166,7 @@ sgcomputers login:
 \subsubsection{获取帮助}
 \cite{manman}\par
 当发现有问题时，你需要参见帮助。以下是一些常见方法：\par
-\begin{center}\Large \bf man\footnote{info是另一种帮助系统。这里暂时略去。在（伪）终端中输入“info”查看更多内容。你也可以使用“whatis foo”寻找有关“foo”的帮助。} \normalall \end{center}\par
+\paragraph{man}\footnote{info是另一种帮助系统。这里暂时略去。在（伪）终端中输入“info”查看更多内容。你也可以使用“whatis foo”寻找有关“foo”的帮助。}
 man是系统手册。我们可以在这里获取许多帮助内容。例如，我们通过“man apt”查看针对“apt”的帮助。伪终端将输出以下内容\footnote{\#\#后的是注释。终端中并不会输出这些内容。}：
 \begin{verbatim}
 APT(8)                               APT                              APT(8)
@@ -183,7 +186,7 @@ Manual page apt(8) line 1 (press h for help or q to quit)
 ##当前行号（有时还会显示百分比）。按“h”键显示帮助即“man man”，
 ##“q”退出帮助系统。
 \end{verbatim}
-用法示例\footnote{具体请参见man的帮助：“man -a man”。\par 这里提供一些man的其它知识：\par 1.man命令的基础用法是“man [选项] [page].[section]。其中[page]是需要查找的帮助手册名称。\par 2.下述的“第n部分”是有特殊含义的。大致为：1-可执行程序或shell命令，2-调用系统核心，3-调用运行库，4-特殊文件，5-配置文件结构，6-游戏，7-多方面内容（杂项），8-系统管理命令（一般需要root权限），9-内核惯例。} \normalall “man foo”显示foo的帮助。“man foo.7”显示man的帮助，第7部分。“man -a foo”逐个显示所有foo的帮助。\par
+用法示例\footnote{具体请参见man的帮助：“man -a man”。\par 这里提供一些man的其它知识：\par 1.man命令的基础用法是“man [选项] [page].[section]。其中[page]是需要查找的帮助手册名称。\par 2.下述的“第n部分”是有特殊含义的。大致为：1-可执行程序或shell命令，2-调用系统核心，3-调用运行库，4-特殊文件，5-配置文件结构，6-游戏，7-多方面内容（杂项），8-系统管理命令（一般需要root权限），9-内核惯例。} “man foo”显示foo的帮助。“man foo.7”显示man的帮助，第7部分。“man -a foo”逐个显示所有foo的帮助。\par
 如果你需要一个man的图形前端，使用apt\footnote{参见\pageref{sec:apt}页\ref{sec:apt}}安装以下软件包：xman或gman（依赖man2html，需手动安装）。你可以在伪终端使用“gman”或“xman”命令显示它们的图形界面。我更倾向于gman。它能够修改manpath\footnote{man文件的目录}（而不是使用export命令或修改“.bashrc”命令）并使用不同的文档浏览器。\par
 \subsubsection{环境变量}
 现在我们已经知道可以在Shell中输入命令并执行它。那么Shell是如何执行命令的？其实除了几个内建命令（如cd），大多数命令都是特定文件夹中的可执行文件。如ls就位于/bin。这些特定文件夹都被记录在PATH环境变量中。\par
@@ -228,6 +231,19 @@ export PATH=/usr/local/texlive/2019/bin/x86_64-linux:/usr/local/sbin:/usr/local/
 \label{sec:bat}如果你想要将两条命令写在一起，你可以使用“ \&\& ”（注意，使用“\&\&”连接的命令仅当前面一个命令没有返回值（一般是执行成功）才执行后一个命令！）或“;”（无此限制）。如“sudo apt update \&\& sudo apt upgrade”，这两条命令写在一起将产生极好的效果（具体请参见\pageref{sec:apt}页\ref{sec:apt}）。我们也可以先使用vim新建一个“.sh”文件（希望你vim已经学得足够好了。没有？参见\pageref{sec:nf}页\ref{sec:nf}），将命令一行一行写进去，使用“chmod +x [文件名]”实现可运行，再“./[文件名]”来运行它。\par
 bash还提供了选择语句、循环语句等多种高级功能，这里不再赘述。\par
 如何调整命令输出的内容（比如说，如果你使用“ls -A -R /”命令后屏幕会发疯（不要尝试））？一方面我们可以将命令输出的结果保存在文件中（参见\pageref{sec:nf}页\ref{sec:nf}），另一方面我们可以使用重定向符“|”，作用是将前一个命令输出的结果输入后一个命令。如：“ps -A  all | grep [查找内容]”就是将“ps -A all”的输出输入到“grep [查找内容]”。其他常用的命令有“more”与“less”，参见\pageref{sec:nf}页\ref{sec:nf}）。
+\subsubsection{有用的文件和目录}
+\paragraph{~/} 这是一个目录，代表当前用户的“家”目录。比如说我以“sgcompoters”登录以后，默认的“家”目录就是“/home/sgcomputers/”，即“~/”。注意，root用户的“家”目录位于“/root/”。
+\paragraph{~/.bashrc}注意，这是一个隐藏文件。这个文件记录了你在刚刚登录系统时执行的操作（如果你的登录shell是bash的话——当然默认就是bash）。
+\paragraph{~/.bash\_history}这个文件记载了你所有输入过的命令。
+\paragraph{~/.minttyrc}这是你在CygWin上使用mintty终端的配置文件。我建议你把它的内容改成：
+\begin{verbatim}
+Font=仿宋
+FontHeight=15
+Locale=zh_CN
+Charset=UTF-8
+Language=zh_CN
+\end{verbatim}\par
+这样阅读起来稍微方便一点。
 \subsection{软件包管理器：以APT为例}
 \label{sec:apt}APT是一个Debian及其衍生版 \footnote{包括但不限于：Ubuntu Linux及其衍生版，Pure OS，Deepin Linux}中默认的强大的软件包管理器。它可用于从远程服务器及本地的软件源上安装Debian软件包（*.deb）。
 \subsubsection{首先，切换软件源！}
@@ -241,7 +257,7 @@ bash还提供了选择语句、循环语句等多种高级功能，这里不再�
 \subsubsection{APT}
 \cite{manAPT}\par
 APT为软件包管理系统提供了一个高级的终端界面，且包含了一些比默认工具（如apt-get或apt-cache之类特殊化的APT工具）更容易交互使用的选项。\footnote{注意，某些命令会在apt-get或apt-cache中介绍。 \par “[软件包名]”仅代表“某个软件包”，并不针对某一特殊软件包。}\footnote{来自于man命令输出的结果。我将尽可能贴切地翻译。 \par apt命令包含一些来自于apt-get及apt-cache之类特殊化的APT工具的命令（如“apt install [软件包名]”来自于“apt-get install [软件包名]”，“apt list”或“apt show [软件包名]”来自于“apt-cache”）。}\par
-\begin{center} \large \bf update \normalall \end{center} \par
+\paragraph{update} 
 \footnote{来自于man命令输出的结果。 \par 在终端中键入“man apt”以查看完整帮助文件。} “apt update”命令来自于apt-get，被用于从所有设置的软件源下载软件包列表信息。其它的命令（如升级或搜索）将在这个数据上操作并显示所有可安装的软件包信息\footnote{apt-get的man命令输出（某些重复内容将被删除，下同）为：“apt-get update”命令被用于从它们的软件源重新同步包含所有可用软件包的索引文件。这些索引将会从在“/etc/apt/sources.list”文件中定义的地址中下载。例如，当使用 Debian archive时，这条命令接收并扫描Packages.gz文件（位于“/var/lib/apt/lists”，内容为软件包索引文件如“mirrors.aliyun.com\_ubuntu\_dists\_cosmic\_main\_binary-amd64\_Packages”和压缩包如“mirrors.aliyun.com\_ubuntu\_dists\_cosmic\_main\_dep11\_icons-64x64.tar.gz”），得到新的和可更新的软件包信息。这个操作应在“apt-get upgrade”或“apt-get dist-upgrade”之前进行。注意，由于软件包索引文件（或其压缩包）的大小不能被事先了解，总进程进度条可能不确切。} 。如：
 \begin{verbatim}
 sgcomputers@sgcomputers:/home/sgcomputers:~$ sudo apt update
@@ -299,21 +315,21 @@ is another process using it?
 错误原因：无法获得排它锁——有进程占用apt。\par
 解决方案：1.删除锁文件：“sudo rm -rf /var/cache/apt/archives/lock ”。\par
 2.终结另一进程。参见\pageref{sec:pm}页\ref{sec:pm}。
-\begin{center} \large \bf  upgrade \normalall \end{center} \par
+\paragraph{upgrade}
 “apt upgrade”命令来自于apt-get，被用于从软件源（配置于sources.list）中更新所有已安装且存在可用更新的软件包。当且仅当新的软件包满足依赖关系\footnote{依赖关系：举例说明。假设软件包a需要b的功能才能正常运行，那么它们之间就形成了依赖关系。a依赖b，b依赖于a，安装时先安装b。}时它才会被安装。这个操作不会移除已安装的软件包 \footnote{APT更新软件包的操作不是“先卸再装”，而是覆盖安装。}。若一个更新操作要求移除已安装的软件包，它将不会被执行。\footnote{apt-get的man命令输出为：已安装的软件包不会被重新安装。已安装软件包的新版本如果在不更改其他软件包的安装状态时无法安装，它将会保持现有版本。必须先使用“apt-get update”操作来使apt-get明白哪个软件包具有新版本。\par
 可用选项：“--allow-unauthenticated”。它将会忽视由于软件包数字签名无法被检查。它将在使用本地源时十分有用，但在数据来源无法被认证是这个选项将十分危险。}
-\begin{center} \large \bf  full-upgrade \normalall \end{center} \par
+\paragraph{full-upgrade}
 “apt full-upgrade”命令来自于apt-get，将执行upgrade命令的功能。但如果需要，它将会在更新整个系统时，移除已安装的软件包。 \par
-\begin{center} \large \bf  autoremove \normalall \end{center} \par
+\paragraph{autoremove}
 {\color{red}{警告！这个命令可能对系统造成不可逆的致命破坏！}}  \par
 “apt autoremove”用于移除由于需要满足依赖关系而被自动安装且现在由于（被）其所依赖的软件包被卸载或其它依赖关系改变不被需要的软件包。 \par
 例：你安装了依赖于a的b软件包，则在你安装b时，a也会自动被安装。但当你卸载b时，a不会自动被卸载。此时你就可以使用这个命令来移除它们。你通过install安装的软件包也（理论上）不会被自动移除。 \par
 {\color{red}{你需要检查列出的将被卸载的软件的列表，确保其不包括你需要的软件包（尽管它们有可能作为另一个软件包的依赖而被安装）。你可以通过apt-mark将它们标记为“手动（Manual）”}}\footnote{apt-get的man命令输出为：“apt-get dist-upgrade”（命令名称不同）高级地执行upgrade命令的功能并智能地处理改变的依赖关系。apt-get有一个“聪明”的冲突处理系统。如果必要，它将以较为不重要的软件包为代价首先升级最重要的软件包。因此本命令有可能移除某些软件包。may therefore remove some packages. The /etc/apt/sources.list file contains a list of locations from which to retrieve desired packagefiles. 参见apt\_preferences的man帮助（第5部分）来了解并更改针对个别软件包的策略（这一段翻译地不好。请参见原文）。} \par
-\begin{center} \large \bf  edit-sources \normalall \end{center} \par
+\paragraph{edit-sources}
 “apt edit-sources”命令允许你用你喜欢的文本编辑器修改sources.list并提供基本的完整性检查。（我希望你已经把VIM学好了。你也可以使用其他的编辑器）  \par
-\begin{center} \large \bf  install，remove，purge \normalall \end{center} \par
+\paragraph{install，remove，purge}
 将会在apt-get中介绍。\footnote{“apt install [软件包名]”提供一条显示在屏幕底部的进度条，而apt-get没有。使用“--show-progress”选项已显现。}\par
-\begin{center} \large \bf  show \normalall \end{center} \par
+\paragraph{show}
 “apt show [软件包名]”命令来自于apt-cache，展示给出的软件包的信息，包括：依赖关系，下载和安装数据量，可用的安装源，对软件包所含内容的描述，等等。例如，它可以在需要在使用apt命令移除或搜索并安装新的软件包时提供帮助。如：
 \begin{verbatim}
 sgcomputers@sgcomputers:~$ apt show apt-mirror
@@ -343,7 +359,7 @@ Main features: ##主要功能
 * It uses a config similar to apts <sources.list>
 ##这里有几行被省略了。
 \end{verbatim}
-\begin{center} \large \bf  search \normalall \end{center} \par
+\paragraph{search}
 “apt search [软件包名]”来自于apt-cache，可用于在可用的软件包列表中搜索符合提供的正则表达式\footnote{regular expression ，（缩写为regex）参见regex的man帮助，第7部分。}的软件包并显示。例如，它可在你寻找某一个具有特定功能的软件包时发挥作用。你应使用apt-file来搜索包含特定文件的软件包。注意，似乎搜索得到的为在“软件包名”+“描述”中的搜索结果。\par
 示例：
 \begin{verbatim}
@@ -363,7 +379,7 @@ cinnamon-control-center/tessa,now 4.0.1+tessa amd64 [installed]
   utilities to configure the Cinnamon desktop
 ##大量内容被省略了。
 \end{verbatim}
-\begin{center} \large \bf  list \normalall \end{center} \par
+\paragraph{list}
 “apt list [软件包名] [选项]”在某方面接近“dpkg-query --list”，它可以显示满足特定要求的软件包。它支持使用glob查找\footnote{参见glob的man帮助，第7部分。注意：glob不是正则表达式！}软件包名称以及[选项]例如已安装（--installed），可更新（--upgradeable）或所有可用版本（--all-versions）。\par
 示例：
 \begin{verbatim}
@@ -546,7 +562,7 @@ A small and efficient tool that lets you mirror a part of or
 \subsubsection{apt-get}
 \cite{manaptget}\par
 apt-get是处理软件包的命令行工具，它有时作为用户的使用使用APT库的其它工具的“后端”。存在一些如“aptitude”或“synaptic”的前端工具。\footnote{某些与apt相同的命令不再赘述。具体为：update，upgrade，dist-update，autoremove。这里只列举了一些常用的命令。} \par
-\begin{center}  \large \bf  install \normalall \end{center} \par
+\paragraph{install}
 用法：“apt-get install [软件包名]”或“apt-get install [软件包名1] [软件包名2] [软件包名3] ... [软件包名n]”\par
 “apt-get install”命令后应连接一个或多个需要安装或升级的软件包\footnote{软件包名称，而不是软件包文件名。例如，如果你想要在Ubuntu上安装apt-utils，你应使用“apt-utils”作为参数（即将“[软件包名]”替换为“apt-utils”）而不是“apt-utils\_1.7.2\_amd64.deb”。}所有被将要安装的软件包需要的软件包（通常是由于依赖关系）也将会被下载安装。apt-get会按“/etc/apt/sources.list”寻找需要的软件包。软件包的版本可以通过在软件包名称后连接等号及软件包版本被指定。版本选择系统都有可能降级软件包\footnote{回退到以前版本} ，因此它们必须被谨慎地使用。不像“upgrade”命令（将升级所有可升级的软件包），“install”命令（将安装软件包的最新版本）允许你升级单个软件包（包括配置依赖关系，等等）。最终，apt\_preferences中提供的机制允许你为单个软件包创造可选的安装政策。\par
 可用选项：“-f”或“--fix-broken”。用法：“apt-get -f install”。它将会修复破损的依赖关系。\par
@@ -603,7 +619,7 @@ Processing triggers for hicolor-icon-theme (0.17-2) ...
 Setting up inkscape (0.92.3-1) ...
 Processing triggers for libc-bin (2.27-3ubuntu1) ...
 \end{verbatim}
-\begin{center}  \large \bf  remove \normalall \end{center} \par
+\paragraph{remove}
 “apt-get remove [软件包名]”与“install”命令用法相同，只是它将移除软件包而不是安装。注意：移除软件包时，它的配置文件将会被保留{/color{red}{警告！这个命令可能对系统造成不可逆的致命破坏！}}。\par
 可选选项：“--purge”。用法：“apt-get remove --purge [软件包名]”。效果同“apt-get purge [软件包名]”\par
 示例：
@@ -627,11 +643,11 @@ Processing triggers for desktop-file-utils (0.23+linuxmint4) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 Processing triggers for gnome-menus (3.13.3-11ubuntu1.1) ...
 \end{verbatim}
-\begin{center}  \large \bf  purge \normalall \end{center} \par
+\paragraph{purge}
 “apt-get purge [软件包名]”与“remove”命令用法相同，只是它将移除且完整删除软件包。注意：它的配置文件将会被删除{/color{red}{警告！这个命令可能对系统造成不可逆的致命破坏！}}。\par
-\begin{center} \large \bf download \normalall \end{center} \par
+\paragraph{ download}
 “apt-get download [软件包名]”将下载软件包到当前目录。（一个愚蠢的建议：你可以使用“apt-get download *”制作镜像源。{\color{red}{不要这么做。}}）
-\begin{center}  \large \bf  clean \normalall \end{center} \par
+\paragraph{clean}
 “apt-get clean”删除（除了lock文件）“/var/cache/apt/archives/”与“/var/cache/apt/archives/partial/”文件夹中已下载的软件包。
 \subsubsection{apt-cdrom}
 \cite{manaptcd}\par
@@ -761,7 +777,7 @@ sgcomputers@sgcomputers-pc:~$ pwd
 /home/sgcomputers
 \end{verbatim} \par
 注意不要与“passwd”命令搞混。
-\subsubsection{新建文件并写入内容}
+\subsubsection{touch}
 \label{sec:nf}“touch”命令可以新建文件（不过它的用途不只是新建文件）。如：
 \begin{verbatim}
 sgcomputers@sgcomputers-pc:~$ ls
@@ -971,9 +987,9 @@ cp [源文件] [目的目录]
 正宗创建链接命令，用法在上面。选项“-s”用来创件软链接（又称“符号链接”）（类似于于Windows的“快捷方式”）。注意！软链接的源文件必须写成绝对路径！硬链接不能链接目录或跨文件系统。
 \subsubsection{mv}
 移动文件，相当于图形界面剪切-粘贴。再进行文件备份时十分有用。用法类似于cp（但是没有“ -r”），这里不再赘述。
-\subsubsection{mount及其它文件系统的常用命令}
+\subsubsection{文件系统的常用命令}
 那么我们如何挂载其它设备（如，挂载未挂载的硬盘及u盘？\footnote{NTFS文件系统的磁盘一般不会自动挂载。除非修改fstab文件。}）？此时我们就应该使用mount及umount命令\footnote{在图形界面的文件管理器上（如pcmanfm，dolphin，Konqueror或nemo）你可以在对应的设备上单击即可挂载。但我们不推荐使用此方法：它无法自定义挂载点。}。\par
-\begin{center}\large \bf mount命令 \normalall\end{center} \par
+\paragraph{mount命令}
 \cite{manmnt}\par
 mount命令是一个非常有用的命令。它能够挂载设备和文件夹。\par
 注意，如果你需要挂载NTFS文件系统，你需要使用apt安装ntfs-3g。\par
@@ -1020,7 +1036,7 @@ ntfs-3g-mount: failed to access mountpoint /media/win10: No such file or directo
 \end{verbatim} \par
 挂载点不存在。此时我们使用“sudo mkdir /media/win10”创建目录（即挂载点）后再次运行此命令成功。\par
 你也可以使用umount命令取消挂载。如“umount /dev/sda1”\par
-\begin{center}\large \bf 自动化：fstab文件 \normalall \end{center}\par
+\paragraph{自动化：fstab文件}
 为了使硬盘里的分区自动挂载，我们可以修改“/etc/fstab”文件（需要root权限）。如：
 \begin{verbatim}
 # /etc/fstab: static file system information.
@@ -1127,8 +1143,94 @@ drwxrwxr-x 31 sgcomputers sgcomputers   4096 Jun 25 18:11 .config
 8  drwxrwxr-x 31 sgcomputers sgcomputers   4096 Jun 25 18:11 .config
 --More--
 \end{verbatim}
+\subsubsection{处理压缩文件}
+GNU/Linux中常见的压缩文件算法是tar（*.tar）、gz（*.gz *.tar.gz *.tgz *.z *.tar.z *.taz）、bzip2（*.bz2 *.tar.bz2 *.tbz）、deflate（*.zip）与LZMA（*.7z *.xz *.zip *.tar.xz *.txz *.lzma *.tlz）。RAR是专有软件，在GNU/Linux上面不常见。\par
+现在解释一下那些扩展名的由来：tgz、txz、tbz、tlz、taz分别是tar.gz、tar.xz、tar.bz2、tar.lzma、tar.z的缩写，其效果是相同的。一般tar压缩算法不减小文件的体积，但可包含多个文件；gzip、bzip2与xz算法能减小文件体积，但无法处理两个以上的文件。因此GNU/Linux的开发者们就经常将一个文件夹压缩为tar格式后再使用gzip算法压缩，这就产生了tar.gz的扩展名。\par
+\paragraph{xz及其衍生命令}
+首先，以下命令是等价的：\par
+\begin{verbatim}
+unxz = xz --decompress.
+xzcat = xz --decompress --stdout.
+lzma = xz --format=lzma.
+unlzma = xz --format=lzma --decompress.
+lzcat = xz --format=lzma --decompress --stdout.
+\end{verbatim}\par
+其次，xz不会压缩已经具有“xz”“txz”“lzma”“txz”扩展名的文件。请注意，xz在压缩时会删除源文件。语法：“xz [选项] [文件]”可用的选项：\par
+\begin{verbatim}
+-z 压缩，默认选项。
+
+-d 解压缩，等价于“--uncompress”或“--decompress”。
+
+-k 在（解）压缩完成以后不删除源文件，等价于“--keep”。
+
+-l 打印压缩文件信息。
+YuZJ@DESKTOP-8862SKL /
+$ xz -l  Cygwin.bat.xz
+Strms  Blocks   Compressed Uncompressed  Ratio  Check   Filename
+1       1        148 B         88 B  1.682  CRC64   Cygwin.bat.xz
+
+
+-F [格式] 等价于“--format=[格式]”，以[格式]保存压缩文件。
+   [格式]可以为xz或lzma。
+\end{verbatim}
+\paragraph{gzip及其衍生命令}
+gzip能够解压缩deflate算法压缩的zip文件以及扩展名为“z”“gz”的文件。同样拥有“gunzip”。\par
+\begin{verbatim}
+-d 解压缩，等价于“--uncompress”或“--decompress”。
+
+-k 在（解）压缩完成以后不删除源文件，等价于“--keep”。
+
+-l 打印压缩文件信息。
+YuZJ@DESKTOP-8862SKL /$ gzip Cygwin.bat -l
+compressed        uncompressed  ratio uncompressed_name
+116                  88   1.1% Cygwin.bat
+
+\end{verbatim}
+\paragraph{zip及其衍生命令}
+同样拥有“unzip”。语法：zip [参数] [文件名] [要求]\par
+\begin{verbatim}
+-m 从压缩文件外移动文件到压缩文件。
+
+-O [文件] 产生特定的文件，等价于“--output-file [文件]”。
+
+-P [密码] 使用密码，等价于“--password [密码]”。注意这么做不安全，
+          其他人也能读到你在终端的输入。
+
+-r 递归压缩。
+
+-R [文件夹名] [要求] 按照要求压缩文件。
+
+-u [压缩文件名] [要求] 按照要求更新压缩文件。
+
+-x [要求/文件名] （按要求）排除文件。
+\end{verbatim}\par
+比如说：\par
+\begin{verbatim}
+YuZJ@DESKTOP-8862SKL /cygdrive/d/VS$ zip -r VSAll *
+##把当前文件夹下所以内容压缩到VSAll.zip（不包含隐藏的文件）
+adding: IP▒▒ַ▒▒▒▒▒▒/.gitignore (172 bytes security) (deflated 57%)
+adding: IP▒▒ַ▒▒▒▒▒▒/IP▒▒ַ▒▒▒▒▒▒/ (260 bytes security) (stored 0%)
+adding: IP▒▒ַ▒▒▒▒▒▒/IP▒▒ַ▒▒▒▒▒▒/App.config (172 bytes security) (deflated 26%)
+adding: IP▒▒ַ▒▒▒▒▒▒/IP▒▒ַ▒▒▒▒▒▒/bin/ (260 bytes security) (stored 0%)
+adding: IP▒▒ַ▒▒▒▒▒▒/IP▒▒ַ▒▒▒▒▒▒/bin/Debug/ (260 bytes security) (stored 0%)
+##省略一些内容
+adding: IP▒▒ַ▒▒▒▒▒▒/IP▒▒ַ▒▒▒▒▒▒.sln (172 bytes security) (deflated 60%)
+
+YuZJ@DESKTOP-8862SKL /cygdrive/d/VS$ ls -l
+总用量 1
+drwxrwx---+ 1 YuZJ YuZJ   0 7月  31 17:13 IP地址计算器
+-rwxrwx---+ 1 YuZJ YuZJ 339 8月   5 17:39 VSAll.zip
+
+YuZJ@DESKTOP-8862SKL /cygdrive/d/VS$ zip -d VSAll *git*
+##删去“git”的文件匹配项
+deleting: IP▒▒ַ▒▒▒▒▒▒/.gitignore
+\end{verbatim}
+\paragraph{7z}
+标准语法“7z [模式] [开关] [文件名] [参数]”，模式包含“a”（创建压缩文件/向压缩文件中添加文件）、“d”（从压缩文件删除）、“e”（解压缩，不顾压缩文件内部的树结构将所有文件解压到一个目录）、“u”（升级压缩文件）、“t”（测试压缩文件）、“l”（显示详细信息）、“x”（解压缩并保留树结构）。开关我们只需要了解“-y”（对所有问题回答“是”）即可。
+\paragraph{-tar}
+tar命令除了产生tar包外，还能调用其余压缩算法。
 \subsection{图形化文件管理器}
-你现在已经有一个PCManFM的文件管理器了。如果你喜欢cinnamon的文件管理器，安装“nautilus”。KDE，“dolphin”。注意，默认的文件管理器有一个bug：请到Edit-Preference-advanced中修改默认伪终端（这东西的英文你应该知道了）
+你现在已经有一个PCManFM的文件管理器了。如果你喜欢cinnamon的文件管理器，安装“nautilus”。KDE，“dolphin”。注意，默认的文件管理器有一个bug：请到Edit-Preference-advanced中修改默认伪终端（这东西的英文你应该知道了）。你可以使用“ark”或“xarchiver”来管理压缩文件（请保证gz、p7zip等软件包已经安装）。
 \subsection{终端文件管理器MC}
 MC全称“Midnight Commandar”，是一个强大的终端界面文件管理器。使用apt安装“mc”后用“mc”启动，你将得到：
 \begin{center}
@@ -1325,6 +1427,8 @@ chromium ##或firefox。
 moc ##可选。
 apt-mirror ##网络不稳定可选。
 ntfs-3g
+p7zip
+zip
 clamav
 clamtk ##可选。
 gnome-disk-utility ##提供分区工具及磁盘映像写入工具。
@@ -1345,14 +1449,13 @@ htop ##任务管理器，可选，或gnome-system-monitor
 	\item 如果需要使用Telnet，请安装“telnet”软件包。之后使用“telnet [服务器地址]”即可。
 	\item GNU/Linux下面可用的Git图形界面稍微少了一点，建议使用SmartGit或deepgit（英文版，两者是同一个生产厂商出品的）。你需要在它的官网\url{https://www.syntevo.com/smartgit/}（最后连接于2019年7月28日18:01:48）上申请一张非商业许可证\url{https://www.syntevo.com/cn/smartgit/register-non-commercial/}（最后连接于2019年7月29日9:14:22）。
 \end{enumerate}
-
 \section{救命！我的系统炸了！}
 如果任何类似的事情发生，首先要做的是不要恐慌。首先请检查电源与显示器是否插上（别笑——相信我，很多人都会忽略这一点）。先回忆一下你进行了什么操作（如果你无可救药地在安装时删除了Windows分区——希望你已经备份了），现在按照以下操作：
 \subsection{启动管理器工作正常吗？}
 如果启动管理器工作正常，你就应该发现安装的操作系统排列在一个窗口里。此时请进入GNU/Linux操作系统。如果不是这样，请检查：\par
 1.请确定不是主板原因，比如说主板启动自检发出了很长的“嘟——”（或者是“嘀——”）说明你的内存坏了。如果主板正常并且你发现了一个“grub rescure>”的shell，进入下一环节。\par
 2.硬盘都插好了吗？正在启动的硬盘是否安装了grub？\par
-3.是不是删除了一个分区？如果你成功地删除了根目录——恭喜你，你可以重装系统了。如果不是，请按以下步骤操作：
+3.是不是删除了一个分区？如果你成功地删除了根目录——恭喜你，你可以重装系统了。\footnote{此时如果你想启动Windows操作系统，你可以使用大多数PE系统都有的启动修复功能，或者求助于主板上保留的启动记录。}如果不是，请按以下步骤操作：
 \begin{center}
 	\includegraphics{pic/grubrescure}\\
 	这是完整操作。
@@ -1363,4 +1466,4 @@ htop ##任务管理器，可选，或gnome-system-monitor
 （4）使用“insmod”命令设置normal.nod。\par
 （5）使用“normal”并回车启动grub。
 \subsection{进入了initramfs？}
-请参考下一步提示信息：如果告诉你“a manual fsck is needed”，请使用fsck命令对根目录及其它相关目录进行检查（一路y过来即可）。如果要求你输入root密码，那么有可能是fstab文件出错，使用vim修改一下。
+请参考下一步提示信息：如果告诉你“a manual fsck is needed”，请使用fsck命令对根目录及其它相关目录进行检查（一路y过来即可）。如果要求你输入root密码，那么有可能是fstab文件出错，使用vim修改一下。否则有可能是文件系统出错。此时请对系统ext4格式的分区使用“fsck [目标分区]”命令（警告！这个命令有可能产生致命破坏）。
