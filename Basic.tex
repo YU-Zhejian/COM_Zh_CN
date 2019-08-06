@@ -331,6 +331,15 @@ RJ-45接口。一个较方的，内含多个金属引脚的接口。这是用于
 	\item 任何反病毒软件都需要更新——因此请在网络畅通时确保它们被更新了。
 	\item 打开“文件资源管理器”（或者，打开“这台电脑”（又称“此电脑”“我的电脑”“计算机”）），选择上方“查看”选项卡——“选项”——“查看”选项卡，在“高级设置”里勾选“显示隐藏的文件、文件夹和驱动器”并取消勾选“隐藏已知文件类型的扩展名”。这样可以防止虚假扩展名欺骗。我举个例子说明一下这是什么：比如说你收到了一个看起来是“1.bmp”的“图像”，你点开来看（双击），你的电脑就中毒了——为什么呢？那张“图片”其实是“1.bmp.exe”，由于Windows认识“.exe”这个扩展名，它就将其隐去。“图片”又有一个“图片”的外表，而你又凑巧地没有打开反病毒软件，你就中毒了。事实上，伪装成文件夹的病毒曾经多次出现。它将原来的文件夹隐藏起来，再伪装成一个WindowsXP文件夹引诱你点击。如果你点击的话，它就会在每块硬盘驱动器创建备份（感染它）并感染U盘。
 \end{enumerate}
+\subsubsection{在线分析文件}
+VirusTotal是一个在线病毒分析网站，它可以调用多种反病毒引擎对上传的可疑文件进行检测。网址：\url{https://www.virustotal.com/gui/home/upload}（最后连接于2019年8月6日14:16:41）。
+\begin{center}
+	\includegraphics[scale=0.7]{pic/vt}
+\end{center} \par
+不过似乎有些反病毒引擎性能确实不咋地（下图是微信2.6.8.65安装包和Ghost115）（欧洲著名反病毒软件Panda曾经将自己的病毒库当成病毒杀掉）。
+\begin{center}
+	\includegraphics[scale=0.7]{pic/vt2}\\	\includegraphics[scale=0.7]{pic/vt3}
+\end{center} 
 \subsection{压缩/解压缩}
 对于压缩软件，大部分人都会想到WinRAR。注意，我们暂时不讲国产压缩软件（如360压缩）。我认为掌握了难于操作的软件（7-zip），操作容易的也自然能够被掌握。国产软件可能存在安全问题：【火绒安全-知名压缩软件"快压"传播病毒和多款流氓软件 劫持流量】\url{https://www.huorong.cn/info/1531309921141.html}（最后连接于2019年6月21日16:16:19）。当然也包括2345旗下产品——你安装任意一款就会被安装“全家桶”了。这里我们使用自由软件7Zip。它虽然是自由软件，但性能极为优异。。7Zip安装版可以在 \url{https://www.7-zip.org/download.html}（最后连接于2019年06月20日18:37:09） （英文官网），【7-zip官方中文主页】\url{https://sparanoid.com/lab/7z/}（最后连接于2019年06月20日18:37:38 ）（中文官网）。你需要仔细观察。我建议下载EXE格式（当然某些大牛会下载源代码）的对应版本。\par
 你将会发现7Zip的安装界面十分简单。就像：
@@ -485,6 +494,11 @@ Emacs的中文支持较差，其使用手册（Emacs Reference Manual）暂无�
 看起来好像是付费软件，但其实免费版功能已经够用了。下载：\url{https://www.wisecleaner.com/download.html}（最后连接于2019年6月21日16:09:32）。官网：\url{https://www.wisecleaner.com.cn/wise-registry-cleaner.html}（最后连接于2019年6月21日16:10:42）。
 \subsection{手动清理}
 一般软件存在卸载后残留。此时你应该访问应用程序的安装目录\footnote{如果你忘了，我来提示你：“C:\textbackslash Program Files”“C:\textbackslash Program Files(x86)”“C:\textbackslash Users\textbackslash [用户名] \textbackslash AppData”}。你还应该关注“C:\textbackslash Program Data”以及各磁盘的根目录（比如说，腾讯视频与爱奇艺就会在那里创建缓冲文件夹）。你还可以使用光速搜索清理（例如，清理卡巴斯基免费版，输入“kaspersky”；清理火狐浏览器，输入“Mozilla”与“firefox”）。{\color{red}{注意！你只应清理你熟知的文件。}}
-\section{-将应用程序放在U盘里：PortableApps.com Platform}
+\section{将应用程序放在U盘里：PortableApps.com Platform}
 你是否遇到过以下困惑：刚刚使用LibreOffice准备了一个幻灯片却发现对方的计算机上根本没有像样的Office软件还没有时间安装一个？准备使用CPU-Z对教室的计算机进行测试却发现无法连接到因特网？此时你就需要将你的程序放到U盘（或者移动硬盘等等）里。\par
-除了使用各大软件开发商推出的绿色版（注意——这是软件开发商生产的，而不是某个网友或者破解组织！比如说TeXLive就有“绿色安装”的选项），你可以使用“PortableApps Platform”。
+除了使用各大软件开发商推出的绿色版（注意——这是软件开发商生产的，而不是某个网友或者破解组织！比如说TeXLive就有“绿色安装”的选项），你可以使用“PortableApps Platform”。你仅仅需要准备一个U盘。不需要太大，对于一般用户来说空闲空间16GB就绰绰有余了（如果你安装所有程序也才28GB，并且不会有人如此贪多求全的）。\par
+现在到他们的官方网站\url{https://portableapps.com/}（最后连接于2019年8月6日13:55:08）下载主要安装程序（那个“Download Now - Free”的绿色大按钮里）。你也可以到\url{https://sourceforge.net/projects/portableapps/files/}（最后连接于2019年8月6日14:00:24）下载。我建议使用迅雷等多线程下载工具进行下载，否则速度过慢。下载完后进行安装，在安装时请选择“全新安装”-“便携式”再选择您的U盘盘符。\par
+现在你已经将空平台安装到U盘上了，开始下载绿色程序。进入“Apps”标签（\url{https://portableapps.com/apps}，最后连接于2019年8月6日14:01:44）下载你需要的程序吧！如果从平台自带的应用市场下载速度过慢。下载完成后双击应用程序即可安装。附上截图一张：
+\begin{center}
+	\includegraphics[scale=0.7]{pic/pap}
+\end{center}
