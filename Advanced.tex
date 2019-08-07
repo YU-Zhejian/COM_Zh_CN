@@ -139,10 +139,22 @@ StartOS使用全新的包管理，全新的操作界面，是一个易用，安�
 \begin{center}
 	\includegraphics[scale=0.6]{pic/lubstart}
 \end{center} \par
-如果你安装了图形界面（GUI，graphical user interfaces）和相关桌面环境，你将面对一个友好的图形界面（显示管理器gdm3或litegdm）。但如果你一不小心没有安装图形界面（比如说，你安装了Arch Linux，Ubuntu Server或不带图形界面的Debian GNU/Linux），一个终端界面（或称终端界面，CLI，command line interfaces）将会被启动，然后打印出（以Debian GNU/Linux为例）：
+如果你安装了图形界面（GUI，graphical user interfaces）和相关桌面环境，你将面对一个友好的图形界面（显示管理器gdm3或litegdm）。但如果你一不小心没有安装图形界面（比如说，你安装了Arch Linux，Ubuntu Server或不带图形界面的Debian GNU/Linux），一个终端界面（或称终端界面，CLI，command line interfaces）将会被启动，然后打印出（以Debian GNU/Linux不稳定分支为例）：
 \begin{verbatim}
-debian 9 amd 64
-sgcomputers login:
+Debian GNU/Linux bullseye/sid
+debian login: sgcomputers
+Password:
+Last login: Wed Aug  7 17:12:21 CST 2019 on tty1
+Linux debian 4.19.0-5-amd64 #1 SMP Debian 4.19.37-6 (2019-07-18) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+You have mail.
+sgcomputers@debian:~$ 
 \end{verbatim} \par
 （同图形界面，）你应在此输入你刚创建的用户名（按照操作应该是\verb|sgcomputers|。用户登录名不同于用户名，它是由小写字母构成的。）并回车。之后它会要求你输入密码。注意，在终端界面小你输入的密码不会在显示器上显示出来。不是键盘的问题（不然你怎么输入用户名的？）。并回车。此时你就登录了操作系统。排障提示：注意用户名与密码是大小写敏感的。也就是说，你需要检查“大写锁定”（即“Caps Lock”）是否被按下。\par
 终端界面中，在登录后，你将继续面对终端界面。此时你就应使用以下的命令来管理系统。登录以后你将位于一个shell下，由shell来解释你的命令。shell又被称为“外壳”（与Kernel，内核，相对），用于执行用户输入的命令。常有的shell为bash（GNU Bourne-Again SHell）、csh、zsh、dash、sh等。本书以下命令全部基于bash。图形界面中，你将在稍等后面对一个图形界面。\par
