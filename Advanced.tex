@@ -1,9 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Copyright (C) 2018-2019 YuZJ Lab.
 %使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者YuZJ，
-%邮箱\theafamily@126.com（最后连接于2019年06月20日17:32:17）。
+%邮箱theafamily@126.com（最后连接于2019年06月20日17:32:17）。
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-这一个章节将以 Lubuntu\footnote{这是Ubuntu的一个衍生版本，除了将默认桌面替换为LXDE外与“正常”的Ubuntu没有大的区别。} 19.04为例，指示电教委员如何安装GNU/Linux平台使其与Windows操作系统共存，简单的GNU/Linux设置及使用GNU/Linux实现日常教学。\par
+\chapter{高级：GNU/Linux的教学实现}
+这一个章节将以 Lubuntu\footnote{这是Ubuntu的一个衍生版本，除了将默认桌面替换为LXDE外与“正常”的Ubuntu没有大的区别。} 19.04为例，教电教委员如何安装GNU/Linux平台使其与Windows操作系统共存，简单的GNU/Linux设置及使用GNU/Linux实现日常教学。\par
 \section{免责声明}
 {\color{red} {注意，我希望一个能力较强，英语水平较高且经验丰富的电教委员学习这部分内容。YuZJ Lab对产生的任何错误概不负责，请自行备份旧操作系统！一切翻译内容如与最新版的英文文章有所冲突，皆以最新版为准！}}\par
 GNU/Linux的更新速度较快，我写的内容恐怕很快就会过时。希望读者给予反馈。GNU/Linux是一个博大精深的体系，请原谅我不断使用“参见...”。\par
@@ -11,8 +12,8 @@ GNU/Linux的更新速度较快，我写的内容恐怕很快就会过时。希�
 \begin{enumerate}
 	\item 你已经完全学习了VimTutor，知道vi与vim的基本使用方法（如，打开、保存、另存为文件，文件内查找等等）、区别和联系。大多数GNU/Linux发行版都自带vi。否则，学习这些内容。某一些发行版也自带GNU Nano编辑器，如果实在学不会vim可以试一试这个。
 	\item 你拥有一台闲置的计算机或虚拟机；或者计算机上的所有内容已经被备份到了可移动媒体上；或者你的班主任及任课老师非常和善，能够容忍由于你“疯狂”实验导致的数天的宕机。
-	\item 不错的英语水平。比如说你应该毫无障碍地看懂这份资料：“You can generally also specify long option names with a single -; for example, -batch as well as --batch.  You can use any unambiguous abbreviation for a --option. Various environment variables and window system resources also affect the operation of Emacs.  See the main documentation. Report bugs to bug-gnu-emacs@gnu.org.  First, please see the Bugs section of the Emacs manual or the file BUGS.”这是由“emacs --help”命令生成的GNU Emacs26.2的帮助内容的最后一小部分。
-	\item 你已经学会了Windows系统上CygWin中无需图形界面的命令。你至少应该学会以下命令：ls、pwd、cd、rm、mkdir、cp、mv、cat、more、less、tar的用法，知道管道符的作用。
+	\item 不错的英语水平。比如说你应该毫无障碍地看懂这份资料：“\verb|You can generally also specify long option names with a single -; for example, -batch as well as --batch.  You can use any unambiguous abbreviation for a --option. Various environment variables and window system resources also affect the operation of Emacs.  See the main documentation. Report bugs to bug-gnu-emacs@gnu.org.  First, please see the Bugs section of the Emacs manual or the file BUGS.|”这是由“\verb|emacs --help|”命令生成的GNU Emacs26.2的帮助内容的最后一小部分。
+	\item 你已经学会了Windows系统上CygWin中无需图形界面的命令。你至少应该学会以下命令：\verb|ls|、\verb|pwd|、\verb|cd|、\verb|rm|、\verb|mkdir|、\verb|cp|、\verb|mv|、\verb|cat|、\verb|more|、\verb|less|、\verb|tar|的用法，知道“管道符”的作用。
 	\item 在一台真实的机器上操作前，务必确保你已经完整地读完了本书的最新版本！当然，在虚拟机上操作无此限制。
 \end{enumerate}
 \section{在Windows操作系统上使用GNU/Linux命令：CygWin}
@@ -26,30 +27,30 @@ CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序�
 \item 安装完后别忘了添加/bin、/usr/sbin到系统PATH变量（你可以选择Windows环境变量，也可以使用“export PATH”命令）。 
 \item 除了首次安装时默认需要安装的软件包以外，你需要安装如下软件包（可能会有重复，但你安装就是了）：bash、bzip2、clamav（反病毒软件，可选）、cmake（编译软件，可选）、coreunits、cygwin、dash、emacs（文本编辑器，可选。但相对于官方发布的Windows版，我还是更倾向于这个版本）、gcc-*（编译软件，可选）、git（版本控制，可选。我个人认为官方的Windows版好一些）、grep、gzip、info、less、make（编译软件，可选）、man-db、shutdown、tar、vim、xz、zsh、p7zip、zip。
 \item 注意，CygWin安装软件时的操作不同于apt。CygWin先删除旧软件包，再安装新软件包。
-\end{enumerate}
+\end{enumerate}\par
 请注意，这里没有apt软件包管理器。如果你需要加装软件或者卸载软件，再次运行安装程序即可。我建议你可以选择安装ClamAV为Windows杀毒。
 \section{GNU/Linux及其发行版}
 \label{sec:gnulinux} GNU/Linux产生于Minix，而Minix产生于Unix。具体产生历史不再赘述。\par
 首先，GNU/Linux是以Linux为内核，辅以GNU\footnote{GNU（GNU is Not Unix的递归缩写）是一个由理查德·斯托曼为推广自由软件发起的运动（自由软件运动）的一部分。它产生了一些如 Gnu Emacs、gcc（GNU Compiler Collection，即GNU编译器套件，包含 C、C++、Objective-C、Fortran、Ada、Go、D 等语言（那个，别问我它们是什么，我也不知道）的编译器及这些语言的运行库，由 Richard Stallman 于 1987 年发布，最新版本 7.4）、GIMP（GNU Image Manipulation Program，图像处理软件，号称“GNU/Linux下的 PhotoShop”）等自由软件。具体请参看附录中的“GNU宣言”。}工具集的操作系统。因此，说“Linux操作系统”是不合适的。\par
 （通俗地讲，）发行版是你可以下载安装的GNU/Linux版本。基于学习难度、兼容性及易用性，我们主要使用以下GNU/Linux发行版：
 \begin{description}
-	\item [Arch Linux] 一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛或者有善解人意的班主任者除外）。
-	\item [CentOS] “社区企业操作系统”的缩写，稳定性较强，社区维护，免费下载安装。软件过少，不适用于教学。
-	\item [Debian GNU/Linux] 虽然软件更新较慢，但稳定性较强（仅限于Stable分支）或者根本不稳定（Unstable分支）。
-	\item [Gentoo Linux] 一个具有极强的自定义的发行版，安装过程复杂，不适合用于教学（大牛除外）。
-	\item [Fedora] 前瞻性性较强，社区维护并由RedHat基金会支持，免费下载安装。软件过少，不适用于教学。
-	\item [Kali Linux] 内含大部分黑客专用的工具，使用apt软件包管理器，默认使用root用户执行操作，非常不适合用于教学。{\color{red}{警告！！！！如果你成功地使用Kali黑掉了不属于你并且拥有复杂日志系统的网络（并且你愚蠢到留下了自己的MAC地址还没有改变它），你极有可能入狱。}}
-	\item [Red Hat Enterprise Linux （RHEL）] 稳定性和保密程度极强，付费下载安装。不适合用于教学。
-	\item [Ubuntu] 一个基于Debian GNU/Linux的发行版，前瞻性性较强，支持的软件包极多，非常适合用于教学。在“高级”章中我们将会使用此发行版作为示例。
-	\item [Linux Mint] 同上。目前最适合于初学者的GNU/Linux发行版。十分人性化，建议初学者选用（大牛将在此略感蹩脚）。非常适合用于教学。
-	\item [Pure OS] 一个认证完全自由的发行版。官方软件源存在软件过少和下载速度慢的问题。但如果你是自由软件运动的铁杆支持者（并且还有善解人意的班主任），你可以使用它。
-	\item [（半）国产操作系统]这里不再赘述。
+	\item [【Arch Linux】] 一个具有极强的自定义的发行版，安装过程较为复杂，不适合用于教学（大牛或者有善解人意的班主任者除外）。
+	\item [【CentOS】] 由Red Hat基金会支持的，社区维护的“社区企业操作系统”的缩写，稳定性较强，社区维护，免费下载安装。软件过少且落后，不适用于教学。
+	\item [【Debian GNU/Linux】] 虽然软件更新较慢，但稳定性过强导致软件落后（仅限于Stable分支）或者不稳定（Unstable分支）。
+	\item [【Gentoo Linux】] 一个具有极强的自定义的发行版，安装过程极为复杂，不适合用于教学（大牛除外）。
+	\item [【Fedora】] 前瞻性性较强，社区维护并由Red Hat基金会支持。免费下载安装。软件过少（需要启用额外的软件源），不适用于教学。
+	\item [【Kali Linux】] 内含大部分黑客专用的工具，使用apt软件包管理器，默认使用root用户执行操作导致其非常不适合用于教学。{\color{red}{警告！！！！如果你成功地使用Kali黑掉了不属于你并且拥有复杂日志系统的网络（并且你愚蠢到留下了自己的MAC），你极有可能入狱。}}
+	\item [【Red Hat Enterprise Linux （RHEL）】] 稳定性和保密程度极强，付费下载安装。不适合用于教学。
+	\item [【Ubuntu】] 一个基于Debian GNU/Linux的发行版，前瞻性性较强，支持的软件包极多，非常适合用于教学。在“高级”章中我们将会使用此发行版作为示例。
+	\item [【Linux Mint】] 同上。目前最适合于初学者的GNU/Linux发行版。十分人性化，建议初学者选用（大牛将在此略感蹩脚）。非常适合用于教学。
+	\item [【Pure OS】] 一个认证完全自由的发行版。官方软件源存在软件过少和下载速度慢的问题。但如果你是自由软件运动的铁杆支持者（并且还有善解人意的班主任），你可以使用它。
+	\item [【（半）国产操作系统】]这里不再赘述。
 \end{description}
 \subsubsection{GNU/Linux的优点}
 \begin{enumerate}
-	\item  适用于配置较低的或生产较早的机器（废话，人家本来就长寿嘛）。运行速度快。\par
+	\item  适用于配置较低的或生产较早的机器（废话，人家本来就长寿嘛）。运行速度快（比如说\LaTeX 编译速度）。\par
 	\item 自由软件支持者可以选用（仅限于其中的部分发行版。能通过理查德·斯托曼检验的发行版并不多。具体请参见【自由的GNU/Linux发行版】\url{http://www.gnu.org/distros/free-distros.html}（最后连接于2019年06月20日18:16:24））。\par
-	\item 拥有权力无限大的root用户，不会受到类似于Window操作系统中“System”或“TrustedInstaller”等权限超级大的“用户”制约（我举一个例子：Windows操作系统在Administrator权限下尝试删除“C:\textbackslash Windows\textbackslash notepad.exe”（即“记事本”）会出错，而在Linux下删除整个根目录“/”都不会出问题（当然这会导致你的计算机无法启动，但至少删除的任务完成了，是吧？））。\par
+	\item 拥有权力无限大的root用户，不会受到类似于Window操作系统中“System”或“TrustedInstaller”等权限超级大的“用户”制约（我举一个例子：Windows操作系统在Administrator权限下尝试删除“C:\textbackslash Windows\textbackslash notepad.exe”（即“记事本”）会出错，而在Linux下删除整个根目录“/”都几乎不会出问题（当然这会导致你的计算机无法启动，但至少删除的任务完成了，是吧？））。\par
 	\item 具有功能十分强大的软件（如“rm”——个删除文件的命令行工具）（当然，见仁见智，我不得不说这些强大的软件并不易用。）。
 	\item 几乎不可能中毒。但你还是要使用诸如clamav之类的反病毒软件。
 \end{enumerate}
@@ -57,7 +58,7 @@ CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序�
 \begin{enumerate}
 	\item 入门门槛高。我们只建议经验丰富的电教委员尝试。
 	\item 硬件驱动少（尤其是完全使用自由软件时）。原因在于自由软件开发者有限，自由的硬件厂商有限（根本原因当然是GNU/Linux市场占有率极低）因此在新型号的机器上某些驱动无法被加载。但是不同发行版间兼容性差异还是存在的，如Debian GNU/Linux兼容性就弱于Ubuntu Linux。
-	\item 软件数量有限（这里的意思是说，比较“大众化”的软件（如腾讯QQ，微信）有限（但是有有道词典，搜狗输入法，WPS2019办公软件与网易云音乐）），并且对“.exe”的可执行文件支持极差（即使采用Wine或其它类似技术）。	
+	\item 软件数量有限（这里的意思是说，比较“大众化”的软件（如腾讯QQ，微信）有限（但是有有道词典，搜狗输入法，WPS2019办公软件）），并且对“.exe”的可执行文件支持极差（即使采用Wine或其它类似技术）。	
 \end{enumerate}
 \subsection{（半）国产操作系统概况}
 国产操作系统主要以GNU/Linux或BSD为内核。在MS Windows进入中国前曾经繁荣过一段时间。但目前其民用桌面操作系统在国内占有的市场份额极小，大部分国产操作系统为政府或军事机构服务。现列举一些著名的操作系统：
@@ -128,8 +129,7 @@ StartOS使用全新的包管理，全新的操作界面，是一个易用，安�
 \begin{center}
 	\includegraphics[scale=0.6]{pic/lubinst12}
 \end{center} \par
-设置用户。我们选择“SGComputers”作为用户名。再设置密码，不设置自动登录（“Automatically login”）。确认后即可安装了。与Debian GNU/Linux、RHEL或Cent OS不同的是Ubuntu习惯先刷入整个操作系统再删除软件包而不是先安装基本系统再安装软件包。\par
-安装过程最容易
+设置用户。我们选择“SGComputers”作为用户名。再设置密码，不设置自动登录（“Automatically login”）。确认后即可安装了。与Debian GNU/Linux、RHEL或Cent OS不同的是Ubuntu习惯先刷入整个操作系统再删除软件包而不是先安装基本系统再安装软件包。
 \section{GNU/Linux开箱设置}
 \subsection{基本概念及操作}
 这一章将会介绍GNU/Linux的一些基本知识。你可以阅读以下内容的man帮助（见下）：intro，ascii，fstab，mount，chmod，filesystem。我还推荐青木修的《Debian 参考手册》\url{https://www.debian.org/doc/manuals/debian-reference/}（最后连接于2019年06月20日18:47:54）和《Debian维护指南》\url{https://www.debian.org/doc/manuals/debmake-doc/}（最后连接于2019年06月20日18:46:56）及【C语言中文网-->Linux学习教程，Linux入门教程（超详细）】，地址\url{http://c.biancheng.net/linux_tutorial/}（最后连接于2019年06月20日17:31:40）。\par
@@ -140,6 +140,12 @@ StartOS使用全新的包管理，全新的操作界面，是一个易用，安�
 	\includegraphics[scale=0.6]{pic/lubstart}
 \end{center} \par
 如果你安装了图形界面（GUI，graphical user interfaces）和相关桌面环境，你将面对一个友好的图形界面（显示管理器gdm3或litegdm）。但如果你一不小心没有安装图形界面（比如说，你安装了Arch Linux，Ubuntu Server或不带图形界面的Debian GNU/Linux），一个终端界面（或称终端界面，CLI，command line interfaces）将会被启动，然后打印出（以Debian GNU/Linux不稳定分支为例）：
+\begin{verbatim}
+Debian GNU/Linux bullseye/sid
+debian login:
+\end{verbatim} \par
+（同图形界面，）你应在此输入你刚创建的用户名（按照操作应该是\verb|sgcomputers|。用户登录名不同于用户名，它是由小写字母构成的。）并回车。之后它会要求你输入密码。注意，在终端界面小你输入的密码不会在显示器上显示出来。不是键盘的问题（不然你怎么输入用户名的？）。并回车。此时你就登录了操作系统。排障提示：注意用户名与密码是大小写敏感的。也就是说，你需要检查“大写锁定”（即“Caps Lock”）是否被按下。\par
+终端界面中，在登录后，你将继续面对终端界面。
 \begin{verbatim}
 Debian GNU/Linux bullseye/sid
 debian login: sgcomputers
@@ -154,22 +160,19 @@ individual files in /usr/share/doc/*/copyright.
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 You have mail.
-sgcomputers@debian:~$ 
-\end{verbatim} \par
-（同图形界面，）你应在此输入你刚创建的用户名（按照操作应该是\verb|sgcomputers|。用户登录名不同于用户名，它是由小写字母构成的。）并回车。之后它会要求你输入密码。注意，在终端界面小你输入的密码不会在显示器上显示出来。不是键盘的问题（不然你怎么输入用户名的？）。并回车。此时你就登录了操作系统。排障提示：注意用户名与密码是大小写敏感的。也就是说，你需要检查“大写锁定”（即“Caps Lock”）是否被按下。\par
-终端界面中，在登录后，你将继续面对终端界面。此时你就应使用以下的命令来管理系统。登录以后你将位于一个shell下，由shell来解释你的命令。shell又被称为“外壳”（与Kernel，内核，相对），用于执行用户输入的命令。常有的shell为bash（GNU Bourne-Again SHell）、csh、zsh、dash、sh等。本书以下命令全部基于bash。图形界面中，你将在稍等后面对一个图形界面。\par
-如果你需要安装图形界面，你可以使用apt（或者pacman，yum，etc.以下教程仅以APT为例，使用pacman及rpm等的电教委员等请自行查找man帮助）安装你喜欢的图形界面。\par
-在终端界面使用“\verb|startx|”命令显示图形界面。注意，你需要安装“xinit”软件包。\par
+sgcomputers@debian:~$
+\end{verbatim}
+此时你就应使用命令来管理系统。登录以后你将位于一个shell下，由shell来解释你的命令。shell又被称为“外壳”（与Kernel——内核——相对），用于执行用户输入的命令。常有的shell为bash（GNU Bourne-Again SHell）、csh、zsh、dash、sh等。本书以下命令全部基于bash。图形界面中，你将在稍等后面对一个图形界面。在终端界面使用“\verb|startx|”命令显示图形界面。注意，你需要安装“xinit”软件包。如果你需要安装图形界面，你可以使用apt（或者pacman，yum，etc.以下教程仅以APT为例，使用pacman及rpm等的电教委员等请自行查找man帮助）安装你喜欢的图形界面。\par
 在大多数界面下（如在“fbterm”界面中就不行），你可以使用“Ctrl”+“Alt”+“F[x]（[x]为具体数字）”来切换虚拟控制台。你可以使用它们执行多个任务。\par
 那么什么是终端（Terminal）？简而言之，终端就是你能够输入命令的地方。比如说“终端界面”（见左图）。那么在图形界面下我如何输入命令呢？此时你就需要一个“终端模拟器”（又称“伪终端”）（Terminal Emulator）。比如说右图就是Lubuntu默认伪终端QTerminal。
 \begin{center}
 	\includegraphics[scale=0.9]{pic/term1} \includegraphics[scale=0.9]{pic/term2}
 \end{center} \par
-现在教你一个有用的命令：“\verb|shutdown now|”，作用是关机。“\verb|shutdown -r now|”或“\verb|reboot|”则为重启。还有，你可以在一个（伪）终端中使用上下键显示之前的命令，或者依据之前的命令在输入命令的一部分时敲击tab自动补全。
+现在教你一个有用的命令：“\verb|shutdown now|”，作用是关机。“\verb|shutdown -r now|”或“\verb|reboot|”则为重启。还有，你可以在一个（伪）终端中使用上下键显示之前的命令，或者依据之前的命令在输入命令的一部分时敲击Tab键自动补全。
 \subsubsection{用户管理（注意！重要内容！）}
 \cite{DebianRef}\par
 在GNU/Linux中，你会发现某些操作（如“\verb|apt install aptitude|”）是普通用户无法执行的。此时你就需要root用户。\par
-与Windows操作系统不同（比如说Windows操作系统上权力最大的用户不是管理员（“Administrator”）而是系统本身（“System”）），GNU/Linux上有一个权力无限大的用户，它就是root。你可以使用root来忽略文件权限地阅读任何文件，执行任何命令，以及其它神奇的事情（例如使用“\verb|rm|”命令格式化磁盘。{\color{red}{警告！这么做将会摧毁整个操作系统！}}我当然不会告诉你使用哪条命令）。\par
+与Windows操作系统不同（比如说Windows操作系统上权力最大的用户不是管理员（“Administrator”）而是系统本身（“System”）），GNU/Linux上有一个权力无限大的用户，它就是root。你可以使用root来忽略文件权限地阅读任何文件，执行任何命令，以及其它神奇的事情（例如使用“\verb|rm|”命令格式化磁盘。）。\par
 一般为了防止不经意间的破坏，我们不直接以root用户登录。“提权”指的是将你目前用户的权限提升为root权限。你可以使用“\verb|su|”命令\footnote{全称Switch User，切换用户。你需要知道root用户的密码。Debian等发行版会在安装时设置，而Ubuntu与Deepin Linux需要使用“sudo passwd”命令修改root账号的密码才能使用。}切换为root用户（这个命令等价于“\verb|su root|”。“\verb|su|”命令的正确用法是“\verb|su [用户]|”，用来切换到另一个用户。root可切换到任意用户无需输入密码）或在命令前加上“\verb|sudo|”（这个命令的使用有如下限制：你必须在“sudo”这个用户组里。Ubuntu及Deep in会自动将安装系统时创建的用户添加到该用户组中，而Debian等发行版不会，需要在root用户下使用“\verb|usermod -a [用户名] -G sudo|”并重新登录以手动添加）。\par
 {\color{red}{警告！root用户的不正确操作可能对系统造成不可逆的致命破坏！因此，请：\par
 1.确保你输入了正确的命令！GNU/Linux的命令是大小写敏感的。\par
@@ -178,7 +181,7 @@ sgcomputers@debian:~$
 \subsubsection{获取帮助}
 \cite{manman}\par
 当发现有问题时，你需要参见帮助。以下是一些常见方法：\par
-\paragraph{man}info是另一种帮助系统。这里暂时略去。在（伪）终端中输入“info”查看更多内容。你也可以使用“whatis foo”寻找有关“foo”的帮助。
+\paragraph{man}
 man是系统手册。我们可以在这里获取许多帮助内容。例如，我们通过“\verb|man apt|”查看针对“apt”的帮助。伪终端将输出以下内容（\verb|##|后的是注释。终端中并不会输出这些内容。下同。：
 \begin{verbatim}
 APT(8)                               APT                              APT(8)
@@ -199,7 +202,9 @@ Manual page apt(8) line 1 (press h for help or q to quit)
 ##“q”退出帮助系统。
 \end{verbatim}
 用法具体请参见man的帮助：“\verb|man -a man|”。\par 这里提供一些man的其它知识：\par 1.man命令的基础用法是“\verb|man [选项] [page].[section]|。其中[page]是需要查找的帮助手册名称。\par 2.下述的“第n部分”是有特殊含义的。大致为：1-可执行程序或shell命令，2-调用系统核心，3-调用运行库，4-特殊文件，5-配置文件结构，6-游戏，7-多方面内容（杂项），8-系统管理命令（一般需要root权限），9-内核惯例。比如说，“\verb|man foo|”显示foo的帮助。“\verb|man foo.7|”显示man的帮助，第7部分。“\verb|man -a foo|”逐个显示所有foo的帮助。\par
-如果你需要一个man的图形前端，使用apt\footnote{参见\pageref{sec:apt}页\ref{sec:apt}}安装以下软件包：xman或gman（依赖man2html，需手动安装）。你可以在伪终端使用“\verb|gman|”或“\verb|xman|”命令显示它们的图形界面。我更倾向于gman。它能够修改manpath（man文件的目录）（而不是使用export命令或修改“.bashrc”命令）并使用不同的文档浏览器。\par
+如果你需要一个man的图形前端，使用apt\footnote{参见\pageref{sec:apt}页\ref{sec:apt}}安装以下软件包：xman或gman（依赖man2html，需手动安装）。你可以在伪终端使用“\verb|gman|”或“\verb|xman|”命令显示它们的图形界面。我更倾向于gman。它能够修改manpath（man文件的目录）（而不是使用export命令或修改“.bashrc”命令）并使用不同的文档浏览器。
+\paragraph{info}
+info是另一种帮助系统。这里暂时略去。在（伪）终端中输入“info”查看更多内容。你也可以使用“whatis foo”寻找有关“foo”的帮助。
 \subsubsection{环境变量}
 现在我们已经知道可以在Shell中输入命令并执行它。那么Shell是如何执行命令的？其实除了几个内建命令（如\verb|cd|），大多数命令都是特定文件夹中的可执行文件。如\verb|ls|就位于/bin。这些特定文件夹都被记录在PATH环境变量中。\par
 那么如何修改GNU/Linux中的环境变量呢？你需要修改对应用户的（每个用户都有一个，你需要一个一个修改）“.bashrc”文件。现在我们要将“/usr/local/texlive/2019/bin/x86\_64-linux”\footnote{如果你喜欢\LaTeX 排版，对于这个路径你不会陌生。}加入PATH变量，切换到对应用户，并输入命令：
@@ -237,20 +242,7 @@ PATH="/usr/local/texlive/2019/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin
 \subsubsection{批处理}
 \label{sec:bat}如果你想要将两条命令写在一起，你可以使用“\verb| && |”（注意，使用“\verb|&&|”连接的命令仅当前面一个命令没有返回值（一般是执行成功）才执行后一个命令！）或“\verb|;|”（无此限制）。如“\verb|sudo apt update && sudo apt upgrade|”，这两条命令写在一起将产生极好的效果（具体请参见\pageref{sec:apt}页\ref{sec:apt}）。我们也可以先使用vim新建一个“.sh”文件（希望你vim已经学得足够好了。没有？参见\pageref{sec:nf}页\ref{sec:nf}），将命令一行一行写进去，使用“\verb|chmod +x [文件名]|”实现可运行，再“\verb|./[文件名]|”来运行它。\par
 bash还提供了选择语句、循环语句等多种高级功能，这里不再赘述。\par
-如何调整命令输出的内容（比如说，如果你使用“\verb|ls -A -R /|”命令后屏幕会发疯（不要尝试））？一方面我们可以将命令输出的结果保存在文件中（参见\pageref{sec:nf}页\ref{sec:nf}），另一方面我们可以使用重定向符“|”，作用是将前一个命令输出的结果输入后一个命令。如：“\verb/ps -A  all | grep [查找内容]/”就是将“\verb|ps -A all|”的输出输入到“\verb|grep [查找内容]|”。其他常用的命令有“\verb|more|”与“\verb|less|”，参见\pageref{sec:nf}页\ref{sec:nf}）。
-\subsubsection{有用的文件和目录}
-\paragraph{$\sim$/} 这是一个目录，代表当前用户的“家”目录。比如说我以“sgcompoters”登录以后，默认的“家”目录就是“/home/sgcomputers/”，即“~/”。注意，root用户的“家”目录位于“/root/”。
-\paragraph{$\sim$/.bashrc}注意，这是一个隐藏文件。这个文件记录了你在刚刚登录系统时执行的操作（如果你的登录shell是bash的话——当然默认就是bash）。
-\paragraph{$\sim$/.bash\_history}这个文件记载了你所有输入过的命令。
-\paragraph{$\sim$/.minttyrc}这是你在CygWin上使用mintty终端的配置文件。我建议你把它的内容改成：
-\begin{verbatim}
-Font=仿宋
-FontHeight=15
-Locale=zh_CN
-Charset=UTF-8
-Language=zh_CN
-\end{verbatim}\par
-这样阅读起来稍微方便一点。
+如何调整命令输出的内容（比如说，如果你使用“\verb|ls -A -R /|”命令后屏幕会发疯（不要尝试））？一方面我们可以将命令输出的结果保存在文件中（参见\pageref{sec:nf}页\ref{sec:nf}），另一方面我们可以使用重定向符“\verb/|/”，作用是将前一个命令输出的结果输入后一个命令。如：“\verb/ps -A  all | grep [查找内容]/”就是将“\verb|ps -A all|”的输出输入到“\verb|grep [查找内容]|”。其他常用的命令有“\verb|more|”与“\verb|less|”，参见\pageref{sec:nf}页\ref{sec:nf}）。
 \subsection{软件包管理器：以APT为例}
 \label{sec:apt}APT是一个Debian及其衍生版 （包括但不限于：Ubuntu Linux及其衍生版，Pure OS，Deepin Linux）中默认的强大的软件包管理器。它可用于从远程服务器及本地的软件源上安装Debian软件包（*.deb）。
 \subsubsection{首先，切换软件源！}
@@ -263,9 +255,9 @@ Language=zh_CN
 对于安装了Debian操作系统的电教委员，请在Debian官网获取详细信息后选择是否安装Testing以取代Stable获得更好的体验。严厉禁止电教委员（即使是大牛级的）使用Unstable。
 \subsubsection{APT}
 \cite{manAPT}\par
-APT为软件包管理系统提供了一个高级的终端界面，且包含了一些比默认工具（如apt-get或apt-cache之类特殊化的APT工具）更容易交互使用的选项。（注意，某些命令会在apt-get或apt-cache中介绍。 \par “[软件包名]”仅代表“某个软件包”，并不针对某一特殊软件包）\footnote{来自于man命令输出的结果。我将尽可能贴切地翻译。 }\par apt命令包含一些来自于apt-get及apt-cache之类特殊化的APT工具的命令，如“\verb|apt install [软件包名]|”来自于“\verb|apt-get install [软件包名]|”，“\verb|apt list|”或“\verb|apt show [软件包名]|”来自于“apt-cache”。\par
+APT为软件包管理系统提供了一个高级的终端界面，且包含了一些比默认工具（如apt-get或apt-cache之类特殊化的APT工具）更容易交互使用的选项。（注意，某些命令会在apt-get或apt-cache中介绍。 \par “[软件包名]”仅代表“某个软件包”，并不针对某一特殊软件包）\footnote{来自于man命令输出的结果。我将尽可能贴切地翻译。 }\par apt命令包含一些来自于apt-get及apt-cache之类特殊化的APT工具的命令，如“\verb|apt install [软件包名]|”来自于“\verb|apt-get install [软件包名]|”，“\verb|apt list|”或“\verb|apt show [软件包名]|”来自于apt-cache。\par
 \paragraph{update} 
-来自于man命令输出的结果。 \par 在终端中键入“\verb|man apt|”以查看完整帮助文件。“\verb|apt update|”命令来自于apt-get，被用于从所有设置的软件源下载软件包列表信息。其它的命令（如升级或搜索）将在这个数据上操作并显示所有可安装的软件包信息。apt-get的man命令输出（某些重复内容将被删除，下同）为：“\verb|apt-get update|”命令被用于从它们的软件源重新同步包含所有可用软件包的索引文件。这些索引将会从在“/etc/apt/sources.list”文件中定义的地址中下载。例如，当使用 Debian archive时，这条命令接收并扫描Packages.gz文件（位于“/var/lib/apt/lists”，内容为软件包索引文件如“mirrors.aliyun.com\_ubuntu\_dists\_cosmic\_main\_binary-amd64\_Packages”和压缩包如“mirrors.aliyun.com\_ubuntu\_dists\_cosmic\_main\_dep11\_icons-64x64.tar.gz”），得到新的和可更新的软件包信息。这个操作应在“\verb|apt-get upgrade|”或“\verb|apt-get dist-upgrade|”之前进行。注意，由于软件包索引文件（或其压缩包）的大小不能被事先了解，总进程进度条可能不确切。如：
+在终端中键入“\verb|man apt|”以查看完整帮助文件。“\verb|apt update|”命令来自于apt-get，被用于从所有设置的软件源下载软件包列表信息。其它的命令（如升级或搜索）将在这个数据上操作并显示所有可安装的软件包信息。apt-get的man帮助（某些重复内容将被删除，下同）为：“\verb|apt-get update|”命令被用于从它们的软件源重新同步包含所有可用软件包的索引文件。这些索引将会从在“/etc/apt/sources.list”文件中定义的地址中下载。例如，当使用 Debian archive时，这条命令接收并扫描Packages.gz文件（位于“/var/lib/apt/lists”，内容为软件包索引文件如“mirrors.aliyun.com\_ubuntu\_dists\_cosmic\_main\_binary-amd64\_Packages”和压缩包如“mirrors.aliyun.com\_ubuntu\_dists\_cosmic\_main\_dep11\_icons-64x64.tar.gz”），得到新的和可更新的软件包信息。这个操作应在“\verb|apt-get upgrade|”或“\verb|apt-get dist-upgrade|”之前进行。注意，由于软件包索引文件（或其压缩包）的大小不能被事先了解，总进程进度条可能不确切。如：
 \begin{verbatim}
 sgcomputers@sgcomputers:/home/sgcomputers:~$ sudo apt update
 Get:1 http://security.ubuntu.com/ubuntu cosmic-security InRelease [88.7 kB]|
@@ -276,7 +268,8 @@ Reading package lists... Done
 Building dependency tree
 Reading state information... Done
 All packages are up to date.
-##如果有软件包需要更新，它将会在这一行显示出来。
+##如果有软件包需要更新，它将会在这一行显示出来。比如说：
+97 packages can be upgraded. Run 'apt list --upgradable' to see them.
 \end{verbatim}
 \subparagraph{错误：（有一些额外的断行符）}
 \begin{verbatim}
@@ -323,6 +316,72 @@ is another process using it?
 解决方案：删除锁文件：“\verb|sudo rm -rf /var/cache/apt/archives/lock|”。或终结另一进程。参见\pageref{sec:pm}页\ref{sec:pm}。
 \paragraph{upgrade}
 “\verb|apt upgrade|”命令来自于apt-get，被用于从软件源（配置于sources.list）中更新所有已安装且存在可用更新的软件包。当且仅当新的软件包满足依赖关系（依赖关系：举例说明。假设软件包a需要b的功能才能正常运行，那么它们之间就形成了依赖关系。a依赖b，b依赖于a，安装时先安装b）时它才会被安装。这个操作不会移除已安装的软件包 （APT更新软件包的操作不是“先卸再装”，而是覆盖安装）。若一个更新操作要求移除已安装的软件包，它将不会被执行。apt-get的man命令输出为：已安装的软件包不会被重新安装。已安装软件包的新版本如果在不更改其他软件包的安装状态时无法安装，它将会保持现有版本。必须先使用“\verb|apt-get update|”操作来使apt-get明白哪个软件包具有新版本。可用选项：“\verb|--allow-unauthenticated|”。它将会忽视由于软件包数字签名无法被检查。它将在使用本地源时十分有用，但在数据来源无法被认证是这个选项将十分危险。
+\begin{verbatim}
+root@sgcomputers:/# apt upgrade
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating upgrade... Done
+The following packages were automatically installed and are no longer required:
+libdouble-conversion1 libigdgmm5 libio-string-perl libparse-debianchangelog-perl libreadline7 libvpx5
+Use 'apt autoremove' to remove them.
+##可以移除的软件包
+The following NEW packages will be installed:
+libdouble-conversion3 libfile-find-rule-perl libio-async-loop-epoll-perl liblinux-epoll-perl libnumber-compare-perl libtext-glob-perl linux-image-5.2.0-2-amd64
+The following packages will be upgraded:
+clamav clamav-base clamav-freshclam coreutils debhelper diffstat e2fsprogs ifupdown 
+##此处有省略
+97 upgraded, 7 newly installed, 0 to remove and 0 not upgraded.
+Need to get 135 MB of archives.
+After this operation, 275 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://mirrors.ustc.edu.cn/debian unstable/main amd64 
+coreutils amd64 8.30-3+b1 [2,708 kB]
+##此处有省略
+Get:104 http://mirrors.ustc.edu.cn/debian unstable/main amd64 
+xsettingsd amd64 0.0.20171105+1+ge4cf9969-1+b1 [27.4 kB]
+Fetched 135 MB in 20s (6,832 kB/s)
+Reading changelogs... Done
+Extracting templates from packages: 100%
+Preconfiguring packages ...
+(Reading database ... 173183 files and directories currently installed.)
+Preparing to unpack .../coreutils_8.30-3+b1_amd64.deb ...
+Unpacking coreutils (8.30-3+b1) over (8.30-3) ...
+##准备升级
+Preparing to unpack .../75-xsettingsd_0.0.20171105+1+ge4cf9969-1+b1_amd64.deb ...
+Unpacking xsettingsd (0.0.20171105+1+ge4cf9969-1+b1) over (0.0.20171105+1+ge4cf9969-1) ...
+##此处有省略
+iio-sensor-proxy.service is a disabled or a static unit, not starting it.
+##此处有省略
+I: /vmlinuz is now a symlink to boot/vmlinuz-5.2.0-2-amd64
+I: /initrd.img is now a symlink to boot/initrd.img-5.2.0-2-amd64
+/etc/kernel/postinst.d/initramfs-tools:
+update-initramfs: Generating /boot/initrd.img-5.2.0-2-amd64
+/etc/kernel/postinst.d/zz-update-grub:
+Generating grub configuration file ...
+Found background image: /usr/share/images/desktop-base/desktop-grub.png
+Found linux image: /boot/vmlinuz-5.2.0-2-amd64
+Found initrd image: /boot/initrd.img-5.2.0-2-amd64
+Found linux image: /boot/vmlinuz-4.19.0-5-amd64
+Found initrd image: /boot/initrd.img-4.19.0-5-amd64
+done
+##Linux内核升级
+Setting up xfwm4 (4.12.5-1+b1) ...
+Setting up libpcre16-3:amd64 (2:8.39-12+b1) ...
+Setting up libtext-glob-perl (0.10-1) ...
+Setting up traceroute (1:2.1.0-2+b1) ...
+update-alternatives: using /usr/bin/traceroute.db to provide 
+/usr/bin/traceroute (traceroute) in auto mode
+##此处有省略
+update-alternatives: using /usr/sbin/tcptraceroute.db to provide 
+/usr/sbin/tcptraceroute (tcptraceroute) in auto mode
+Setting up libgbm1:amd64 (19.1.4-1) ...
+##此处有省略
+Setting up libqt5opengl5-dev:amd64 (5.11.3+dfsg1-2+b1) ...
+Processing triggers for systemd (241-7) ...
+##此处有省略
+update-initramfs: Generating /boot/initrd.img-5.2.0-2-amd64
+\end{verbatim}
 \paragraph{full-upgrade}
 “\verb|apt full-upgrade|”命令来自于apt-get，将执行upgrade命令的功能。但如果需要，它将会在更新整个系统时，移除已安装的软件包。 \par
 \paragraph{autoremove}
@@ -330,6 +389,27 @@ is another process using it?
 “\verb|apt autoremove|”用于移除由于需要满足依赖关系而被自动安装且现在由于（被）其所依赖的软件包被卸载或其它依赖关系改变不被需要的软件包。 \par
 例：你安装了依赖于a的b软件包，则在你安装b时，a也会自动被安装。但当你卸载b时，a不会自动被卸载。此时你就可以使用这个命令来移除它们。你通过install安装的软件包也（理论上）不会被自动移除。 \par
 {\color{red}{你需要检查列出的将被卸载的软件的列表，确保其不包括你需要的软件包（尽管它们有可能作为另一个软件包的依赖而被安装）。你可以通过apt-mark将它们标记为“手动（Manual）”}}。apt-get的man命令输出为：“\verb|apt-get dist-upgrade|”（命令名称不同）高级地执行upgrade命令的功能并智能地处理改变的依赖关系。apt-get有一个“聪明”的冲突处理系统。如果必要，它将以较为不重要的软件包为代价首先升级最重要的软件包。因此本命令有可能移除某些软件包。参见apt\_preferences的man帮助（第5部分）来了解并更改针对个别软件包的策略（这一段我翻译不好。请参见原文）。\par
+\begin{verbatim}
+root@sgcomputers:/# apt autoremove
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages will be REMOVED:
+libdouble-conversion1 libigdgmm5 libio-string-perl
+libparse-debianchangelog-perl libreadline7 libvpx5
+0 upgraded, 0 newly installed, 6 to remove and 0 not upgraded.
+After this operation, 3,542 kB disk space will be freed.
+Do you want to continue? [Y/n] Y
+(Reading database ... 179097 files and directories currently installed.)
+Removing libdouble-conversion1:amd64 (3.1.0-3) ...
+Removing libigdgmm5:amd64 (18.4.1+ds1-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libio-string-perl (1.08-3) ...
+Removing libreadline7:amd64 (7.0-5) ...
+Removing libvpx5:amd64 (1.7.0-3) ...
+Processing triggers for man-db (2.8.6.1-1) ...
+Processing triggers for libc-bin (2.28-10) ...
+\end{verbatim}
 \paragraph{edit-sources}
 “\verb|apt edit-sources|”命令允许你用你喜欢的文本编辑器修改sources.list并提供基本的完整性检查。（我希望你已经把VIM学好了。你也可以使用其他的编辑器）  \par
 \paragraph{install，remove，purge}
@@ -418,7 +498,7 @@ synaptic/disco,now 0.84.5 amd64 [installed]
 \end{verbatim}
 \subsubsection{dpkg}
 \cite{mandpkg}\par
-dpkg是一个可以安装，编译，卸载，管理Debian软件包的工具。它拥有一个友好的用户界面aptitude。dpkg本身完全通过命令行控制，命令包含一个（有且仅有）动作及零或多个选项。软件包按照状态（states）及标记（selection states）分类。（有一些不常用的内容被省略了。）状态包括：未安装（not-installed），仅有配置文件（config-files），安装未完成（half-installed），已解包但未完成配置（unpacked），已安装（installed）等。标记包括：将安装（install），锁定（hold）（当参数“ \verb|--force-hold|”被指定时，这些软件包也会被处理），将被删除（deinstall），将被完整删除（purge）\par
+dpkg是一个、管理Debian软件包的工具。它拥有一个友好的用户界面aptitude。dpkg本身完全通过命令行控制，命令包含有且仅有一个动作及零或多个选项。软件包按照状态（states）及标记（selection states）分类。（有一些不常用的内容被省略了。）状态包括：未安装（not-installed），仅有配置文件（config-files），安装未完成（half-installed），已解包但未完成配置（unpacked），已安装（installed）等。标记包括：将安装（install），锁定（hold）（当参数“ \verb|--force-hold|”被指定时，这些软件包也会被处理），将被删除（deinstall），将被完整删除（purge）\par
 动作：\verb|-i |（我认为安装软件包方面只讲这个动作就足够了。其它卸载等操作我们使用apt）或\verb|--install|将安装软件包。一个完整的安装过程包含：从软件包中解压缩控制文件，检查是否有旧版本（若存在，执行旧版本的“prerm”脚本），执行“preinst”脚本（若存在），备份旧版本（若有）并解包新版本（原位置），执行新版本（若存在旧版本）的“postrm”脚本，配置软件包（使用“\verb|--configure|”选项查看它的过程）。若出现依赖关系问题，请在安装完成后使用“\verb|apt -f install|”来修正它。\par
 用法：“\verb|dpkg -i [软件包名].deb|”\par
 示例：
@@ -600,24 +680,19 @@ Do you want to continue? [Y/n] Y
 ##APT会在这里停止。你应该选择Y。
 Get:1 http://mirrors.cn99.com/ubuntu bionic-updates/main amd64 libmagick
 ++-6.q16-7 amd64 8:6.9.7.4+dfsg-16ubuntu6.4 [138 kB]
+##开始下载
 Get:2 http://mirrors.cn99.com/ubuntu bionic/main amd64 libpotrace0 amd64 1.14-2 [17.4 kB]
 Get:3 http://mirrors.cn99.com/ubuntu bionic/universe amd64 inkscape amd64 0.92.3-1 [16.7 MB]
-Fetched 16.8 MB in 2s (10.4 MB/s)    
+Fetched 16.8 MB in 2s (10.4 MB/s)
+##下载完毕 
 Selecting previously unselected package libmagick++-6.q16-7:amd64.
+##开始解包
 (Reading database ... 269722 files and directories currently installed.)
 Preparing to unpack .../libmagick++-6.q16-7_8%3a6.9.7.4+dfsg-16ubuntu6.4_amd64.deb ...
 Unpacking libmagick++-6.q16-7:amd64 (8:6.9.7.4+dfsg-16ubuntu6.4) ...
-Selecting previously unselected package libpotrace0.
-Preparing to unpack .../libpotrace0_1.14-2_amd64.deb ...
-Unpacking libpotrace0 (1.14-2) ...
-Selecting previously unselected package inkscape.
-Preparing to unpack .../inkscape_0.92.3-1_amd64.deb ...
-Unpacking inkscape (0.92.3-1) ...
+##省略一些内容
 Processing triggers for mime-support (3.60ubuntu1) ...
-Processing triggers for desktop-file-utils (0.23+linuxmint4) ...
-Setting up libmagick++-6.q16-7:amd64 (8:6.9.7.4+dfsg-16ubuntu6.4) ...
-Processing triggers for libc-bin (2.27-3ubuntu1) ...
-Setting up libpotrace0 (1.14-2) ...
+##开始处理触发器，省略一些内容
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 Processing triggers for gnome-menus (3.13.3-11ubuntu1.1) ...
 Processing triggers for hicolor-icon-theme (0.17-2) ...
@@ -674,7 +749,7 @@ deb-src http://example.com/debian stable main contrib non-free
 \subsubsection{apt-mark}
 \cite{manaptmark}\par
 apt-mark是一种用来标记软件包状态的工具。\par
-用法：apt-mark [软件包名称] [参数]
+用法：\verb|apt-mark [软件包名称] [参数]|
 [参数]：“\verb|auto|”（在“\verb|apt autoremove|”时，若没有被标记为“\verb|manual|”的软件包依赖，它们将会被移除。），“\verb|manual|”（在“\verb|apt autoremove|”时，将不会被自动移除。{\color{red}{这个命令可以防止“\verb|apt autoremove|”对系统造成不可逆的致命破坏。}}），“\verb|hold|”（保护软件包不被自动升级，移除或安装。），“\verb|unhold|”（与“\verb|hold|”相反。）
 \subsubsection{图形化的APT：以Synaptic为例}
 显然当图形界面可用时，大多数人会选择图形界面。因此这一章将会介绍图形界面。
@@ -737,7 +812,7 @@ sgcomputers@sgcomputers:~$ sudo apt install vsftpd
 \begin{center}
 	\includegraphics[scale=0.7]{pic/fbt2}
 \end{center}
-\section{文件管理：图形和终端界面}
+\section{-文件管理：图形和终端界面}
 \subsection{文件系统：基础}
 \subsubsection{类Unix文件系统}
 GNU/Linux的文件组织方式与Windows不同。GNU/Linux上，设备、文件夹等内容也被视为文件（文件夹是特殊的文件）。我们将这种方式称为“类Unix文件系统”。如果你会获取android设备的root权限，你会发现android也使用类似的文件组织方式那么GNU/Linux是如何管理它们的呢？\par
@@ -750,9 +825,20 @@ GNU/Linux上有一个根目录（/ ），一切文件都被“挂载”（mount�
 /dev ##设备（如可挂载的NTFS磁盘），等等。
 /etc ##系统配置文件。
 /home ##大部分用户的“家”目录。
-/home/sgcomputers ##用户“sgcomputers”的“家”目录。
+/home/sgcomputers ##用户“sgcomputers”的“家”目录，即“~/”。
 ##通常包括“Documents”“Downloads”“Video”（“文件”“下载内容”“视频”）等文件夹。
 ##在特定用户下，你可以使用“cd ~”来切换到该用户的“家”目录。
+##注意，root用户的“家”目录位于“/root/”。
+~/.bashrc ##注意，这是一个隐藏文件。这个文件记录了你在刚刚登录系统时执行的操作
+（如果你的登录shell是bash的话——当然默认就是bash）。
+`/.bash\_history ##这个文件记载了你所有输入过的命令。
+~/.minttyrc ##这是你在CygWin上使用mintty终端的配置文件。我建议你把它的内容改成：
+##Font=仿宋
+##FontHeight=15
+##Locale=zh_CN
+##Charset=UTF-8
+##Language=zh_CN
+##这样阅读起来稍微方便一点。
 /lib ##运行库文件。
 /proc ##进程。你不应该操作此目录。
 /root ##root用户的“家”目录。
@@ -772,7 +858,7 @@ GNU/Linux上有一个根目录（/ ），一切文件都被“挂载”（mount�
 \end{verbatim} \par
 那么，“/a/b/c”相对于“/a/b”就是“c”目录。\par
 相对路径十分有用。它可以避免我们多次重复键入绝对路径。具体参见\pageref{sec:cd}页\ref{sec:cd}。
-\subsection{常用命令}
+\subsection{-常用命令}
 \subsubsection{pwd}
 这个命令用于显示当前工作目录的绝对路径。如：
 \begin{verbatim}
@@ -801,7 +887,7 @@ sgcomputerssgcomputers:~/Documents$ echo "echo Yeah!"> d
 \end{verbatim}
 \subsubsection{ls}
 \cite{manls}\par
-列出目录内含内容。请注意是“\verb|ls|”不是“\verb|sl|”，否则你会得到一辆开过屏幕的蒸汽机车（在安装了“sl”软件包的情况下。官方说明为该命令旨在帮助那些记忆力可怜的人）
+列出目录内含内容。请注意是“\verb|ls|”不是“\verb|sl|”，否则你会得到一辆开过屏幕的蒸汽机车（在安装了“sl”软件包的情况下。官方说明为该命令旨在帮助那些记忆力可怜的人）\footnote{当然它也可以帮助那些无聊的人——你可以试一试在Vim中打出这个图案——或者使用bash编出类似的程序！}。
 \begin{center}
 	\includegraphics[scale=2.2]{pic/sl}
 \end{center} \par
@@ -1054,7 +1140,7 @@ lrwxrwxrwx 1 root root 10 6月  16  2019 9AFA3F56FA3F2E3F -> ../../sda2
 lrwxrwxrwx 1 root root 10 6月  16  2019 f86fcaf9-2d5c-4560-a844-66a758a953c5 -> ../../sdb2
 \end{verbatim} \par
 第二列，即“/”指挂载点。后面几列较为复杂（文件系统--“ntfs-3g”，挂载选项--默认“defaults”，自动备份--NTFS免备份设0，开机检查--免检设0），请参考fstab的man帮助，不再赘述。\par
-所以，我们只需要在文件末端添上“UUID=9AFA3F56FA3F2E3F  /media/win10 ntfs-3g defaults   0 0”并重启（警告！仔细检查！！！）即可。
+所以，我们只需要在文件末端添上“UUID=9AFA3F56FA3F2E3F  /media/win10 ntfs-3g defaults   0 0”并重启（仔细检查！！！）即可。
 \subsubsection{文件权限的相关命令}
 文件权限大致上分“读”（r）、“写”（w）与“执行”（w）三种。你可以使用“\verb|chmod|”命令改变它。标准用法：“\verb|chmod [用户][运算符][权限] [文件] [参数]|”。可使用参数“\verb|-R|”递归更改目录权限。如：
 \begin{verbatim}
@@ -1141,10 +1227,10 @@ drwxrwxr-x 31 sgcomputers sgcomputers   4096 Jun 25 18:11 .config
 8  drwxrwxr-x 31 sgcomputers sgcomputers   4096 Jun 25 18:11 .config
 --More--
 \end{verbatim}
-\subsubsection{处理压缩文件}
+\subsubsection{-处理压缩文件}
 GNU/Linux中常见的压缩文件算法是tar（*.tar）、gz（*.gz *.tar.gz *.tgz *.z *.tar.z *.taz）、bzip2（*.bz2 *.tar.bz2 *.tbz）、deflate（*.zip）与LZMA（*.7z *.xz *.zip *.tar.xz *.txz *.lzma *.tlz）。RAR是专有软件，在GNU/Linux上面不常见。\par
 现在解释一下那些扩展名的由来：tgz、txz、tbz、tlz、taz分别是tar.gz、tar.xz、tar.bz2、tar.lzma、tar.z的缩写，其效果是相同的。一般tar压缩算法不减小文件的体积，但可包含多个文件；gzip、bzip2与xz算法能减小文件体积，但无法处理两个以上的文件。因此GNU/Linux的开发者们就经常将一个文件夹压缩为tar格式后再使用gzip算法压缩，这就产生了tar.gz的扩展名。\par
-\paragraph{xz及其衍生命令}
+\paragraph{-xz及其衍生命令}
 首先，以下命令是等价的：\par
 \begin{verbatim}
 unxz = xz --decompress.
@@ -1171,7 +1257,7 @@ Strms  Blocks   Compressed Uncompressed  Ratio  Check   Filename
 -F [格式] 等价于“--format=[格式]”，以[格式]保存压缩文件。
    [格式]可以为xz或lzma。
 \end{verbatim}
-\paragraph{gzip及其衍生命令}
+\paragraph{-gzip及其衍生命令}
 \verb|gzip|能够解压缩deflate算法压缩的zip文件以及扩展名为“z”“gz”的文件。同样拥有“\verb|gunzip|”。\par
 \begin{verbatim}
 -d 解压缩，等价于“--uncompress”或“--decompress”。
@@ -1184,7 +1270,7 @@ compressed        uncompressed  ratio uncompressed_name
 116                  88   1.1% Cygwin.bat
 
 \end{verbatim}
-\paragraph{zip及其衍生命令}
+\paragraph{-zip及其衍生命令}
 同样拥有“\verb|unzip|”。语法：\verb|zip [参数] [文件名] [要求]|。我不得不（不负责任地）告诉大家它的man帮助很难读懂。\par
 \begin{verbatim}
 -m 从压缩文件外移动文件到压缩文件。
@@ -1223,7 +1309,7 @@ YuZJ@DESKTOP-8862SKL /cygdrive/d/VS$ zip -d VSAll *git*
 ##删去“git”的文件匹配项
 deleting: IP▒▒ַ▒▒▒▒▒▒/.gitignore
 \end{verbatim}
-\paragraph{7z}
+\paragraph{-7z}
 标准语法“\verb|7z [模式] [开关] [文件名] [参数]|”，模式包含“\verb|a|”（创建压缩文件/向压缩文件中添加文件）、“\verb|d|”（从压缩文件删除）、“\verb|e|”（解压缩，不顾压缩文件内部的树结构将所有文件解压到一个目录）、“\verb|u|”（升级压缩文件）、“\verb|t|”（测试压缩文件）、“\verb|l|”（显示详细信息）、“\verb|x|”（解压缩并保留树结构）。开关我们只需要了解“\verb|-y|”（对所有问题回答“是”）即可。
 \paragraph{-tar}
 \verb|tar|命令除了产生tar包外，还能调用其余压缩算法。
@@ -1456,7 +1542,7 @@ htop ##任务管理器，可选，或gnome-system-monitor
 	这是完整操作。
 \end{center} \par
 （1）输入\verb|ls|查看连接在主板上的磁盘和分区。\par
-（2）确定/boot/grub所在分区。通过“\verb|ls (磁盘，分区)|”查找对应的分区格式，我们只需要关注ext2分区（似乎我这个版本还识别不出ext4）。使用“\verb|s （磁盘，分区）/l|”来识别根目录。\par
+（2）确定/boot/grub所在分区。通过“\verb|ls (磁盘，分区)|”查找对应的分区格式，我们只需要关注ext2分区（似乎我这个版本还识别不出ext4）。使用“\verb|ls （磁盘，分区）/|”来识别根目录。\par
 （3）使用“\verb|set root|”与\verb|“set prefix|”命令设置启动目录。\par
 （4）使用“\verb|insmod|”命令设置normal.nod。\par
 （5）使用“\verb|normal|”并回车启动grub。
