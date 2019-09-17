@@ -25,4 +25,5 @@ rm -f *.out
 rm -f *.fls
 rm -f *.brf
 rm -f *.fdb_latexmk
+mv Main.pdf 电教委员（不）完全技术指南.pdf
 echo Done!
