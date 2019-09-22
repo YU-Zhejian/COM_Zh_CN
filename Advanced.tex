@@ -72,7 +72,7 @@ CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序�
 \end{center} \par
 \subsubsection{Deepin Linux}
 \url{https://www.deepin.org/}\par
-\cite{deepininfo}深度操作系统基于Linux内核，以桌面应用为主的开源GNU/Linux操作系统，支持笔记本、台式机和一体机。深度操作系统（deepin）包含深度桌面环境（DDE）和近30款深度原创应用，及数款来自开源社区的应用软件，支撑广大用户日常的学习和工作。另外，通过深度商店还能够获得近千款应用软件的支持，满足您对操作系统的扩展需求。深度操作系统由专业的操作系统研发团队和深度技术社区（www.deepin.org）共同打造，其名称来自深度技术社区名称“deepin”一词，意思是对人生和未来深刻的追求和探索。
+\cite{deepininfo}深度操作系统基于Linux内核，以桌面应用为主的开源GNU/Linux操作系统，支持笔记本、台式机和一体机。深度操作系统（deepin）包含深度桌面环境（DDE）和近30款深度原创应用，及数款来自开源社区的应用软件，支撑广大用户日常的学习和工作。另外，通过深度商店还能够获得近千款应用软件的支持，满足你对操作系统的扩展需求。深度操作系统由专业的操作系统研发团队和深度技术社区（www.deepin.org）共同打造，其名称来自深度技术社区名称“deepin”一词，意思是对人生和未来深刻的追求和探索。
 \paragraph{实测}
 免费下载安装，安装较为方便。APT镜像源较多，更新较快。同样拥有WineQQ与Electric WeChat，体验接近Ubuntu（桌面除外）。适合用于教学。\par
 缺陷：一部分预装软件的界面（如深度软件安装器）过于简洁，不够强大。应用程序卸载不需要root权限。桌面的形式不适用于高效率教学生活，较难适应。
@@ -1365,24 +1365,26 @@ sgcomputers@sgcomputers:~/COM_Zh_CN/TeX$ sudo ps -A all | grep apt
 0  1000 17120  4328  20   0  11940   920 pipe_w S+   pts/0      0:00 grep --color=auto apt
 ##原来是新立得软件包管理器。
 \end{verbatim}
+\subsection{-pidof}
 \subsection{kill}
 用来强制终结进程。用法：kill -9 [pid]。其中[pid]由ps命令给出。如：如果我们想终结上一个例子中新立得的进程（警告！不推荐！），我们可以：“\verb|sudo kill -9 15075|”。\par
 一般我们以root权限运行此命令，并且只在一个你熟悉的应用程序失去响应或需要终结一个失败的apt（如，启动时自动更新）使用这个命令。{\color{red}{不要终结你不熟悉的进程，它可能是系统进程！}}
+\subsection{-killall}
 \section{GNU/Linux下的反病毒软件}
 \label{sec:avgl}这一章将会介绍运行于GNU/Linux的反病毒软件ClamAV。当然如果你需要类似于Windows的反病毒体验，你可以使用ESET（付费）。\par
 在使用前，你需要到软件源安装它。注意！ClamAV不提供实时保护！（所以你也不用担心它在后台占用资源了，是吧）
 \subsection{优点及不足}
 优点：
 \begin{enumerate}
-	\item 大部分GNU/Liux发行版均可用
-	\item 命令操作简便。
-	\item 自由软件。
+\item 大部分GNU/Liux发行版均可用
+\item 命令操作简便。
+\item 自由软件。
 \end{enumerate}
 缺点：
 \begin{enumerate}
-	\item 误报率高。
-	\item 在GNU/Linux机器上资源占用极大，比传说中的“卡巴死机”（这是对卡巴斯基较旧版本（系统占用极大）的调侃。现在的最新版（2019）比以前好多了（当然，这与计算机性能提升也有关系））还让人抓狂。其CygWin版本好多了。
-	\item 查杀速度较慢。
+\item 误报率高。
+\item 在GNU/Linux机器上资源占用极大，比传说中的“卡巴死机”（这是对卡巴斯基较旧版本（系统占用极大）的调侃。现在的最新版（2019）比以前好多了（当然，这与计算机性能提升也有关系））还让人抓狂。其CygWin版本好多了。
+\item 查杀速度较慢。
 \end{enumerate}
 \subsection{命令行模式}
 \subsubsection{clamscan}
@@ -1468,10 +1470,11 @@ sgcomputers@sgcomputers:/sbin$sudo service clamav-freshclam start
 	\includegraphics[scale=0.5]{pic/ctk}
 \end{center} \par
 为获得最佳杀毒效果，你需要在root终端下启动它（就像我现在这样）。你需要在“settings”中设置使“scan diretories recursively”（递归扫描文件夹）再设置“update assistant”使“I would like to update signatures myself”（手动接受更新）并应用（apply）。之后你就可以“scan a directory”来递归扫描目录了。
+\section{-自动化操作：crontab}
 \section{Wine}
 Wine——一种神奇的能够让Windows程序运行于GNU/Linux的小程序。\par
 官网【WineHQ - 在 Linux，BSD，Solaris 和 macOS 上运行 Windows 应用】\url{https://www.winehq.org/}（最后连接于2019年6月21日14:21:57）。在\url{https://wiki.winehq.org/Ubuntu_zhcn}（最后连接于2019年6月21日14:23:01）有详细的安装方法，这里不再赘述。\par
-不建议在GNU/Linux上使用Wine。原因：1.Wine官方服务器下载速度极慢。2.Wine效果并没有这么好，卡。3.中文需要特殊配置，否则乱码。
+不建议在GNU/Linux上使用官方的Wine。原因：1.Wine官方服务器下载速度极慢。2.Wine效果比较卡。3.中文需要特殊配置，否则乱码。如果你需要运行QQ等，你需要使用deepin-wine。
 \section{媒体播放器}
 我们同样使用vlc作为默认媒体播放器。配置较低的机器请选择MPV。\par
 如果你需要一个现代化的音乐播放器，你可以安装rhythmbox。如果你需要一个终端界面下的音乐播放器，请选择moc（使用“\verb|mocp|”命令启动）。以下为截图。
