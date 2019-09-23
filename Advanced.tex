@@ -6,7 +6,7 @@
 \chapter{高级：GNU/Linux的教学实现}
 这一个章节将以 Lubuntu\footnote{这是Ubuntu的一个衍生版本，除了将默认桌面替换为LXDE外与“正常”的Ubuntu没有大的区别。} 19.04为例，教电教委员如何安装GNU/Linux平台使其与Windows操作系统共存，简单的GNU/Linux设置及使用GNU/Linux实现日常教学。\par
 \section{免责声明}
-{\color{red} {注意，我希望一个能力较强，英语水平较高且经验丰富的电教委员学习这部分内容。YuZJ Lab对产生的任何错误概不负责，请自行备份旧操作系统！一切翻译内容如与最新版的英文文章有所冲突，皆以最新版为准！}}\par
+{\color{red} 注意，我希望一个能力较强，英语水平较高且经验丰富的电教委员学习这部分内容。YuZJ Lab对产生的任何错误概不负责，请自行备份旧操作系统！一切翻译内容如与最新版的英文文章有所冲突，皆以最新版为准！}\par
 GNU/Linux的更新速度较快，我写的内容恐怕很快就会过时。希望读者给予反馈。GNU/Linux是一个博大精深的体系，请原谅我不断使用“参见...”。\par
 请你确保以下内容后学习这一章：
 \begin{enumerate}
@@ -39,7 +39,7 @@ CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序�
 	\item [【Debian GNU/Linux】] 虽然软件更新较慢，但稳定性过强导致软件落后（仅限于Stable分支）或者不稳定（Unstable分支）。
 	\item [【Gentoo Linux】] 一个具有极强的自定义的发行版，安装过程极为复杂，不适合用于教学（大牛除外）。
 	\item [【Fedora】] 前瞻性性较强，社区维护并由Red Hat基金会支持。免费下载安装。软件过少（需要启用额外的软件源），不适用于教学。
-	\item [【Kali Linux】] 内含大部分黑客专用的工具，使用apt软件包管理器，默认使用root用户执行操作导致其非常不适合用于教学。{\color{red}{警告！！！！如果你成功地使用Kali黑掉了不属于你并且拥有复杂日志系统的网络（并且你愚蠢到留下了自己的MAC），你极有可能入狱。}}
+	\item [【Kali Linux】] 内含大部分黑客专用的工具，使用apt软件包管理器，默认使用root用户执行操作导致其非常不适合用于教学。{\color{red}警告！！！！如果你成功地使用Kali黑掉了不属于你并且拥有复杂日志系统的网络（并且你愚蠢到留下了自己的MAC），你极有可能入狱。}
 	\item [【Red Hat Enterprise Linux （RHEL）】] 稳定性和保密程度极强，付费下载安装。不适合用于教学。
 	\item [【Ubuntu】] 一个基于Debian GNU/Linux的发行版，前瞻性性较强，支持的软件包极多，非常适合用于教学。在“高级”章中我们将会使用此发行版作为示例。
 	\item [【Linux Mint】] 同上。目前最适合于初学者的GNU/Linux发行版。十分人性化，建议初学者选用（大牛将在此略感蹩脚）。非常适合用于教学。
@@ -174,10 +174,10 @@ sgcomputers@debian:~$
 在GNU/Linux中，你会发现某些操作（如“\verb|apt install aptitude|”）是普通用户无法执行的。此时你就需要root用户。\par
 与Windows操作系统不同（比如说Windows操作系统上权力最大的用户不是管理员（“Administrator”）而是系统本身（“System”）），GNU/Linux上有一个权力无限大的用户，它就是root。你可以使用root来忽略文件权限地阅读任何文件，执行任何命令，以及其它神奇的事情（例如使用“\verb|rm|”命令格式化磁盘。）。\par
 一般为了防止不经意间的破坏，我们不直接以root用户登录。“提权”指的是将你目前用户的权限提升为root权限。你可以使用“\verb|su|”命令\footnote{全称Switch User，切换用户。你需要知道root用户的密码。Debian等发行版会在安装时设置，而Ubuntu与Deepin Linux需要使用“sudo passwd”命令修改root账号的密码才能使用。}切换为root用户（这个命令等价于“\verb|su root|”。“\verb|su|”命令的正确用法是“\verb|su [用户]|”，用来切换到另一个用户。root可切换到任意用户无需输入密码）或在命令前加上“\verb|sudo|”（这个命令的使用有如下限制：你必须在“sudo”这个用户组里。Ubuntu及Deep in会自动将安装系统时创建的用户添加到该用户组中，而Debian等发行版不会，需要在root用户下使用“\verb|usermod -a [用户名] -G sudo|”并重新登录以手动添加）。\par
-{\color{red}{警告！root用户的不正确操作可能对系统造成不可逆的致命破坏！因此，请：\par
+{\color{red}警告！root用户的不正确操作可能对系统造成不可逆的致命破坏！因此，请：\par
 1.确保你输入了正确的命令！GNU/Linux的命令是大小写敏感的。\par
 2.不要使用root用户登录桌面环境。\par
-3.警告！不要与任何人透露root密码！}}\par
+3.警告！不要与任何人透露root密码！}\par
 \subsubsection{获取帮助}
 \cite{manman}\par
 当发现有问题时，你需要参见帮助。以下是一些常见方法：\par
@@ -385,10 +385,10 @@ update-initramfs: Generating /boot/initrd.img-5.2.0-2-amd64
 \paragraph{full-upgrade}
 “\verb|apt full-upgrade|”命令来自于apt-get，将执行upgrade命令的功能。但如果需要，它将会在更新整个系统时，移除已安装的软件包。 \par
 \paragraph{autoremove}
-{\color{red}{警告！这个命令可能对系统造成不可逆的致命破坏！}}  \par
+{\color{red}警告！这个命令可能对系统造成不可逆的致命破坏！}  \par
 “\verb|apt autoremove|”用于移除由于需要满足依赖关系而被自动安装且现在由于（被）其所依赖的软件包被卸载或其它依赖关系改变不被需要的软件包。 \par
 例：你安装了依赖于a的b软件包，则在你安装b时，a也会自动被安装。但当你卸载b时，a不会自动被卸载。此时你就可以使用这个命令来移除它们。你通过install安装的软件包也（理论上）不会被自动移除。 \par
-{\color{red}{你需要检查列出的将被卸载的软件的列表，确保其不包括你需要的软件包（尽管它们有可能作为另一个软件包的依赖而被安装）。你可以通过apt-mark将它们标记为“手动（Manual）”}}。apt-get的man命令输出为：“\verb|apt-get dist-upgrade|”（命令名称不同）高级地执行upgrade命令的功能并智能地处理改变的依赖关系。apt-get有一个“聪明”的冲突处理系统。如果必要，它将以较为不重要的软件包为代价首先升级最重要的软件包。因此本命令有可能移除某些软件包。参见apt\_preferences的man帮助（第5部分）来了解并更改针对个别软件包的策略（这一段我翻译不好。请参见原文）。\par
+{\color{red}你需要检查列出的将被卸载的软件的列表，确保其不包括你需要的软件包（尽管它们有可能作为另一个软件包的依赖而被安装）。你可以通过apt-mark将它们标记为“手动（Manual）”}。apt-get的man命令输出为：“\verb|apt-get dist-upgrade|”（命令名称不同）高级地执行upgrade命令的功能并智能地处理改变的依赖关系。apt-get有一个“聪明”的冲突处理系统。如果必要，它将以较为不重要的软件包为代价首先升级最重要的软件包。因此本命令有可能移除某些软件包。参见apt\_preferences的man帮助（第5部分）来了解并更改针对个别软件包的策略（这一段我翻译不好。请参见原文）。\par
 \begin{verbatim}
 root@sgcomputers:/# apt autoremove
 Reading package lists... Done
@@ -651,7 +651,7 @@ apt-get是处理软件包的命令行工具，它有时作为用户的使用使�
 用法：“\verb|apt-get install [软件包名]|”或“\verb|apt-get install [软件包名1] [软件包名2] [软件包名3] ... [软件包名n]|”\par
 “\verb|apt-get install|”命令后应连接一个或多个需要安装或升级的软件包。请注意使用软件包名称，而不是软件包文件名。例如，如果你想要在Ubuntu上安装apt-utils，你应使用“apt-utils”作为参数（即将“[软件包名]”替换为“apt-utils”）而不是“apt-utils\_1.7.2\_amd64.deb”。所有被将要安装的软件包需要的软件包（通常是由于依赖关系）也将会被下载安装。apt-get会按“/etc/apt/sources.list”寻找需要的软件包。软件包的版本可以通过在软件包名称后连接等号及软件包版本被指定。版本选择系统都有可能降级软件包（回退到以前版本），因此它们必须被谨慎地使用。不像“upgrade”命令（将升级所有可升级的软件包），“install”命令（将安装软件包的最新版本）允许你升级单个软件包（包括配置依赖关系，等等）。最终，apt\_preferences中提供的机制允许你为单个软件包创造可选的安装政策。\par
 可用选项：“\verb|-f|”或“\verb|--fix-broken|”。用法：“\verb|apt-get -f install|”。它将会修复破损的依赖关系。\par
-可用选项：“ \verb|-y|”或“\verb|--yes|”或“\verb|--assume-yes| ”。它将将自动回答所有的问题为“Y”（是）。反义选项：“\verb|--assume-no|”。同义选项：“\verb|--force-yes|”。{/color{red}{警告！这个命令可能对系统造成不可逆的致命破坏！}}\par
+可用选项：“ \verb|-y|”或“\verb|--yes|”或“\verb|--assume-yes| ”。它将将自动回答所有的问题为“Y”（是）。反义选项：“\verb|--assume-no|”。同义选项：“\verb|--force-yes|”。{/color{red}警告！这个命令可能对系统造成不可逆的致命破坏！}\par
 示例：
 \begin{verbatim}
 sgcomputers@sgcomputers:~$ sudo apt-get install inkscape
@@ -700,7 +700,7 @@ Setting up inkscape (0.92.3-1) ...
 Processing triggers for libc-bin (2.27-3ubuntu1) ...
 \end{verbatim}
 \paragraph{remove}
-“\verb|apt-get remove [软件包名]|”与“\verb|install|”命令用法相同，只是它将移除软件包而不是安装。注意：移除软件包时，它的配置文件将会被保留{/color{red}{警告！这个命令可能对系统造成不可逆的致命破坏！}}。\par
+“\verb|apt-get remove [软件包名]|”与“\verb|install|”命令用法相同，只是它将移除软件包而不是安装。注意：移除软件包时，它的配置文件将会被保留{/color{red}警告！这个命令可能对系统造成不可逆的致命破坏！}。\par
 可选选项：“\verb|--purge|”。用法：“\verb|apt-get remove --purge [软件包名]|”。效果同“\verb|apt-get purge [软件包名]|”\par
 示例：
 \begin{verbatim}
@@ -724,9 +724,9 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 Processing triggers for gnome-menus (3.13.3-11ubuntu1.1) ...
 \end{verbatim}
 \paragraph{purge}
-“\verb|apt-get purge [软件包名]|”与“\verb|remove|”命令用法相同，只是它将移除且完整删除软件包。注意：它的配置文件将会被删除{/color{red}{警告！这个命令可能对系统造成不可逆的致命破坏！}}。\par
+“\verb|apt-get purge [软件包名]|”与“\verb|remove|”命令用法相同，只是它将移除且完整删除软件包。注意：它的配置文件将会被删除{/color{red}警告！这个命令可能对系统造成不可逆的致命破坏！}。\par
 \paragraph{ download}
-“\verb|apt-get download [软件包名]|”将下载软件包到当前目录。（一个愚蠢的建议：你可以使用“\verb|apt-get download *|”制作镜像源。{\color{red}{不要这么做。}}）
+“\verb|apt-get download [软件包名]|”将下载软件包到当前目录。（一个愚蠢的建议：你可以使用“\verb|apt-get download *|”制作镜像源。{\color{red}不要这么做。}）
 \paragraph{clean}
 “\verb|apt-get clean|”删除（除了lock文件）“/var/cache/apt/archives/”与“/var/cache/apt/archives/partial/”文件夹中已下载的软件包。
 \subsubsection{apt-cdrom}
@@ -750,7 +750,7 @@ deb-src http://example.com/debian stable main contrib non-free
 \cite{manaptmark}\par
 apt-mark是一种用来标记软件包状态的工具。\par
 用法：\verb|apt-mark [软件包名称] [参数]|
-[参数]：“\verb|auto|”（在“\verb|apt autoremove|”时，若没有被标记为“\verb|manual|”的软件包依赖，它们将会被移除。），“\verb|manual|”（在“\verb|apt autoremove|”时，将不会被自动移除。{\color{red}{这个命令可以防止“\verb|apt autoremove|”对系统造成不可逆的致命破坏。}}），“\verb|hold|”（保护软件包不被自动升级，移除或安装。），“\verb|unhold|”（与“\verb|hold|”相反。）
+[参数]：“\verb|auto|”（在“\verb|apt autoremove|”时，若没有被标记为“\verb|manual|”的软件包依赖，它们将会被移除。），“\verb|manual|”（在“\verb|apt autoremove|”时，将不会被自动移除。{\color{red}这个命令可以防止“\verb|apt autoremove|”对系统造成不可逆的致命破坏。}），“\verb|hold|”（保护软件包不被自动升级，移除或安装。），“\verb|unhold|”（与“\verb|hold|”相反。）
 \subsubsection{图形化的APT：以Synaptic为例}
 显然当图形界面可用时，大多数人会选择图形界面。因此这一章将会介绍图形界面。
 synaptic中文名称为“新立德软件包软利器”。截图（Ubuntu版本，0.84.4）：
@@ -956,7 +956,7 @@ drwxr-xr-x  4 root root   4096 Apr 19 17:37 ..
 ##省略一大部分
 \end{verbatim}
 \subsubsection{cd}
-\label{sec:cd}切换工作目录（比如说“sgcomputers@sgcomputers-pc:/\$ ”，此时工作目录就是“/”。工作目录位于“[用户名]@[计算机名]：”与“\$”（root用户是“\#”）中间）。{\color{red}{注意！GNU/Linux区分大小写！}}如：
+\label{sec:cd}切换工作目录（比如说“sgcomputers@sgcomputers-pc:/\$ ”，此时工作目录就是“/”。工作目录位于“[用户名]@[计算机名]：”与“\$”（root用户是“\#”）中间）。{\color{red}注意！GNU/Linux区分大小写！}如：
 \begin{verbatim}
 ##现在我们位于sgcomouters的“家”目录，即“/home/sgcomputers”。
 sgcomputers@sgcomputers-pc:/$ cd /
@@ -1009,7 +1009,7 @@ sgcomputers@sgcomputers-pc:/media/win10/Users/SGComputers/AppData
 sgcomputers@sgcomputers-pc:~$ 
 \end{verbatim}
 \subsubsection{rm}
-{\color{red}{警告！这是一个删除命令！这个命令的不正确操作可能会对操作系统产生不可逆的致命破坏！如果可行，请使用图形界面！}}\par
+{\color{red}警告！这是一个删除命令！这个命令的不正确操作可能会对操作系统产生不可逆的致命破坏！如果可行，请使用图形界面！}\par
 \cite{manrm} 现在开始正式教学。\verb|rm|是一个用来删除文件或目录的指令。以下是详细用法：
 \begin{verbatim}
 ##[dir]表示被删除的应该是目录（文件夹）。
@@ -1368,7 +1368,7 @@ sgcomputers@sgcomputers:~/COM_Zh_CN/TeX$ sudo ps -A all | grep apt
 \subsection{-pidof}
 \subsection{kill}
 用来强制终结进程。用法：kill -9 [pid]。其中[pid]由ps命令给出。如：如果我们想终结上一个例子中新立得的进程（警告！不推荐！），我们可以：“\verb|sudo kill -9 15075|”。\par
-一般我们以root权限运行此命令，并且只在一个你熟悉的应用程序失去响应或需要终结一个失败的apt（如，启动时自动更新）使用这个命令。{\color{red}{不要终结你不熟悉的进程，它可能是系统进程！}}
+一般我们以root权限运行此命令，并且只在一个你熟悉的应用程序失去响应或需要终结一个失败的apt（如，启动时自动更新）使用这个命令。{\color{red}不要终结你不熟悉的进程，它可能是系统进程！}
 \subsection{-killall}
 \section{GNU/Linux下的反病毒软件}
 \label{sec:avgl}这一章将会介绍运行于GNU/Linux的反病毒软件ClamAV。当然如果你需要类似于Windows的反病毒体验，你可以使用ESET（付费）。\par
@@ -1429,7 +1429,7 @@ Data scanned: 10.95 MB
 Data read: 10.87 MB (ratio 1.01:1)
 Time: 45.656 sec (0 m 45 s)
 \end{verbatim} \par
-{\color{red}{注意，我非常建议你使用root权限！否则大部分病毒会移除失败！\par 误报率较高，建议不要使用“\verb|--remove=yes|”或“\verb|--move=[dir]|”选项。}}\par
+{\color{red}注意，我非常建议你使用root权限！否则大部分病毒会移除失败！\par 误报率较高，建议不要使用“\verb|--remove=yes|”或“\verb|--move=[dir]|”选项。}\par
 我刚刚对我的计算机进行了反病毒。命令“\verb|clamscan --stdout -r  --log=/home/sgcomputers/Documents/2.log --copy=/home/sgcomputers/Documents|”，查杀999829个文件，142126个目录，总读取78855.88 MB，用时346分钟。
 \subsubsection{freashclam}
 \cite{mancf}\par
