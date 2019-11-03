@@ -62,14 +62,6 @@ CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序�
 \end{enumerate}
 \subsection{（半）国产操作系统概况}
 国产操作系统主要以GNU/Linux或BSD为内核。在MS Windows进入中国前曾经繁荣过一段时间。但目前其民用桌面操作系统在国内占有的市场份额极小，大部分国产操作系统为政府或军事机构服务。现列举一些著名的操作系统：
-\subsubsection{红旗Linux}
-\url{http://www.redflag-linux.com/}（最后连接于2019年06月20日18:17:29）。 \par
-红旗Linux操作系统产生于科索沃战争。当时，前南斯拉夫的计算机安装的操作系统均为MS DOS操作系统。美国军方使用信息战等手段让前南斯拉夫的通讯系统几乎全部瘫痪。这件事让中国政府部门深感研发出拥有自主知识产权的操作系统有多么重要。中国科学院软件研究所奉命研制基于GNU/Linux的自主操作系统，并于1999年8月发布了红旗Linux 1.0版。最初主要用于关系国家安全的重要政府部门。红旗操作系统至今为止仍是最大最成熟的国产操作系统。最新版本9。 \cite{rflinux} \par
-\paragraph{实测}
-经过虚拟机安装测验发现，红旗Linux与Fedora十分相似，都使用RPM作为默认软件包管理器。在Live映像中已经安装网易云音乐、WPS办公软件、WineQQ （QQ的非官方GNU/Linux版）、Electric WeChat（微信的非官方GNU/Linux版） 等常用软件。安装版所自带的Yum源 （Yum与APT将会在“高级”篇中讲到） 所能够提供的软件包数量没有Fedora官方发行版多，并且下载速度较国内镜像源（如TUNA \footnote{TUNA，全称Tsinghua University Network Association，是清华大学一群爱好网络技术的极客组成的社团。} 源）慢。安转软件容易产生依赖问题（比如说我安装GNU Emacs就失败了——并且还是旧版）因此，我并不支持在教学上使用此操作系统。
-\begin{center}
-	\includegraphics[scale=0.5]{pic/redflag}
-\end{center} \par
 \subsubsection{Deepin Linux}
 \url{https://www.deepin.org/}\par
 \cite{deepininfo}深度操作系统基于Linux内核，以桌面应用为主的开源GNU/Linux操作系统，支持笔记本、台式机和一体机。深度操作系统（deepin）包含深度桌面环境（DDE）和近30款深度原创应用，及数款来自开源社区的应用软件，支撑广大用户日常的学习和工作。另外，通过深度商店还能够获得近千款应用软件的支持，满足你对操作系统的扩展需求。深度操作系统由专业的操作系统研发团队和深度技术社区（www.deepin.org）共同打造，其名称来自深度技术社区名称“deepin”一词，意思是对人生和未来深刻的追求和探索。
@@ -78,17 +70,7 @@ CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序�
 缺陷：一部分预装软件的界面（如深度软件安装器）过于简洁，不够强大。应用程序卸载不需要root权限。桌面的形式不适用于高效率教学生活，较难适应。
 \begin{center}
 	\includegraphics[scale=0.5]{pic/deepin}
-\end{center} \par
-\subsubsection{Start OS}
-\url{http://www.startos.org/}\par
-\cite{startosinfo} StartOS是由东莞瓦力网络科技有限公司发行的开源操作系统，符合国人的使用习惯，预装常用的精品软件，操作系统具有运行速度快，安全稳定，界面美观，操作简洁明快等特点。\par
-StartOS使用全新的包管理，全新的操作界面，是一个易用，安全，稳定，易扩展，更加符合中国人操作习惯的桌面操作系统。Linux 系统的安全，稳定是众所周知的事情，StartOS 将朝着易用的方向坚持走出自己的特色。最新版本5.1。\par
-\paragraph{实测}
-免费下载安装。安装并未过多简化，仅仅减少步骤。你还是需要GNU/Linux分区相关知识。但安装速度快。\par
-图形界面接近于WindowsXP。软件太糟糕了——少且落后（如LibreOffice仅3.1——目前6.2.3，Emacs仅24——目前26.2，GIMP仅2.8-目前2.10）。因此，我并不支持在教学上使用此操作系统。
-\begin{center}
-	\includegraphics[scale=0.5]{pic/startos}
-\end{center} \par
+\end{center}
 \subsubsection{Ubuntu Kylin}
 \url{https://www.ubuntukylin.com/}\par
 优麒麟（Ubuntu Kylin）是由天津麒麟信息技术有限公司主导开发的全球开源项目，其宗旨是通过研发用户友好的桌面环境以及特定需求的应用软件，为全球 Linux 桌面用户带来非凡的全新体验！\par
@@ -1367,12 +1349,12 @@ sgcomputers@sgcomputers:~/COM_Zh_CN/TeX$ sudo ps -A all | grep apt
 \end{verbatim}
 \subsection{-pidof}
 \subsection{kill}
-用来强制终结进程。用法：kill -9 [pid]。其中[pid]由ps命令给出。如：如果我们想终结上一个例子中新立得的进程（警告！不推荐！），我们可以：“\verb|sudo kill -9 15075|”。\par
+用来强制终结进程。用法：kill -9 [pid]。其中[pid]由ps命令给出。如：如果我们想终结上一个例子中新立得的进程，我们可以：“\verb|sudo kill -9 15075|”。\par
 一般我们以root权限运行此命令，并且只在一个你熟悉的应用程序失去响应或需要终结一个失败的apt（如，启动时自动更新）使用这个命令。{\color{red}不要终结你不熟悉的进程，它可能是系统进程！}
 \subsection{-killall}
 \section{GNU/Linux下的反病毒软件}
-\label{sec:avgl}这一章将会介绍运行于GNU/Linux的反病毒软件ClamAV。当然如果你需要类似于Windows的反病毒体验，你可以使用ESET（付费）。\par
-在使用前，你需要到软件源安装它。注意！ClamAV不提供实时保护！（所以你也不用担心它在后台占用资源了，是吧）
+\label{sec:avgl}这一章将会介绍运行于GNU/Linux的反病毒软件ClamAV。当然如果你需要类似于Windows的反病毒体验，你可以使用ESET，Dr. Web或FSopt（付费）。\par
+在使用前，你需要到软件源安装它。注意！ClamAV不提供实时保护！
 \subsection{优点及不足}
 优点：
 \begin{enumerate}
@@ -1383,7 +1365,7 @@ sgcomputers@sgcomputers:~/COM_Zh_CN/TeX$ sudo ps -A all | grep apt
 缺点：
 \begin{enumerate}
 \item 误报率高。
-\item 在GNU/Linux机器上资源占用极大，比传说中的“卡巴死机”（这是对卡巴斯基较旧版本（系统占用极大）的调侃。现在的最新版（2019）比以前好多了（当然，这与计算机性能提升也有关系））还让人抓狂。其CygWin版本好多了。
+\item 在GNU/Linux机器上资源占用极大。其CygWin版本好多了。
 \item 查杀速度较慢。
 \end{enumerate}
 \subsection{命令行模式}
@@ -1472,9 +1454,9 @@ sgcomputers@sgcomputers:/sbin$sudo service clamav-freshclam start
 为获得最佳杀毒效果，你需要在root终端下启动它（就像我现在这样）。你需要在“settings”中设置使“scan diretories recursively”（递归扫描文件夹）再设置“update assistant”使“I would like to update signatures myself”（手动接受更新）并应用（apply）。之后你就可以“scan a directory”来递归扫描目录了。
 \section{-自动化操作：crontab}
 \section{Wine}
-Wine——一种神奇的能够让Windows程序运行于GNU/Linux的小程序。\par
+Wine——一种能够让Windows程序运行于GNU/Linux的程序。\par
 官网【WineHQ - 在 Linux，BSD，Solaris 和 macOS 上运行 Windows 应用】\url{https://www.winehq.org/}（最后连接于2019年6月21日14:21:57）。在\url{https://wiki.winehq.org/Ubuntu_zhcn}（最后连接于2019年6月21日14:23:01）有详细的安装方法，这里不再赘述。\par
-不建议在GNU/Linux上使用官方的Wine。原因：1.Wine官方服务器下载速度极慢。2.Wine效果比较卡。3.中文需要特殊配置，否则乱码。如果你需要运行QQ等，你需要使用deepin-wine。
+不建议在GNU/Linux上使用官方的Wine。原因：1.Wine官方服务器下载速度极慢。2.Wine效果比较卡。3.中文需要特殊配置，否则易产生乱码。
 \section{媒体播放器}
 我们同样使用vlc作为默认媒体播放器。配置较低的机器请选择MPV。\par
 如果你需要一个现代化的音乐播放器，你可以安装rhythmbox。如果你需要一个终端界面下的音乐播放器，请选择moc（使用“\verb|mocp|”命令启动）。以下为截图。
@@ -1483,8 +1465,8 @@ Wine——一种神奇的能够让Windows程序运行于GNU/Linux的小程序。
 \end{center}
 \section{GNU/Linux的教学实现}
 这一章将会谈到如何使用GNU/Linux实现日常教学任务。\par
-1.安装操作系统：我们选择Lubuntu Linux 19.04或Ubuntu 18.10或Linux Mint 19 或Deepin Linux。。注意，请安装图形界面：cinnamon或lxde（它们与Windows操作系统界面风格更接近，因此将会被更多人接受）。除非你会自己写硬件驱动程序或者你是自由软件运动的忠实粉丝（当然这些人也不会使用Debian），请安装非自由固件。安装过程不再赘述。下同。除非你会自己写硬件驱动程序或者你是自由软件运动的忠实粉丝，请安装第三方媒体解码器和驱动程序。对于初学者，我十分推荐Linux Mint Cinnamon。\par
-2.配置软件源，使用“\verb|sudo apt update && sudo apt upgrade -y|”更新软件包索引文件和软件包并安装以下软件（如果你使用了Debian GNU/Linux9.9 最小安装，你还要安装man、less与sudo）：
+1.安装操作系统：我们选择Lubuntu Linux 19.04或Ubuntu 18.10或Linux Mint 19 或Deepin Linux。。注意，请安装图形界面：cinnamon或lxde（它们与Windows操作系统界面风格更接近，因此将会被更多人接受）。请安装非自由固件及第三方媒体解码器和驱动程序。安装过程不再赘述。下同。对于初学者，我十分推荐Linux Mint Cinnamon。\par
+2.配置软件源，使用“\verb|sudo apt update && sudo apt upgrade -y|”更新软件包索引文件和软件包并安装以下软件（如果你使用了Debian GNU/Linux10 最小安装，你还要安装man、less与sudo）：
 \begin{verbatim}
 ##你可以从软件源中下载绝大部分软件。
 ##软件源中也许软件名称不同。
@@ -1534,12 +1516,12 @@ htop ##任务管理器，可选，或gnome-system-monitor
 	\item GNU/Linux下面可用的Git图形界面稍微少了一点，建议使用SmartGit或deepgit（英文版，两者是同一个生产厂商出品的）。你需要在它的官网\url{https://www.syntevo.com/smartgit/}（最后连接于2019年7月28日18:01:48）上申请一张非商业许可证\url{https://www.syntevo.com/cn/smartgit/register-non-commercial/}（最后连接于2019年7月29日9:14:22）。
 \end{enumerate}
 \section{救命！我的系统炸了！}
-如果任何类似的事情发生，首先要做的是不要恐慌。首先请检查电源与显示器是否插上（别笑——相信我，很多人都会忽略这一点）。先回忆一下你进行了什么操作（如果你无可救药地在安装时删除了Windows分区——希望你已经备份了），现在按照以下操作：
+回忆一下你进行的操作后按照以下步骤排障：
 \subsection{启动管理器工作正常吗？}
 如果启动管理器工作正常，你就应该发现安装的操作系统排列在一个窗口里。此时请进入GNU/Linux操作系统。如果不是这样，请检查：\par
 1.请确定不是主板原因，比如说主板启动自检发出了很长的“嘟——”（或者是“嘀——”）说明你的内存坏了。如果主板正常并且你发现了一个“\verb|grub rescure>|”的shell，进入下一环节。\par
 2.硬盘都插好了吗？正在启动的硬盘是否安装了grub？\par
-3.是不是删除了一个分区？如果你成功地删除了根目录——恭喜你，你可以重装系统了。此时如果你想启动Windows操作系统，你可以使用大多数PE系统都有的启动修复功能，或者求助于主板上保留的启动记录。如果不是，请按以下步骤操作：
+3.是不是删除了一个分区？如果你删除了根目录并想启动Windows操作系统，你可以使用大多数PE系统都有的启动修复功能。如果不是，请按以下步骤操作：
 \begin{center}
 	\includegraphics{pic/grubrescure}\\
 	这是完整操作。
@@ -1550,4 +1532,4 @@ htop ##任务管理器，可选，或gnome-system-monitor
 （4）使用“\verb|insmod|”命令设置normal.nod。\par
 （5）使用“\verb|normal|”并回车启动grub。
 \subsection{进入了initramfs？}
-请参考下一步提示信息：如果告诉你“\verb|a manual fsck is needed|”，请使用fsck命令对根目录及其它相关目录进行检查（一路y过来即可）。如果要求你输入root密码，那么有可能是fstab文件出错，使用vim修改一下。否则有可能是文件系统出错。此时请对系统ext4格式的分区使用“\verb|fsck [目标分区]|”命令（警告！这个命令有可能产生致命破坏）。
+请参考下一步提示信息：如果告诉你“\verb|a manual fsck is needed|”，请使用fsck命令对根目录及其它相关目录进行检查（一路y过来即可）。如果要求你输入root密码，那么可能是fstab文件出错，使用vim修改一下。

@@ -3,20 +3,28 @@
 %使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者YuZJ，
 %邮箱theafamily@126.com（最后连接于2019年06月20日17:32:17）。
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass{book}
+\documentclass[twocolumn]{Book}
+\usepackage{xpatch}
+\makeatletter
+\xpatchcmd{\chapter}
+{\if@openright\cleardoublepage\else\clearpage\fi}{\par\relax}
+{}{}
+\makeatother
 \usepackage{xeCJK} %中文支持
 \setCJKsansfont{SourceHanSansCN-ExtraLight.otf}
 \setCJKmonofont{SourceCodePro-Light.otf}
 \setCJKmainfont{SourceHanSerifSC-ExtraLight.otf}
 \setCJKfamilyfont{bolded}{SourceHanSansSC-Bold.otf}
-\renewcommand{\bf}{\CJKfamily{bolded}}  
-\newcommand{\normalall}{\normalsize\normalfont\normalcolor}  
+\renewcommand{\bf}{\CJKfamily{bolded}}
+\renewcommand{\normalsize}{\fontsize{8pt}{0pt}} 
+\renewcommand{\footnotesize}{\fontsize{7pt}{0pt}} 
+\newcommand{\normalall}{\normalfont\normalfont\normalcolor}  
 \usepackage{color}
 \usepackage{graphicx}  %生成图片
 \usepackage{geometry} %设置页面排版
 \geometry{top=0.5in, bottom=0.5in, left=0.5in, right=0.5in, papersize={21cm,29.7cm}}
 \usepackage[super]{nth} %生成序数词
-\bibliographystyle{unsrt}
+\bibliographystyle{IEEEtran}
 \usepackage{metalogo} %生成TeX标志
 \usepackage{texnames} %生成TeX标志
 \usepackage{fancybox} %生成带阴影的盒子
@@ -57,13 +65,15 @@
 \end{center}}}
 \end{center}}
 \vspace*{25mm}\normalall
-\shadowbox{\parbox[t]{8cm}{{\color{white}“工欲善其事，必先利其器”，对于我们来说，掌握如何高效率地使用计算机是十分重要的。为了方便信息化教学的开展，我结合自己的工作经历，不自量力地“年来著书一种”，为希望掌握关于如何高效地使用教室计算机的初级和高级技巧的电教委员或者其余希望提高计算机技能的教师、学生及其他教职人员编写了这份文件。通过对自由/开源与专有软件的论证，我希望能够引导学生形成他们的软件价值观。}}}
+\shadowbox{\parbox[t]{8cm}{{\color{white}“工欲善其事，必先利其器”，对于我们来说，掌握如何高效率地使用计算机是十分重要的。为了方便信息化教学的开展，我结合自己的工作经历，不自量力，“年来著书一种”，为希望掌握关于如何高效地使用教室计算机的初级和高级技巧的电教委员或者其余希望提高计算机技能的教师、学生及其他教职人员编写了这份文件。通过对自由/开源与专有软件的论证，我希望能够引导学生形成他们的软件价值观。}}}
 \end{titlepage}
 \begin{center}
-	\Huge \bf 试行本 \normalall
+\Huge \bf 试行本 \normalall
 \end{center}
+\scriptsize
 \shorttoc{简明目录}{1}
 \tableofcontents
+\normalall
 \input{Before}
 \input{Basic}
 \input{Premiere}
@@ -71,7 +81,6 @@
 \appendix
 \renewcommand{\thechapter}{\arabic{chapter}}
 \input{Appendix}
-\addcontentsline{toc}{chapter}{参考文献}
 \bibliography{Reference}
 全书结束。
 \end{document}
