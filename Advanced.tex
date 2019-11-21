@@ -3,35 +3,29 @@
 %使用CC-BY-NC-SA授权。一份完整版本的许可证已位于附录。这个版本原始作者YuZJ，
 %邮箱theafamily@126.com（最后连接于2019年06月20日17:32:17）。
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{高级：GNU/Linux的教学实现}
-这一个章节将以 Lubuntu\footnote{这是Ubuntu的一个衍生版本，除了将默认桌面替换为LXDE外与“正常”的Ubuntu没有大的区别。} 19.04为例，教电教委员如何安装GNU/Linux平台使其与Windows操作系统共存，简单的GNU/Linux设置及使用GNU/Linux实现日常教学。\par
-\section{免责声明}
-{\color{red} 注意，我希望一个能力较强，英语水平较高且经验丰富的电教委员学习这部分内容。YuZJ Lab对产生的任何错误概不负责，请自行备份旧操作系统！一切翻译内容如与最新版的英文文章有所冲突，皆以最新版为准！}\par
-GNU/Linux的更新速度较快，我写的内容恐怕很快就会过时。希望读者给予反馈。GNU/Linux是一个博大精深的体系，请原谅我不断使用“参见...”。\par
-请你确保以下内容后学习这一章：
+\chapter{Advanced: How to Realize Daily-Teaching Task under GNU/Linux}
+In this chapter, we'll use Lubuntu 19.04 to teach computer administrators how to install GNU/Linux alongside Windows, simple GNU/Linux settings and use GNU/Linux to satisfy daily teaching task. The reason why this chapter is written in English is that most GNU/Linux documents are in English.\par
+\section{Please Be Aware}
+Because of the different design philosophy, the usage of GNU/Linux differs with Windows in many aspects. Please ensure that you've read the following contents before proceeding into the next section:
 \begin{enumerate}
-	\item 你已经完全学习了VimTutor，知道vi与vim的基本使用方法（如，打开、保存、另存为文件，文件内查找等等）、区别和联系。大多数GNU/Linux发行版都自带vi。否则，学习这些内容。某一些发行版也自带GNU Nano编辑器，如果实在学不会vim可以试一试这个。
-	\item 你拥有一台闲置的计算机或虚拟机；或者计算机上的所有内容已经被备份到了可移动媒体上；或者你的班主任及任课老师非常和善，能够容忍由于你“疯狂”实验导致的数天的宕机。
-	\item 不错的英语水平。比如说你应该毫无障碍地看懂这份资料：“\verb|You can generally also specify long option names with a single -; for example, -batch as well as --batch.  You can use any unambiguous abbreviation for a --option. Various environment variables and window system resources also affect the operation of Emacs.  See the main documentation. Report bugs to bug-gnu-emacs@gnu.org.  First, please see the Bugs section of the Emacs manual or the file BUGS.|”这是由“\verb|emacs --help|”命令生成的GNU Emacs26.2的帮助内容的最后一小部分。
-	\item 你已经学会了Windows系统上CygWin中无需图形界面的命令。你至少应该学会以下命令：\verb|ls|、\verb|pwd|、\verb|cd|、\verb|rm|、\verb|mkdir|、\verb|cp|、\verb|mv|、\verb|cat|、\verb|more|、\verb|less|、\verb|tar|的用法，知道“管道符”的作用。
-	\item 在一台真实的机器上操作前，务必确保你已经完整地读完了本书的最新版本！当然，在虚拟机上操作无此限制。
+    \item You've completed Vim Tutor and you'd know the basic usage of vi/vim such as open, close or save a file. Most GNU/Linux distribution has Vi installed by default even if you're under a CIL interface. If not, learn them NOW!
+    \item You've backed up all your data. Always backup your data--GNU/Linux \textbf{ASSUMES} that you know what you're doing all the time even if you actually not.
 \end{enumerate}
-\section{在Windows操作系统上使用GNU/Linux命令：CygWin}
-CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序在Windows操作系统上运行的程序。你可以借此使用优秀的GNU/Linux程序。官网：\url{http://www.cygwin.com/}（最后连接于2019年7月6日16:22:55）。请下载安装包后作以下设置：
+Please be aware that I'm not saying ``GNU/Linux is better than Windows'' or any other bullshit of this kind. To myself, what matters most is efficiency under the people who are using these tools. Although GNU/Linux can be very good at setting up servers, it can also be DISASTROUS for a pool trained computer programmer.
+\section{Use GNU/Linux Under Windows Platform: CygWin}
+The reason why I don't recommend WSL (Windows Subsystem of Linux) is that the filesystem of both versions of WSL is weird. However, if you use Cygwin, you'll not have such a problem. CygWin is a program which allows GNU/Linux program to be executed under Windows by re-compiling their source code. The official site of CygWin is \url{http://www.cygwin.com/}(Date: 2019-07-06,16:22:55)。Download the installation package first and do as follows:
 \begin{enumerate}
-\item 选择“Install from Internet”，开始在线安装（你也可以使用“Download without Installing”离线整个软件源，不建议）。
-\item “Root Directory”作为根目录，请选择“C:\textbackslash cygwin”便于维护。
-\item “Local Package Directory”请选择“D:\textbackslash cygwin\_inst”文件夹。
-\item 软件源请选择tuna源、USTC源，或其它可信软件源。之后会存在一些卡顿和无响应，属于正常情况，不要担心。
-\item 软件包请选择“Best”外加你需要的软件包。注意，不建议安装桌面系统或者X-Window系统。
-\item 安装完后别忘了添加/bin、/usr/sbin到系统PATH变量（你可以选择Windows环境变量，也可以使用“export PATH”命令）。 
-\item 除了首次安装时默认需要安装的软件包以外，你需要安装如下软件包（可能会有重复，但你安装就是了）：bash、bzip2、clamav（反病毒软件，可选）、cmake（编译软件，可选）、coreunits、cygwin、dash、emacs（文本编辑器，可选。但相对于官方发布的Windows版，我还是更倾向于这个版本）、gcc-*（编译软件，可选）、git（版本控制，可选。我个人认为官方的Windows版好一些）、grep、gzip、info、less、make（编译软件，可选）、man-db、shutdown、tar、vim、xz、zsh、p7zip、zip。
-\item 注意，CygWin安装软件时的操作不同于apt。CygWin先删除旧软件包，再安装新软件包。
-\end{enumerate}\par
-请注意，这里没有apt软件包管理器。如果你需要加装软件或者卸载软件，再次运行安装程序即可。我建议你可以选择安装ClamAV为Windows杀毒。
-\section{GNU/Linux及其发行版}
+\item Click ``Install from Internet'' to install by using online mirrors.
+\item Choose ``C:\textbackslash cygwin'' as ``Root  Directory'' recommended because it would be easy to manage the installation.
+\item Choose  ``C:\textbackslash cygwin\textbackslash var\textbackslash install'' as ``Local Package Directory'' is recommended for the same reason.
+\item Choose ``TUNA'' or ``USTC'' as mirror cite where you download software package.
+\item Install ``Best'' configuration and bash, bzip2, clamav (optional), coreunits, cygwin, dash, gcc-* (optional), man-db, shutdown (optional), tar, vim, xz, p7zip, zip. Please be aware that install any package related with X-Windows System is not recommended.
+\item Add /bin, /sbin, /usr/bin to PATH variable of MS Windows or use ``export'' command if you don't want to allow CMD/Powershell to use CygWin's command.
+\item There's no APT/YUM/PacMan. If you want to add/remove a package, just run the installation again.
+\end{enumerate}
+\section{GNU/Linux and Its Distributions}
 \label{sec:gnulinux} GNU/Linux产生于Minix，而Minix产生于Unix。具体产生历史不再赘述。\par
-首先，GNU/Linux是以Linux为内核，辅以GNU\footnote{GNU（GNU is Not Unix的递归缩写）是一个由理查德·斯托曼为推广自由软件发起的运动（自由软件运动）的一部分。它产生了一些如 Gnu Emacs、gcc（GNU Compiler Collection，即GNU编译器套件，包含 C、C++、Objective-C、Fortran、Ada、Go、D 等语言（那个，别问我它们是什么，我也不知道）的编译器及这些语言的运行库，由 Richard Stallman 于 1987 年发布，最新版本 7.4）、GIMP（GNU Image Manipulation Program，图像处理软件，号称“GNU/Linux下的 PhotoShop”）等自由软件。具体请参看附录中的“GNU宣言”。}工具集的操作系统。因此，说“Linux操作系统”是不合适的。\par
+首先，GNU/Linux是以Linux为内核，辅以GNU\footnote{GNU（GNU is Not Unix的递归缩写）是一个由理查德·斯托曼为推广自由软件发起的运动（自由软件运动）的一部分。它产生了一些如 Gnu Emacs、gcc（GNU Compiler Collection，即GNU编译器套件，包含 C、C++、Objective-C、Fortran、Ada、Go、D 等语言的编译器及这些语言的运行库，由 Richard Stallman 于 1987 年发布，最新版本 7.4）、GIMP（GNU Image Manipulation Program，图像处理软件，号称“GNU/Linux下的 PhotoShop”）等自由软件。具体请参看附录中的“GNU宣言”。}工具集的操作系统。在自由软件界，“GNU/Linux”是一种较为保守且“政治正确”的说法。我们将在本书中使用这种说法。\par
 （通俗地讲，）发行版是你可以下载安装的GNU/Linux版本。基于学习难度、兼容性及易用性，我们主要使用以下GNU/Linux发行版：
 \begin{description}
 	\item [【Arch Linux】] 一个具有极强的自定义的发行版，安装过程较为复杂，不适合用于教学（大牛或者有善解人意的班主任者除外）。
@@ -39,26 +33,26 @@ CygWin是一个使用gcc编译GNU/Linux程序源代码使GNU/Linux应用程序�
 	\item [【Debian GNU/Linux】] 虽然软件更新较慢，但稳定性过强导致软件落后（仅限于Stable分支）或者不稳定（Unstable分支）。
 	\item [【Gentoo Linux】] 一个具有极强的自定义的发行版，安装过程极为复杂，不适合用于教学（大牛除外）。
 	\item [【Fedora】] 前瞻性性较强，社区维护并由Red Hat基金会支持。免费下载安装。软件过少（需要启用额外的软件源），不适用于教学。
-	\item [【Kali Linux】] 内含大部分黑客专用的工具，使用apt软件包管理器，默认使用root用户执行操作导致其非常不适合用于教学。{\color{red}警告！！！！如果你成功地使用Kali黑掉了不属于你并且拥有复杂日志系统的网络（并且你愚蠢到留下了自己的MAC），你极有可能入狱。}
+	\item [【Kali Linux】] 内含大部分网络渗透工具，使用apt软件包管理器，默认使用root用户执行操作导致其非常不适合用于教学。
 	\item [【Red Hat Enterprise Linux （RHEL）】] 稳定性和保密程度极强，付费下载安装。不适合用于教学。
 	\item [【Ubuntu】] 一个基于Debian GNU/Linux的发行版，前瞻性性较强，支持的软件包极多，非常适合用于教学。在“高级”章中我们将会使用此发行版作为示例。
 	\item [【Linux Mint】] 同上。目前最适合于初学者的GNU/Linux发行版。十分人性化，建议初学者选用（大牛将在此略感蹩脚）。非常适合用于教学。
-	\item [【Pure OS】] 一个认证完全自由的发行版。官方软件源存在软件过少和下载速度慢的问题。但如果你是自由软件运动的铁杆支持者（并且还有善解人意的班主任），你可以使用它。
+	\item [【Pure OS】] 一个认证“完全自由”的发行版。官方软件源存在软件过少和下载速度慢的问题。但如果你是自由软件运动的铁杆支持者，你可以使用它。
 	\item [【（半）国产操作系统】]这里不再赘述。
 \end{description}
 \subsubsection{GNU/Linux的优点}
 \begin{enumerate}
-	\item  适用于配置较低的或生产较早的机器（废话，人家本来就长寿嘛）。运行速度快（比如说\LaTeX 编译速度）。\par
-	\item 自由软件支持者可以选用（仅限于其中的部分发行版。能通过理查德·斯托曼检验的发行版并不多。具体请参见【自由的GNU/Linux发行版】\url{http://www.gnu.org/distros/free-distros.html}（最后连接于2019年06月20日18:16:24））。\par
-	\item 拥有权力无限大的root用户，不会受到类似于Window操作系统中“System”或“TrustedInstaller”等权限超级大的“用户”制约（我举一个例子：Windows操作系统在Administrator权限下尝试删除“C:\textbackslash Windows\textbackslash notepad.exe”（即“记事本”）会出错，而在Linux下删除整个根目录“/”都几乎不会出问题（当然这会导致你的计算机无法启动，但至少删除的任务完成了，是吧？））。\par
-	\item 具有功能十分强大的软件（如“rm”——个删除文件的命令行工具）（当然，见仁见智，我不得不说这些强大的软件并不易用。）。
-	\item 几乎不可能中毒。但你还是要使用诸如clamav之类的反病毒软件。
+	\item  适用于配置较低的或生产较早的机器。运行速度快（比如说\LaTeX 编译速度）。\par
+	\item 自由软件支持者可以选用（仅限于其中的部分发行版，参见【自由的GNU/Linux发行版】\url{http://www.gnu.org/distros/free-distros.html}（最后连接于2019年06月20日18:16:24））。\par
+	\item 拥有权力无限大的root用户，不会受到类似于Window操作系统中“System”或“TrustedInstaller”等权限超级大的“用户”制约（如：Windows操作系统在Administrator权限下尝试删除“C:\textbackslash Windows\textbackslash notepad.exe”（即“记事本”）会出错，而在Linux下删除整个根目录“/”都几乎不会出问题）。\par
+	\item 具有功能十分强大的软件（如“rm”——个删除文件的命令行工具）。
+	\item 几乎不可能中毒。
 \end{enumerate}
 \subsubsection{GNU/Linux的缺点}
 \begin{enumerate}
-	\item 入门门槛高。我们只建议经验丰富的电教委员尝试。
-	\item 硬件驱动少（尤其是完全使用自由软件时）。原因在于自由软件开发者有限，自由的硬件厂商有限（根本原因当然是GNU/Linux市场占有率极低）因此在新型号的机器上某些驱动无法被加载。但是不同发行版间兼容性差异还是存在的，如Debian GNU/Linux兼容性就弱于Ubuntu Linux。
-	\item 软件数量有限（这里的意思是说，比较“大众化”的软件（如腾讯QQ，微信）有限（但是有有道词典，搜狗输入法，WPS2019办公软件）），并且对“.exe”的可执行文件支持极差（即使采用Wine或其它类似技术）。	
+	\item 入门门槛高。
+	\item 硬件驱动少（尤其是完全使用自由软件时）。原因在于自由软件开发者有限，自由的硬件厂商有限因此在新型号的机器上某些驱动无法被加载。如Debian GNU/Linux对于最新硬件的兼容性就弱于Ubuntu Linux。
+	\item 软件数量有限（这里的意思是说，比较“大众化”的软件（如微信）有限（但是有有道词典、搜狗输入法、WPS2019办公软件）），并且对“.exe”的可执行文件支持极差（即使采用Wine或其它类似技术）。	
 \end{enumerate}
 \subsection{（半）国产操作系统概况}
 国产操作系统主要以GNU/Linux或BSD为内核。在MS Windows进入中国前曾经繁荣过一段时间。但目前其民用桌面操作系统在国内占有的市场份额极小，大部分国产操作系统为政府或军事机构服务。现列举一些著名的操作系统：

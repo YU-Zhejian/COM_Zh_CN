@@ -61,14 +61,14 @@ USB传输速率标准可分为1.0，2.0，3.0，3.1（目前最快标准）等�
 活动窗口就是你当前正在操作（或者你最后一个操作）的窗口。比如说现在你正在阅读本书的电子版，那么你的PDF阅读器所在的窗口就是活动窗口。之后你打开了文件资源管理器，文件资源管理器窗口就是活动窗口。\par
 焦点是一个活动窗口上的活动控件（具体参见\pageref{sec:Frm}页的\ref{sec:Frm}章节）。比如说这样一个有一个文本框与两个按钮的窗口：\par
 \begin{center}
-	\includegraphics{pic/forcus1}
+	\includegraphics[scale=0.5]{pic/forcus1}
 \end{center} \par
 按下“Tab”键：\par
 \begin{center}
-	\includegraphics{pic/forcus2}
+	\includegraphics[scale=0.5]{pic/forcus2}
 \end{center} \par
 \begin{center}
-	\includegraphics{pic/forcus3}
+	\includegraphics[scale=0.5]{pic/forcus3}
 \end{center} \par
 焦点就被切换了。Tab键是切换焦点的最佳键。注意，焦点和活动窗口具有唯一性。请注意第一个图像上的“OK”按钮具有“默认”属性此时在这个窗口上按下回车键就相当于按下这个键\par
 在Widows操作系统上你可以使用一些特别的快捷键。在下面的表格里面，“C-”表示你需要按住控制键（“Ctrl”）时按短线后的键，“M-”则是按住Alt键\footnote{为了与GNU Emacs的快捷键称法一致，我们使用“M”。}，“Win”表示Windows键，“Del”表示Delete键，“S”为Shift键，“Space”为空格键，“U”“D”“L”“R”为上、下、左、右四个方向键。
@@ -120,7 +120,7 @@ Win-Home  最小化除活动窗口外所有窗口
 \end{center}\par
 一对PS/2接口。用于鼠标与键盘。
 \begin{center}
-	\includegraphics{pic/PS2}\includegraphics[scale=0.15]{pic/PS2L}
+	\includegraphics[scale=0.5]{pic/PS2}\includegraphics[scale=0.15]{pic/PS2L}
 \end{center}\par
 VGA接口。一个较扁的圆角梯形接口，内部有许多可插“针”的小孔。这是用于显示器的接口，适用于较低分辨率（1920$\times$1200以下）显示器。VGA接口旁边还有两个固定螺栓注意，这个接口传输的是模拟信号。\begin{center}
 	\includegraphics[scale=0.3]{pic/VGA}\includegraphics[scale=0.06]{pic/VGAL}
@@ -136,7 +136,7 @@ DVI接口。较扁的接口，类似于截取两个角矩形，内部有许多�
 \end{center}\par
 RJ-45接口。一个较方的，内含多个金属引脚的接口。这是用于网线（“双绞线”）的插头（“水晶头”）的接口。水晶头插入后可以被牢牢地固定好。
 \begin{center}
-	\includegraphics{pic/RJ}\includegraphics[scale=0.1]{pic/RJL}
+	\includegraphics[scale=0.5]{pic/RJ}\includegraphics[scale=0.2]{pic/RJL}
 \end{center}\par
 2个3.5mm TRS接口。
 \begin{center}
@@ -197,59 +197,60 @@ RJ-45接口。一个较方的，内含多个金属引脚的接口。这是用于
 对于希望更加自由地安装操作系统并有一定技术水平的人可以选择安装光盘或USB设备引导安装。安装镜像可在【下载 Windows10 光盘映像（ISO 文件）】\url{https://www.microsoft.com/zh-cn/software-download/windows10ISO}（最后连接于2019年06月20日18:14:17）得到或在Media Creation Tool中创建。\par
 先介绍Rufus的基本使用。Rufus可以将可启动的光盘映像写入U盘。下载：官网【RUFUS】\url{https://rufus.ie/}（最后连接于2019年06月20日18:15:53）。首先在“设备”中选择你的u盘，引导选择“镜像文件”，再选择对应镜像。之后直接按“开始”，一路“确定”即可。Rufus还可用于烧录GNU/Linux镜像。Rufus的最新版本也支持下载Windows10。如果你没有光盘刻录机或DVD-R（W）光盘，你可以使用Rufus将一个iso文件写入u盘，或直接使用Media Creation Tool。
 \begin{center}
-	\includegraphics[scale=0.3]{pic/Rufus}	
+	\includegraphics[scale=0.4]{pic/Rufus}	
 \end{center} \par
 现在你手头上应该有一张Windows10光盘（或U盘，下同）。现在请重启计算机，当主板画面出现时，按住“F12”。在随之出现的启动菜单中选择光盘驱动器。你将看到（仅限于同时具有32位与64位的映像。仅有其中一种架构的映像将会跳过这一步。）使用UEFI的机器还会有一个“Press any key to boot from CD/DVD”，此时你应该按回车键：
 \begin{center}
-	\includegraphics[scale=0.2]{pic/win10setup1}
+	\includegraphics[scale=0.3]{pic/win10setup1}
 \end{center} \par
 现在请移动高亮条至你需要安装的架构（一般选择64位，下面以64位为例），并单击回车键。在“加载文件”（英文：Loading Files）与Windows徽标（有可能你会看到主板徽标）出现后，你将看到左图。这里你可以保持大部分设置不变（当然，喜欢使用五笔输入法的可以更改输入法为“微软五笔”）。单击“下一步”，在下一个对话框中单击“现在安装”。你将看到右图。
 \begin{center}
-	\includegraphics[scale=0.22]{pic/win10setup2}	\includegraphics[scale=0.22]{pic/win10setup3}
+	\includegraphics[scale=0.5]{pic/win10setup2}\\	\includegraphics[scale=0.5]{pic/win10setup3}
 \end{center} \par
 此时如果你有序列号，请在这里输入它；如果你没有序列号（比如说，你的机器自带激活），请单击“我没有产品密钥”。随后会弹出“适用的声明和许可条款”，请在{\color{red}仔细阅读}后选择“我接受许可条款”并单击“下一步”。当然你也可以选择退出安装，如果你不同意。\par
 之后选择安装类型。如果你只是需要升级，请单击“升级”。注意，此步仅限升级兼容的操作系统。如果兼容性检查失败或需要进行其它配置，请单击“自定义”。你将看到左图。下面以双硬盘空白安装为例（你的计算机也许只有一块硬盘）安装Windows10。如图，我们的机器目前有两块硬盘，我们需要在其中的一块硬盘上安装Windows操作系统（包括一个60GB的系统盘“System”与一个40GB的文件盘“Files”）选中“驱动器0 未分配的空间”，单击“新建”，你将看到右图。
 \begin{center}
-	\includegraphics[scale=0.22]{pic/win10setup4}	\includegraphics[scale=0.22]{pic/win10setup5}
+	\includegraphics[scale=0.5]{pic/win10setup4}\\	\includegraphics[scale=0.5]{pic/win10setup5}
 \end{center} \par
 输入系统盘大小\footnote{以61440MB（60GB）为例，其实你需要更大的系统盘。对于固态硬盘用户：你当然可以将整个固态硬盘作为系统盘。此时你只需选中那个驱动器并单击“确定”。}，单击“应用”。在弹出的对话框选择“确定”。你会发现多出来了一个“系统保留”分区并且系统盘大小似乎改变了，不用管它。{\color{red}这里演示的是老型号机器：BIOS-Legacy的主板，设置使用主启动记录（MBR）的分区表格式安装。使用BIOS-UEFI安装过程大体相同，只是分区上多了“恢复”“系统分区”“MSR（保留）”“主分区”，你需要在“主分区”安装它。}。我又将剩余空间分了一个盘（对于另外一块硬盘，我们不需要管它。我们之后会用到的）。你见看到左图。选择驱动器0分区2--我的系统盘{\color{red}（注意！）}，单击“下一步”，Windows就开始安装了。你将看到右图。
 \begin{center}
-	\includegraphics[scale=0.22]{pic/win10setup6}	\includegraphics[scale=0.22]{pic/win10setup7}
+	\includegraphics[scale=0.5]{pic/win10setup6}\\	\includegraphics[scale=0.5]{pic/win10setup7}
 \end{center} \par
 安装完后将会重启。{\color{red}，弹出光盘！}对于之后的操作，我认为Cortana会提示你的。关于账户：由于这台计算机为班内使用，请选择“脱机账户”。账户名一般写为“Administrator（即“管理员”。此次我写为SGComputers，密码为空）。安装完成后，你将看到：
 \begin{center}
-	\includegraphics[scale=0.2]{pic/win10setup8}
+	\includegraphics[scale=0.3]{pic/win10setup8}
 \end{center}\par
 现在你可以插上网线了。
 \subsubsection{法三：基于磁盘映像的安装方法}
 如果我们希望将一台计算机上的操作系统复制到另一台计算机或需要批量安装定制的操作系统，最好的方法是使用磁盘映像。该操作需要Windows PE（Ghost（.gho）及7z，wim，rar格式）或GNU/Linux（其他压缩格式或dd命令产生的磁盘映像）。不要试图在需要备份的Widows运行时运行任意一款磁盘备份软件。你需要等待它关机以后执行备份/还原。这里以Ghost映像为例。\par
 首先请注意赛门铁克似乎已经放弃对个人用户的Ghost支持了。我在他们的官方网站上找不到对于个人的Ghost软件。下面使用的Ghost软件是从一个WinPE中提取的，版本号11.0.2.1573，SHA-256为42853A21787637FEFA5D9C6CB2CB8FD28E0AE36D8ABA776199AC033620D96467。以管理员权限运行它，你将得到：
 \begin{center}
-	\includegraphics[scale=0.25]{pic/sg1}
+	\includegraphics[scale=0.4]{pic/sg1}
 \end{center}\par
 单击“OK”，你将得到主界面：
 \begin{center}
-	\includegraphics[scale=0.3]{pic/sg2}
+	\includegraphics[scale=0.5]{pic/sg2}
 \end{center}\par
 现在假设我们需要备份Z盘，我们就应该在这个地方单击一下：
 \begin{center}
-	\includegraphics[scale=0.3]{pic/sg3}
+	\includegraphics[scale=0.5]{pic/sg3}
 \end{center}\par
 选择设备和分区（这个可以根据硬盘生产商和容量鉴别）：
 \begin{center}
-	\includegraphics[scale=0.3]{pic/sg4}	\includegraphics[scale=0.3]{pic/sg5}
+	\includegraphics[scale=0.5]{pic/sg4}\\
+	\includegraphics[scale=0.5]{pic/sg5}
 \end{center}\par
 选择保存位置：
 \begin{center}
-	\includegraphics[scale=0.35]{pic/sg6}
+	\includegraphics[scale=0.5]{pic/sg6}
 \end{center}\par
 是否压缩（这个按照自己的要求选择，压缩高耗时长）：
 \begin{center}
-	\includegraphics[scale=0.3]{pic/sg7}
+	\includegraphics[scale=0.5]{pic/sg7}
 \end{center}\par
 再进行一次确认就开始操作：
 \begin{center}
-	\includegraphics[scale=0.3]{pic/sg8}
+	\includegraphics[scale=0.5]{pic/sg8}
 \end{center}\par
 从备份恢复操作类似。Ghost还提供了磁盘到磁盘、分区到分区等复制功能。注意，这个软件仅支持Windows分区，要修改GNU/Linux分区请使用dd命令。
 \section{-开箱设置}
@@ -262,30 +263,28 @@ RJ-45接口。一个较方的，内含多个金属引脚的接口。这是用于
 \subsubsection{屏幕（Screen）}
 现在你已经安装好了Windows10操作系统。首先你需要知道什么是“屏幕”。我们将你在显示器上看到的部分称为“屏幕”。就像这样：
 \begin{center}
-	\includegraphics[scale=0.3]{pic/screen}
+	\includegraphics[scale=0.25]{pic/screen}
 \end{center} \par
 这就是一个“屏幕”。现在请观察一下线路连接。如果你使用的是教室内的带投影的台式计算机，你会发现由计算机上的VGA口连出了一条较粗的电缆到中央控制器的VGA口。另几条电缆由类似的接口连接到投影仪和显示器。这种情况下你会发现显示器上的图像与投影仪上的图像几乎是同步的。此时我们将其计算做一个屏幕。\par
 如果你连接到多台显示器，你会得到几个屏幕？答案不一定相同。你可以进入“设置”-“显示”查看情况。你会发现“多显示器设置”菜单有多种选择——“复制”（就是指将主显示器上的图像复制到副显示器上面，常见的有两个显示器的柜台机就是这种构造）与“扩展”（相当于把副显示器与主显示器合二为一形成了一块较大的屏幕）。效果如下图所示。我们将第一种情况认定为1块屏幕，第二种两块。
 \begin{center}
-	\includegraphics[scale=0.1]{pic/ScrCopy}
-\end{center} 
-\begin{center}
-	\includegraphics[scale=0.1]{pic/ScrExtend}
+	\includegraphics[scale=0.08]{pic/ScrCopy}\\
+	\includegraphics[scale=0.08]{pic/ScrExtend}
 \end{center} 
 \subsubsection{桌面（Desktop）、任务栏与开始菜单}
 \begin{center}
-	\includegraphics[scale=0.35,angle=90]{pic/screenIntro}
+	\includegraphics[scale=0.4,angle=90]{pic/screenIntro}
 \end{center} \par
 上图大致地概括了桌面、任务栏与开始菜单的组成部分。你可以自定义任务栏上显示什么图标。方法：在任务栏上右击-“任务栏设置”-“选择哪些图标显示在任务栏上”。
 \subsubsection{窗口（Window/Form）}
 \label{sec:Frm}
 我们把屏幕上的一个一个独立的矩形区域称作“窗口”。比如说，这就是一个窗口：
 \begin{center}
-\includegraphics[scale=0.25]{pic/kj1}
+\includegraphics[scale=0.3]{pic/kj1}
 \end{center} \par
 一个窗口上面又有许多独立的组成要素，我们把它称为“控件”。常见的控件如下：
 \begin{center}
-	\includegraphics[scale=0.35]{pic/kj2}\\\includegraphics{pic/kj3}
+	\includegraphics[scale=0.4]{pic/kj2}\\\includegraphics[scale=0.5]{pic/kj3}
 \end{center} \par
 现在请回到“键盘”学习如何使用快捷键。注意，有时它们又被称为“窗体”或“窗格”。
 \subsubsection{文件（File）、目录（Directory）、路径（Path）与文件夹（Folder）}
@@ -345,24 +344,13 @@ RJ-45接口。一个较方的，内含多个金属引脚的接口。这是用于
 \paragraph{-右键菜单}
 
 \begin{center}
-	\includegraphics[scale=0.25]{pic/htopen1}  	\includegraphics[scale=0.25]{pic/htopen2}
+	\includegraphics[scale=0.5]{pic/htopen1}  	\\\includegraphics[scale=0.5]{pic/htopen2}
 \end{center} 
 \subsubsection{回收站以及Windows系统删除文件机制}
 首先，请注意这里的“删除文件”仅限于使用文件资源管理器，不包括命令方法（如“DEL”或“rm”命令）。\par
 当我们配置好一块硬盘时，所有能被Windows支持的分区上都自动创建了一个称为“回收站”的虚拟的区域。此时如果我们对大小小于该回收站的文件（夹）进行“删除”操作，这个文件就会被移动到回收站。此时如果我们在回收站里面执行“删除”操作或者清空回收站，这个文件就被永远删除了。但真的是这样的吗？\par
 众所周知，文件是靠在磁盘上写入二进制数据保存的。此时如果我们删除一个文件，这个文件在磁盘上的位置其实是不变的——只是这个文件的属性被更改为“已删除”而已。此时如果回收站需要恢复文件只需要去掉“已删除”的标记即可。那么“清空回收站”是如何操作的呢？很简单，这个文件占据的区域被改为“可写”不再占据磁盘位置，其它文件可以被覆写在它的上面。\par
-所以我们说即使你清空回收站，这个文件还是可以恢复的。此时如果你需要彻底删除它最好的办法是多覆写。你可以使用专业磁盘擦除工具来擦除磁盘或者使用我的一个小病毒来擦除一整个NTFS分区：（GNU/Linux或者其它bash环境）
-\begin{verbatim}
-#!/bin/bash
-int=1
-i=1
-while(($i<100))
-do
-echo $int TROJAN! >> $int
-let "int++"
-done
-\end{verbatim}\par
-把它保存为“.sh”文件增加执行权限即可。
+所以我们说即使你清空回收站，这个文件还是可以恢复的。此时如果你需要彻底删除它最好的办法是多覆写。你可以使用专业磁盘擦除工具来擦除磁盘。
 \subsection{命令提示符}
 \begin{center}
 	\includegraphics[scale=0.4]{pic/cmd}
@@ -389,8 +377,9 @@ done
 \subsubsection{如何选择？}
 首先，最重要的当然是性能，其次是费用（免费优先），再次是易用性。我们可以从反病毒软件评测机构如AVtest \url{https://www.av-test.org/en/}（最后连接于2019年06月20日18:18:09）中得到他们的数据（以下数据来源：\url{https://www.av-test.org/en/antivirus/home-windows/}（最后连接于2019年06月20日18:20:04））：
 \begin{center}
-\includegraphics[scale=0.25]{pic/avtest1}\includegraphics[scale=0.25]{pic/avtest2}
-\includegraphics[scale=0.25]{pic/avtest3}
+\includegraphics[scale=0.4]{pic/avtest1}\\
+\includegraphics[scale=0.4]{pic/avtest2}\\
+\includegraphics[scale=0.4]{pic/avtest3}
 \end{center} \par
 或者AV-Comparatives（地址：\url{https://www.av-comparatives.org/latest-tests/}（最后连接于2019年06月20日18:22:28））中的病毒移除能力测评数据（来源：\url{https://www.av-comparatives.org/tests/malware-removal-test-2018/#result-details}（似乎有些落后，不过没关系）（最后连接于2019年06月20日18:32:20））：
 \begin{center}
@@ -421,22 +410,23 @@ done
 缺点：界面不美观，扫描时占用系统资源较大，不断要求你购买付费版有点烦。\par
 下面显示的是Avira控制台、Avira反病毒软件及扫描画面（那个。看过《星球大战》的同学应该有所反应（Luke Skywalker与Luke Filewalker））。
 \begin{center}
-	\includegraphics[scale=0.2]{pic/avi1}	\includegraphics[scale=0.2]{pic/avi2}\\
-	\includegraphics[scale=0.37]{pic/avi3}
+	\includegraphics[scale=0.5]{pic/avi1}\\
+	\includegraphics[scale=0.5]{pic/avi2}\\
+	\includegraphics[scale=0.5]{pic/avi3}
 \end{center} \par
 4.火绒安全软件5.0
 地址：\url{https://www.huorong.cn/}（最后连接于2019年7月30日09:23:43）。\par
 优点：具有极强的HIPS（主机入侵防御系统，一种可有效防止计算机被入侵的机制）功能，有效拦截各类弹窗（如果开机启动（有时迟到）就基本没问题。如果无法拦截弹窗请先检查启动项）中国用户支持极好（废话，本来就是国产的嘛），占用体积小，可以被Wine来为GNU/Linux反病毒。\par
 缺点：不参加世界安全软件测试，查杀能力略逊，反病毒“资历”尚浅。
 \begin{center}
-	\includegraphics[scale=0.3]{pic/huorong}
+	\includegraphics[scale=0.4]{pic/huorong}
 \end{center} \par
 5.腾讯电脑管家V13\par
 地址：\url{https://guanjia.qq.com/}（最后连接于2019年06月20日18:34:53）。\par
 优点：反病毒能力强劲，病毒库更新快，中国用户支持极好（废话，本来就是国产的嘛），可以被Wine来为GNU/Linux反病毒。\par
 缺点：小工具过多（这个似乎是国产“杀毒软件”的通病），误报较为严重（这个似乎是反病毒软件通病）。
 \begin{center}
-	\includegraphics[scale=0.25]{pic/tsav}
+	\includegraphics[scale=0.3]{pic/tsav}
 \end{center} \par
 6.360安全卫士12\par
 地址：\url{https://www.360.cn/}（最后连接于2019年06月20日18:35:04）。\par
@@ -444,7 +434,7 @@ done
 缺点：误报率较高，比如说我使用VB6.0编的小程序几乎都被报为病毒；如不经系统地设置会出现弹窗（有点烦；这似乎是国产软件的通病），安装体积较大。
 \footnote{争议：360宣布退出AV-C事件。360官方宣布内容如下：传统杀毒评测标准落后云时代，我们正式退出AV-C 。日前国外杀毒评测机构AV-C联合AV-TEST、VB100宣称，360杀毒评测版本的引擎设置与国内普通用户版本不同，取消360在2015年评测奖项。对此我们认为，AV-C的传统杀毒测试方法已远远落后于云安全时代，双方无法就评测标准达成一致，360决定退出AV-C评测，并特此声明： 一、此次事件分歧是传统杀毒与云安全的评测标准之争。AV-C等机构成立于上世纪90年代，其评测标准也是基于传统杀毒技术而制定的。在AV-C看来，杀毒软件就应该是“特征码引擎+病毒库”，放在全世界任何一个角落都要测试出相同的结果，根本不认同云安全软件根据不同国家、不同地区配置更适应当地用户需求的引擎和云查杀防护策略； 二、360免费安全国际化触动传统杀毒行业利益。360杀毒以免费云安全模式在中国颠覆了传统杀毒市场。为开拓国际市场，360杀毒参加AV-C等国外评测，并多次获得全球最佳评级，测试版本的引擎设置一直公开体现在评测报告中，没有任何作弊行为。然而就在360免费安全国际化进程提速，并披露了国外用户数超过一亿的消息之后，国外的传统杀毒行业感受到了巨大挑战，AV-C也突然转变态度发出质疑，此举令我们无法接受； 三、AV-C传统评测标准远离用户真实需求。以国内某著名艺人网银被盗100万元的真实案件为例，不法分子骗其经纪人卸载了360杀毒，再要求受害者从钓鱼网站下载使用Teamviewer（一款世界知名的远程控制软件），从而控制其电脑盗取巨额网银资金。如果按AV-C评测标准，Teamviewer是合法软件，不应该“查杀”。而360杀毒集成了多引擎，其中QVM人工智能引擎对未知威胁的防护能力远远优于传统杀毒引擎，360云安全会根据文件下载途径、软件行为等信息综合判断并查杀被恶意利用的Teamviewer，这是传统评测所无法体现的、真正的安全保护；四、由于无法就评测标准和AV-C达成一致，360决定退出该项评测。事实上，赛门铁克、Comodo之前已退出AV-C，美国新兴的终端安全公司Bit9根本就没有参加这类评测。凭借全球领先的云安全技术和优秀的用户体验，360免费安全产品有信心在国际市场复制中国奇迹。 我们相信，最终的裁判是用户。 \par 不同观点：1.引用“科技行者”网站【360与AV-C之争背后 云安全时代评测标准需要革命】：\url{http://www.cnetnews.com.cn/2015/0504/3051837.shtml}（最后连接2019年6月19日11:27:53）。 （由于与360声明大致精神相符，以下内容已经被概括）AV-C标准落后，无法适用于云安全时代；360多杀毒引擎是为了更好实现地域化；中国杀毒产品的国际化正在受到落后的国际评测机制的制约；（以下为直接引用原文）“走出去是中国企业在国内做大做强之后的必然选择，360在确立自己的国际化战略之后，选择参加AV-C等国际评测，通过国际评测的成绩来增加产品在国际市场的影响力，在AV-C的评测标准无法准确衡量产品真正水平的情况下，不得不针对评测标准对产品进行妥协性设置，在不自觉中被AV-C这样的评测机构绑架，这也是360国际化付出的代价。国家互联网应急中心处长周勇林表示，中国市场与欧美杀软企业主导的外部市场已经形成了迥异的生态系统，中国杀软的商业模式是外国所不能适应的，但却被证明是有效的，很有竞争力；更重要的是，从企业综合实力看，中国企业做安全业务具备了动摇欧美老牌企业的体力甚至技术实力，因此，站在对方的立场上看，具备一定实力且熟练掌握新商业模式的中国杀软是很可怕的怪物，中国的杀软企业被“高度重视”是必然的，是可以理解的。希望360与AV-C的冲突事件，能够给中国企业国际化积累经验教训，目前国内杀毒软件厂商依然对国际评测趋之若鹜，但忽略了AV-C等国外评测机构与国外杀毒厂商是利益共同体这一事实，中国安全厂商想要进一步进入国际市场，势必与国际安全厂商成为竞争者，打压中国安全厂商是AV-C等机构的必然选择。互联网行业专家方兴东认为，中国安全企业的快速崛起和即将走出去的势头，必将严重威胁西方传统的安全企业，在话语权和主导权受制于人的情况下，中国要实现网络强国，强大的网络安全产业是重要基石，在产品、规则和评测等方面掌握话语权和主导权，也是必由之路。这需要我们尽快建立并扶植中国自主的云安全时代安全软件评测机构，建立安全软件的评测标准，掌握国际安全市场话语权。”。 \par  2.引用“太平洋汽车网”网站【退出AV-C 360愚弄了谁？】：\url{https://www.pcauto.com.cn/drivers/654/6545901.html}（最后连接2019年6月19日11:28:02）。（以下内容皆直接引用原文）奇虎360送检的产品与用户实际使用的产品并不相同；最终360承认了其产品在送测时被提前进行了修改；360的这份声明无疑是对广大360用户赤裸裸的愚弄；“AV-C成立于上世纪90年代，几乎与互联网同步发展，在杀毒检测领域有着丰富的经验，并已成为全球最权威的杀毒软件测评机构。AV-C测试方法是冻结杀毒引擎与病毒数据库三个月，并用最近三个月出现的最新病毒作为测试样本以检验软件杀毒能力，这种方法适用任意国家和地区，因为通过互联网传播的病毒并没有地域限制，而且该方法保证了对杀毒软件查杀最新病毒能力测试的准确性。360为了掩盖自身的问题强制将该问题转化为传统杀毒与云安全的标准之争是混淆视听。二、AV-C是非营利性公益组织，也是公认的国际性独立性测试机构，说360因为动了传统杀毒利益而挨刀显然站不住脚，因为AV-C并不代表着谁。而且，360以一家之言将非云查杀分为传统杀毒不过是为了抬高身份，事实上瑞金、卡巴斯基、金山、腾讯等都推出了云安全服务，AV-C也并没有收回他们的测评资质，360危机之时也不忘宣传自己也算罕见。三、Teamviewer不过是一个远程控制软件，只有双方同意的情况下方可使用，在各大软件下载网站都可轻易下载，因为使用Teamviewer而被盗显然不是软件本身的问题。事实上并没有哪家杀毒软件把它定义为非法软件，除了360。四、世界排名靠前的杀毒软件都不会拒绝AV-C的测评资质，也并不是所有的杀毒软件都可以接受AV-C的检测(因为AV-C测试门槛很高)，赛门铁克、Comodo杀毒软件的退出不过是因为在AV-C的测评排名中比较靠后而已，以此来作为抨击AV-C的依据有失公允。”；“如果说AV-C评测落后，360从一开始就不会将自己产品送检，而在360产品出现问题并曝光之后才发布这样一份声明，其动机就已让人产生怀疑”。}
 \begin{center}
-	\includegraphics[scale=0.25]{pic/360}
+	\includegraphics[scale=0.3]{pic/360}
 \end{center} \par
 \begin{enumerate}
 	\item 大多数国外反病毒软件之间相互兼容不好，只能安装一款。
@@ -461,32 +451,32 @@ done
 \subsubsection{在线分析文件}
 VirusTotal是一个在线病毒分析网站，它可以调用多种反病毒引擎对上传的可疑文件进行检测。网址：\url{https://www.virustotal.com/gui/home/upload}（最后连接于2019年8月6日14:16:41）。
 \begin{center}
-	\includegraphics[scale=0.35]{pic/vt}
+	\includegraphics[scale=0.5]{pic/vt}
 \end{center} \par
 不过似乎有些反病毒引擎性能确实不太好（下图是微信2.6.8.65安装包和Ghost115）（欧洲著名反病毒软件Panda曾经将自己的病毒库当成病毒杀掉）。
 \begin{center}
-	\includegraphics[scale=0.35]{pic/vt2}\\	\includegraphics[scale=0.35]{pic/vt3}
+	\includegraphics[scale=0.5]{pic/vt2}\\	\includegraphics[scale=0.5]{pic/vt3}
 \end{center} 
 \subsection{压缩/解压缩}
 对于压缩软件，大部分人都会想到WinRAR，我们使用7-Zip。\footnote{注意，我们暂时不讲国产压缩软件（如360压缩）。我认为掌握了难于操作的软件（7-Zip），操作容易的也自然能够被掌握。国产软件可能存在安全问题：【火绒安全-知名压缩软件"快压"传播病毒和多款流氓软件 劫持流量】\url{https://www.huorong.cn/info/1531309921141.html}（最后连接于2019年6月21日16:16:19）。当然也包括2345旗下产品——你安装任意一款就会被安装“全家桶”了。这里我们使用自由软件7Zip。}它虽然是自由软件，但性能极为优异。7Zip安装版可以在 \url{https://www.7-zip.org/download.html}（最后连接于2019年06月20日18:37:09） （英文官网），【7-zip官方中文主页】\url{https://sparanoid.com/lab/7z/}（最后连接于2019年06月20日18:37:38 ）（中文官网）。你需要仔细观察。我建议下载EXE格式（当然某些大牛会下载源代码）的对应版本。\par
 你将会发现7-Zip的安装界面十分简单。就像：
 \begin{center}
-	\includegraphics[scale=0.35]{pic/7zipinst}
+	\includegraphics[scale=0.5]{pic/7zipinst}
 \end{center} \par
 在安装完成后，你需要手动设置文件关联（相当于设置一个或多个扩展名均使用此软件来打开。小资料：Windows操作系统在命令行中传送该文件的完整路径到预定的程序，这样程序就知道打开那一个文件了。Windows操作系统通过扩展名识别文件类型。这一点与GNU/Linux（靠文件内容识别文件类型）不同。一个文件可以没有扩展名，此时Windows会每次都让你选择打开方式。GNU/Linux会自动判断文件类型，自动选择）。你需要以管理员权限运行开始菜单的“7Zip File Manager”（它应位于安装目录的“7zfm.exe”）。选择“工具-设置”菜单，你将会发现如下界面：
 \begin{center}
-	\includegraphics[scale=0.35]{pic/7zopt.PNG}
+	\includegraphics[scale=0.5]{pic/7zopt.PNG}
 \end{center} \par
 在“系统”选项卡上单击二个标题为“+”的按键即可创建全部文件关联。对于Windows10，我建议取消“*.iso”文件关联而使用系统默认虚拟光驱。如果你安装了其它虚拟光驱也如此设置。单击“确定”保存。我们主要通过“文件资源管理器”右键菜单来处理压缩文件。对于压缩算法，我们曾进行过一个测试，结果如下：
 \begin{center}
-\includegraphics[scale=0.27]{pic/ziprate.PNG}	
+\includegraphics[scale=0.4]{pic/ziprate.PNG}	
 \end{center} \par
 通过以上数据，我们认为最好的压缩算法是运用于7Zip的LZMA2（极限压缩）。\par
 小资料：常见关于“设置”的英文表示。console——控制台 ，cmd——命令提示符，opition——选项，tool——工具，language——语言，preference——首选项，configure——配置。如果是英文界面就到这里去找吧。
 \subsection{媒体播放器VLC}
 由于版权争议\footnote{依照FFmpeg官方，国产播放器暴风影音、QQ影音被发现使用FFmpeg的解码器而并未按照FFmpeg许可证要求使用。以上厂商坚持认为他们的做法没有违背许可证。当然我也不得不说，GNU GPL也许是世界上最难理解的许可证之一。请参见【GNU许可证常见问题】\url{https://www.gnu.org/licenses/gpl-faq.html}（最后连接于2019年06月21日08:40:00）并咨询法律界专业人士（如专门从事知识产权及版权方面的律师）。}我们暂时不提国产播放器。我们使用自由的VLC。其界面如图所示。
 \begin{center}
-\includegraphics[scale=0.24]{pic/vlc.png}	
+\includegraphics[scale=0.4]{pic/vlc.png}	
 \end{center} \par
 同样是自由软件的还有MPV（界面简洁，操作难度较大，大部分需要键盘操作）与SMPlayer（对于配置较低的机器，它的性能不佳）。
 \subsubsection{获取VLC}
@@ -549,7 +539,7 @@ Notepad又称“记事本”，是大多数Windows系统的必备组件。一般
 \subsection{Notepad++}
 自由软件。
 \begin{center}
-	\includegraphics[scale=0.25]{pic/npp.png}
+	\includegraphics[scale=0.4]{pic/npp.png}
 \end{center}
 \par
 一个支持语法高亮\footnote{为数不多的能正确高亮NSIS语法的编辑器，但不得不说似乎对\LaTeX 语法的支持似乎不是特别好}，正则表达式搜索、跨文件搜索、多光标、多文件同时编辑等功能的编辑器，能够正确地识别多种断行格式。推荐一般能力的电教委员使用。下载：\url{https://notepad-plus-plus.org/}（最后连接于2019年8月9日20:35:34，网速较慢）。
@@ -562,7 +552,7 @@ Notepad又称“记事本”，是大多数Windows系统的必备组件。一般
 \subsection{VIM}
 自由软件。
 \begin{center}
-	\includegraphics[scale=0.35]{pic/vim.png}\par   \includegraphics[scale=0.35]{pic/gvim.png}
+	\includegraphics[scale=0.4]{pic/vim.png}\par   \includegraphics[scale=0.4]{pic/gvim.png}
 \end{center} \par
 分别为终端模式与图形界面。
 \subsubsection{下载安装}
@@ -575,14 +565,14 @@ Notepad又称“记事本”，是大多数Windows系统的必备组件。一般
 \section{文件搜索}
 我们最擅长使用的“文件资源管理器”的搜索功能不是很强。现在我介绍一款文件搜索工具：光速搜索。截图：
 \begin{center}
-	\includegraphics[scale=0.35]{pic/finder}
+	\includegraphics[scale=0.5]{pic/finder}
 \end{center} \par
 它不负“光速搜索”美名，搜索真的快——只是在开始时需要建立搜索索引比较耗时。还可按扩展名进行搜索（请在左侧面板右击设置）。官网\url{http://finder.sdo.com}似乎暂时无法访问，提供安装包哈希校验。md5：896b3b93ce29b16c294884437ee11631 sha1：d7873a901d7cbb9fb1cf2bbd3a3c0a7e99f4f5f5 光速搜索1.0.1.280。
 \section{性能工具}
 \label{sec:usab}这就是国产“杀毒软件”（如腾讯电脑管家）的优势——它们的“清理优化”功能更适合中国消费者。现在介绍三款国外性能软件。使用十分简单，因此仅附上截图：
 \begin{center}
 		\includegraphics[scale=0.25]{pic/ccc}\\
-	\includegraphics[scale=0.17]{pic/wdc}	\includegraphics[scale=0.15]{pic/wrc}
+	\includegraphics[scale=0.3]{pic/wdc}\\	\includegraphics[scale=0.3]{pic/wrc}
 \end{center}
 \subsection{CCleaner}
 看起来好像是付费软件，但其实免费版功能已经够用了。官网：\url{http://www.ccleaner.com/ccleaner}（最后连接于2019年6月21日15:57:51）。直接下载：\url{https://www.ccleaner.com/ccleaner/download/standard}（最后连接于2019年6月21日15:58:27）（网速较慢）。\par
@@ -600,5 +590,5 @@ Notepad又称“记事本”，是大多数Windows系统的必备组件。一般
 现在到他们的官方网站\url{https://portableapps.com/}（最后连接于2019年8月6日13:55:08）下载主要安装程序（那个“Download Now - Free”的绿色大按钮里）。你也可以到\url{https://sourceforge.net/projects/portableapps/files/}（最后连接于2019年8月6日14:00:24）下载。我建议使用迅雷等多线程下载工具进行下载，否则速度过慢。下载完后进行安装，在安装时请选择“全新安装”-“便携式”再选择你的U盘盘符。\par
 现在你已经将空平台安装到U盘上了，开始下载绿色程序。进入“Apps”标签（\url{https://portableapps.com/apps}，最后连接于2019年8月6日14:01:44）下载你需要的程序吧！如果从平台自带的应用市场下载速度过慢，因此我还是建议使用下载工具。下载完成后双击应用程序即可安装。安装时请注意安装路径。应用程序平台还会自动检查更新。你甚至还能在U盘上安装JDK（Oracle或者OpenJDK，32位与64位均有）。这么做的另一个好处是你可以把它安装在其它磁盘（如“D:\textbackslash”）来节省C盘空间。附上截图一张：
 \begin{center}
-	\includegraphics[scale=0.4]{pic/pap}
+	\includegraphics[scale=0.6]{pic/pap}
 \end{center}
